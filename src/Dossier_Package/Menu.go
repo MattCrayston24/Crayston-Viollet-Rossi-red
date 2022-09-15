@@ -1,21 +1,6 @@
-package main
+package Dossier_Package
 
-import (
-<<<<<<< HEAD
-=======
-	"fmt"
->>>>>>> 615e65fd52588bdaf6b94ae0fc2483c57b54862a
-	"src/Dossier_Package"
-)
-
-func main() {
-	var p1 Dossier_Package.Personnage
-	p1.Init()
-
-	Dossier_Package.Hello()
-}
-<<<<<<< HEAD
-=======
+import "fmt"
 
 // Fonction pour définir le menu :
 func Menu() {
@@ -34,4 +19,3 @@ func Menu() {
 		}
 	}
 }
->>>>>>> 615e65fd52588bdaf6b94ae0fc2483c57b54862a
