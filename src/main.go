@@ -1,10 +1,7 @@
 package main
 
 import (
-<<<<<<< HEAD
-=======
 	"fmt"
->>>>>>> 615e65fd52588bdaf6b94ae0fc2483c57b54862a
 	"src/Dossier_Package"
 )
 
@@ -14,8 +11,6 @@ func main() {
 
 	Dossier_Package.Hello()
 }
-<<<<<<< HEAD
-=======
 
 // Fonction pour définir le menu :
 func Menu() {
@@ -34,4 +29,3 @@ func Menu() {
 		}
 	}
 }
->>>>>>> 615e65fd52588bdaf6b94ae0fc2483c57b54862a
