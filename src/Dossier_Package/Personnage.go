@@ -5,6 +5,12 @@ import (
 	"time"
 )
 
+type Equipement struct {
+	casque   string
+	plastron string
+	bottes   string
+}
+
 // Définition d'une structure :
 type Personnage struct {
 	nom                  string
@@ -15,6 +21,7 @@ type Personnage struct {
 	inventaire           []string
 	niveau               int
 	monnaie              int
+	mon_equipement       Equipement
 }
 
 // Fonction init pour créer un personnage :
