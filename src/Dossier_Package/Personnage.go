@@ -112,3 +112,12 @@ func (p Personnage) Afficher_info() {
 	fmt.Println(p.point_de_vie_actuel)
 	fmt.Println(p.Skill)
 }
+
+func (p *Personnage) retrait_monnaie(nb int) {
+	p.monnaie -= nb
+
+}
+
+func (p *Personnage) ajout_monnaie(nb int) {
+	p.monnaie += nb
+}
