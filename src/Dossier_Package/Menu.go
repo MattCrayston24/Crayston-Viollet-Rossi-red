@@ -4,18 +4,19 @@ import "fmt"
 
 // Fonction pour définir le menu :
 func (p Personnage) Menu() {
-	var nombre_choisi string
+	var choix_menu string
 	for {
-		fmt.Print("Si vous voulez accédez a l'inventaire taper 1, \n Si vous voulez accédez aux statistiques de votre personnage taper 2, \n Si vous voulez quitter taper 3 : ")
-		fmt.Scan(&nombre_choisi)
+		fmt.Print("Taper le numéro du menu dans lequel vous voulez rentrée: \n1 :inventaire \n2 :statistique \n3 :forge\n4 :Quitter:\n")
+		fmt.Scan(&choix_menu)
 
 		switch {
-		case nombre_choisi == "1":
+		case choix_menu == "1":
 			p.AccèsInventaire()
-			fmt.Println("salut")
-		case nombre_choisi == "2":
+		case choix_menu == "2":
 			p.Afficher_info()
-		case nombre_choisi == "3":
+		case choix_menu == "3":
+			p.Menu_Fogeron()
+		case choix_menu == "4":
 
 		default:
 			fmt.Println("Vous n'avez pas selectionner un reponse valide")
@@ -25,7 +26,7 @@ func (p Personnage) Menu() {
 
 func (p Personnage) Menu_Fogeron() {
 	var objet_choisi string
-	fmt.Println("Taper le nom de l'objet que vous voulez fabriquer : Chapeau en cuir \n Plastron en cuir\n Jambière en cuir ")
+	fmt.Println("Taper le nom de l'objet que vous voulez fabriquer : \nChapeau en cuir \nPlastron en cuir\nJambière en cuir ")
 	fmt.Scan(&objet_choisi)
 
 	switch {

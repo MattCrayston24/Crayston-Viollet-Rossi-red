@@ -55,25 +55,21 @@ func (p *Personnage) Init() {
 		}
 	}
 	if p.classe == "tank" {
-		p.point_de_vie_maximum = 100
-		p.point_de_vie_actuel = 100
-		p.Skill = append(p.Skill, "coup de bouclier")
+		p.Tank()
 	} else if p.classe == "attaquant" {
-		p.point_de_vie_maximum = 50
-		p.point_de_vie_actuel = 50
+		p.Attaquant()
 		p.Skill = append(p.Skill, "coup de épée")
 	} else if p.classe == "equilibré" {
-		p.point_de_vie_maximum = 75
-		p.point_de_vie_actuel = 75
-		p.Skill = append(p.Skill, "coup de poing")
+		p.Equilibré()
 	}
+	p.addInventory("potion")
 	p.niveau = 1
 	p.monnaie = 100
 	fmt.Println("\n Vos point de vie maximum sont : ", p.point_de_vie_maximum)
-	fmt.Println(" Vos points de vie actuel sont : ", p.point_de_vie_actuel)
+	fmt.Println("Vos points de vie actuel sont : ", p.point_de_vie_actuel)
 	fmt.Println("votre skil est :", p.Skill)
-	fmt.Println(" Votre niveau actuel est : ", p.niveau)
-	fmt.Println(" Vous avez  : ", p.monnaie, " rubis")
+	fmt.Println("Votre niveau actuel est : ", p.niveau)
+	fmt.Println("Vous avez  : ", p.monnaie, " rubis")
 }
 
 func (p *Personnage) TakePot() {
@@ -101,16 +97,12 @@ func (p *Personnage) PoisonPot() {
 	p.point_de_vie_actuel -= 10
 }
 
-func (p Personnage) AccèsInventaire() {
-	fmt.Println(p.inventaire)
-}
-
 func (p Personnage) Afficher_info() {
-	fmt.Println(p.nom)
-	fmt.Println(p.classe)
-	fmt.Println(p.point_de_vie_maximum)
-	fmt.Println(p.point_de_vie_actuel)
-	fmt.Println(p.Skill)
+	fmt.Println("Votre nom est :", p.nom)
+	fmt.Println("Votre classe est:", p.classe)
+	fmt.Println("Vos point de vie max sont :", p.point_de_vie_maximum)
+	fmt.Println("Vos point de vie actuel sont :", p.point_de_vie_actuel)
+	fmt.Println("vos skill sont :", p.Skill)
 }
 
 func (p *Personnage) retrait_monnaie(nb int) {

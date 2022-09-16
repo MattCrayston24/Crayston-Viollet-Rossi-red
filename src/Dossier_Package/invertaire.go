@@ -1,5 +1,7 @@
 package Dossier_Package
 
+import "fmt"
+
 func (p Personnage) verif_materiaux(nb int, str string) bool {
 	count := 0
 	for i := 0; i < len(p.inventaire); i++ {
@@ -26,4 +28,8 @@ func (p *Personnage) removeInventory(s string) {
 			p.inventaire = append(p.inventaire[:i], p.inventaire[i+1:]...)
 		}
 	}
+}
+
+func (p Personnage) AccèsInventaire() {
+	fmt.Println(p.inventaire)
 }
