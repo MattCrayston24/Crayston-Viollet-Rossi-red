@@ -13,6 +13,8 @@ type Personnage struct {
 	point_de_vie_actuel  int
 	Skill                []string
 	inventaire           []string
+	niveau               int
+	monnaie              int
 }
 
 // Fonction init pour créer un personnage :
@@ -59,16 +61,17 @@ func (p *Personnage) Init() {
 		p.Skill = append(p.Skill, "coup de poing")
 	}
 	p.niveau = 1
-	p.money = 100
+	p.monnaie = 100
 	fmt.Println("\n Vos point de vie maximum sont : ", p.point_de_vie_maximum)
 	fmt.Println(" Vos points de vie actuel sont : ", p.point_de_vie_actuel)
+	fmt.Println("votre skil est :", p.Skill)
 	fmt.Println(" Votre niveau actuel est : ", p.niveau)
-	fmt.Println(" Vous avez  : ", p.money, " rubis")
+	fmt.Println(" Vous avez  : ", p.monnaie, " rubis")
 }
 
 func (p *Personnage) TakePot() {
 	potion := 20
-	for i, _ := range p.inventaire {
+	for i := range p.inventaire {
 		if p.inventaire[i] == "potion" {
 			if p.point_de_vie_actuel+potion > p.point_de_vie_maximum {
 				p.point_de_vie_actuel = p.point_de_vie_maximum
@@ -89,4 +92,16 @@ func (p *Personnage) PoisonPot() {
 	p.point_de_vie_actuel -= 10
 	time.Sleep(1 * time.Second)
 	p.point_de_vie_actuel -= 10
+}
+
+func (p Personnage) AccèsInventaire() {
+	fmt.Println(p.inventaire)
+}
+
+func (p Personnage) Afficher_info() {
+	fmt.Println(p.nom)
+	fmt.Println(p.classe)
+	fmt.Println(p.point_de_vie_maximum)
+	fmt.Println(p.point_de_vie_actuel)
+	fmt.Println(p.Skill)
 }
