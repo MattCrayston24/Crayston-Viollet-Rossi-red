@@ -23,13 +23,16 @@ func (p Personnage) Menu() {
 	}
 }
 
-/*
-if nombre_choisi == "1" {
-	fmt.Println("salut")
-	break
-} else if nombre_choisi == "2" {
-	fmt.Println("coucou")
-	break
-} else if nombre_choisi == "3" {
-	break
-}*/
+func (p Personnage) Menu_Fogeron() {
+	var objet_choisi string
+	fmt.Println("Taper le nom de l'objet que vous voulez fabriquer : Chapeau en cuir \n Plastron en cuir\n jambière en cuir ")
+	fmt.Scan(&objet_choisi)
+
+	switch {
+	case objet_choisi == "Chapeau en cuir":
+
+	case objet_choisi == "plastron en cuir":
+
+	case objet_choisi == "jambière en cuir":
+	}
+}
