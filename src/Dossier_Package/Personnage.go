@@ -2,14 +2,7 @@ package Dossier_Package
 
 import (
 	"fmt"
-	"time"
 )
-
-type Equipement struct {
-	casque   string
-	plastron string
-	bottes   string
-}
 
 // Définition d'une structure :
 type Personnage struct {
@@ -70,31 +63,6 @@ func (p *Personnage) Init() {
 	fmt.Println("votre skil est :", p.Skill)
 	fmt.Println("Votre niveau actuel est : ", p.niveau)
 	fmt.Println("Vous avez  : ", p.monnaie, " rubis")
-}
-
-func (p *Personnage) TakePot() {
-	potion := 20
-	for i := range p.inventaire {
-		if p.inventaire[i] == "potion" {
-			if p.point_de_vie_actuel+potion > p.point_de_vie_maximum {
-				p.point_de_vie_actuel = p.point_de_vie_maximum
-				p.inventaire = append(p.inventaire[:i], p.inventaire[i+1:]...)
-				break
-			} else {
-				p.point_de_vie_actuel += potion
-				p.inventaire = append(p.inventaire[:i], p.inventaire[i+1:]...)
-				break
-			}
-		}
-	}
-}
-
-func (p *Personnage) PoisonPot() {
-	p.point_de_vie_actuel -= 10
-	time.Sleep(1 * time.Second)
-	p.point_de_vie_actuel -= 10
-	time.Sleep(1 * time.Second)
-	p.point_de_vie_actuel -= 10
 }
 
 func (p Personnage) Afficher_info() {

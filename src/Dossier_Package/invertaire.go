@@ -31,5 +31,6 @@ func (p *Personnage) removeInventory(s string) {
 }
 
 func (p Personnage) AccèsInventaire() {
+	p.Menu_Inventaire()
 	fmt.Println(p.inventaire)
 }
