@@ -51,7 +51,6 @@ func (p *Personnage) Init() {
 		p.Tank()
 	} else if p.classe == "attaquant" {
 		p.Attaquant()
-		p.Skill = append(p.Skill, "coup de épée")
 	} else if p.classe == "equilibré" {
 		p.Equilibré()
 	}

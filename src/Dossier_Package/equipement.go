@@ -6,29 +6,6 @@ type Equipement struct {
 	bottes   string
 }
 
-func (p *Personnage) mettre_equipement(str string) {
-	if str == "1" {
-		for i := 0; i < len(p.inventaire); i++ {
-			if p.inventaire[i] == "casque de cuir" {
-				p.mon_equipement.casque = p.inventaire[i]
-			}
-		}
-
-	} else if str == "2" {
-		for i := 0; i < len(p.inventaire); i++ {
-			if p.inventaire[i] == "plastron de cuir " {
-				p.mon_equipement.plastron = p.inventaire[i]
-			}
-		}
-	} else if str == "3" {
-		for i := 0; i < len(p.inventaire); i++ {
-			if p.inventaire[i] == "jambière de cuir" {
-				p.mon_equipement.bottes = p.inventaire[i]
-			}
-		}
-	}
-}
-
 func (p *Personnage) Ajout_Stat_equipement() {
 	casque := p.mon_equipement.casque
 	plastron := p.mon_equipement.plastron
@@ -45,4 +22,34 @@ func (p *Personnage) Ajout_Stat_equipement() {
 		break
 	}
 
+}
+
+func (p *Personnage) Mettre_casque(nb int) {
+	if nb == 1 {
+		for i := 0; i < len(p.inventaire); i++ {
+			if p.inventaire[i] == "casque de cuir" {
+				p.mon_equipement.casque = p.inventaire[i]
+			}
+		}
+	}
+}
+
+func (p *Personnage) Mettre_Plastron(nb int) {
+	if nb == 1 {
+		for i := 0; i < len(p.inventaire); i++ {
+			if p.inventaire[i] == "plastron de cuir " {
+				p.mon_equipement.plastron = p.inventaire[i]
+			}
+		}
+	}
+}
+
+func (p *Personnage) Mettre_bottes(nb int) {
+	if nb == 1 {
+		for i := 0; i < len(p.inventaire); i++ {
+			if p.inventaire[i] == "jambière de cuir" {
+				p.mon_equipement.bottes = p.inventaire[i]
+			}
+		}
+	}
 }
