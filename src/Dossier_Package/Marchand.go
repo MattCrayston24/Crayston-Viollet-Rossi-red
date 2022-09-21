@@ -18,7 +18,7 @@ func (p *Personnage) Marchand() {
 		case item_choisi == "3":
 			p.retrait_monnaie(500)
 		default:
-			fmt.Println("")
+			fmt.Println("Vous n'avez pas ecrit un reponse valide ")
 		}
 	}
 }
