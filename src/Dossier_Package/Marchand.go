@@ -1,3 +1,5 @@
+package Dossier_Package
+
 func (p *Personnage) Marchand(s string){ 
 	var item_choisi string
 	if len(p.inventaire) < 10{

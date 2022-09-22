@@ -1,3 +1,4 @@
+package Dossier_Package
 
 func (p *Personnage) addInventory(s string){
 	if len(p.inventaire) < 10{
