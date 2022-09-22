@@ -16,9 +16,10 @@ func (p *Personnage) Marchand() {
 			p.retrait_monnaie(20)
 			fmt.Println("La potion a été ajouté a votre invertaire")
 		case item_choisi == "3":
+			p.taille_inventaire += 3
 			p.retrait_monnaie(500)
 		default:
-			fmt.Println("")
+			fmt.Println("Vous n'avez pas ecrit un reponse valide ")
 		}
 	}
 }
