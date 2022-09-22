@@ -56,6 +56,7 @@ func (p *Personnage) ChatTurn(m *Monstre) {
 
 func (p *Personnage) trainingFight() {
 	var m1 *Monstre
+	m1.InitMonstre()
 	var nbtours int
 	for i := 0; p.point_de_vie_actuel <= 0 || m1.point_de_vie_actuel <= 0; i++ {
 		if i%2 == 0 {
