@@ -5,7 +5,7 @@ import "fmt"
 // Fonction pour définir le menu :
 func (p Personnage) Menu() {
 	var choix_menu int
-	fmt.Print("Taper le numéro du menu dans lequel vous voulez entrée: \n1 :inventaire \n2 :statistique \n3 :forge\n4 :Marchand \n5 :Quitter\n")
+	fmt.Print("Taper le numéro du menu dans lequel vous voulez entrée: \n1 :inventaire \n2 :statistique \n3 :forge\n4 :Marchand \n5: Combat entrainement \n6:Quitter\n")
 	fmt.Scan(&choix_menu)
 
 	switch choix_menu {
@@ -18,6 +18,8 @@ func (p Personnage) Menu() {
 	case 4:
 		p.Marchand()
 	case 5:
+		p.trainingFight()
+	case 6:
 		break
 	default:
 		fmt.Println("Vous n'avez pas selectionner un reponse valide")

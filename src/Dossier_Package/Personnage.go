@@ -16,6 +16,7 @@ type Personnage struct {
 	monnaie              int
 	mon_equipement       Equipement
 	taille_inventaire    int
+	points_attaque       int
 }
 
 // Fonction init pour créer un personnage :
