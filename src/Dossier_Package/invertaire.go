@@ -13,10 +13,8 @@ func (p Personnage) verif_materiaux(nb int, str string) bool {
 }
 
 func (p Personnage) CheckInventory() bool {
-	if len(p.inventaire) < p.taille_inventaire {
-		return true
-	}
-	return false
+
+	return len(p.inventaire) < p.taille_inventaire
 }
 
 func (p *Personnage) addInventory(s string) {
