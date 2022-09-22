@@ -22,6 +22,7 @@ type Personnage struct {
 	niveau               int
 	monnaie              int
 	mon_equipement       Equipement
+	taille_inventaire    int
 }
 
 // Fonction init pour créer un personnage :
@@ -62,6 +63,7 @@ func (p *Personnage) Init() {
 	} else if p.classe == "equilibré" {
 		p.Equilibré()
 	}
+	p.taille_inventaire = 10
 	p.addInventory("potion")
 	p.niveau = 1
 	p.monnaie = 100
