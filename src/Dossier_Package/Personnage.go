@@ -15,6 +15,7 @@ type Personnage struct {
 	niveau               int
 	monnaie              int
 	mon_equipement       Equipement
+	taille_inventaire    int
 }
 
 // Fonction init pour créer un personnage :
@@ -30,7 +31,7 @@ func (p *Personnage) Init() {
 			break
 		}
 	}
-	for {
+	for i := 0; i != 1; i++ {
 		fmt.Print("Choisissez votre classe, \n Si vous voulez la classe tank taper 1, \n Si vous voulez la classe attaquant taper 2, \n Si vous voulez la calsse équilibré tapez 3 :")
 		fmt.Scan(&classe_choisi)
 		switch classe_choisi {
@@ -46,7 +47,6 @@ func (p *Personnage) Init() {
 		default:
 			fmt.Println("taper un reponse valide ")
 		}
-
 	}
 
 	fmt.Println("\n Vos point de vie maximum sont : ", p.point_de_vie_maximum)

@@ -6,7 +6,7 @@ import "fmt"
 func (p Personnage) Menu() {
 	var choix_menu int
 	for {
-		fmt.Print("Taper le numéro du menu dans lequel vous voulez rentrée: \n1 :inventaire \n2 :statistique \n3 :forge\n4 : Marchand \n5:Quitter:\n")
+		fmt.Print("Taper le numéro du menu dans lequel vous voulez entrée: \n1 :inventaire \n2 :statistique \n3 :forge\n4 :Marchand \n5 :Quitter\n")
 		fmt.Scan(&choix_menu)
 
 		switch choix_menu {
