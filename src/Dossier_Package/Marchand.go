@@ -20,7 +20,6 @@ func (p *Personnage) Marchand() {
 			p.retrait_monnaie(500)
 		default:
 			fmt.Println("Vous n'avez pas ecrit un reponse valide ")
-
 		}
 	}
 }
