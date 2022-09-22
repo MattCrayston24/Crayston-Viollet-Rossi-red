@@ -2,14 +2,7 @@ package Dossier_Package
 
 import (
 	"fmt"
-	"time"
 )
-
-type Equipement struct {
-	casque   string
-	plastron string
-	bottes   string
-}
 
 // Définition d'une structure :
 type Personnage struct {
@@ -27,7 +20,7 @@ type Personnage struct {
 
 // Fonction init pour créer un personnage :
 func (p *Personnage) Init() {
-	var classe_choisi string
+	var classe_choisi int
 	var nom_choisi string
 	for {
 		fmt.Print("Choisissez votre nom comprenant au moins 3 caractères :")
@@ -38,65 +31,29 @@ func (p *Personnage) Init() {
 			break
 		}
 	}
-	for {
+	for i := 0; i != 1; i++ {
 		fmt.Print("Choisissez votre classe, \n Si vous voulez la classe tank taper 1, \n Si vous voulez la classe attaquant taper 2, \n Si vous voulez la calsse équilibré tapez 3 :")
 		fmt.Scan(&classe_choisi)
-		if classe_choisi == "1" {
-			p.classe = "tank"
+		switch classe_choisi {
+		case 1:
+			p.Tank()
 			fmt.Print("Votre classe est : ", p.classe)
-			break
-		} else if classe_choisi == "2" {
-			p.classe = "attaquant"
+		case 2:
+			p.Attaquant()
 			fmt.Print("Votre classe est : ", p.classe)
-			break
-		} else if classe_choisi == "3" {
-			p.classe = "equilibré"
+		case 3:
+			p.Equilibré()
 			fmt.Print("Votre classe est : ", p.classe)
-			break
+		default:
+			fmt.Println("taper un reponse valide ")
 		}
 	}
-	if p.classe == "tank" {
-		p.Tank()
-	} else if p.classe == "attaquant" {
-		p.Attaquant()
-		p.Skill = append(p.Skill, "coup de épée")
-	} else if p.classe == "equilibré" {
-		p.Equilibré()
-	}
-	p.taille_inventaire = 10
-	p.addInventory("potion")
-	p.niveau = 1
-	p.monnaie = 100
+
 	fmt.Println("\n Vos point de vie maximum sont : ", p.point_de_vie_maximum)
 	fmt.Println("Vos points de vie actuel sont : ", p.point_de_vie_actuel)
 	fmt.Println("votre skil est :", p.Skill)
 	fmt.Println("Votre niveau actuel est : ", p.niveau)
 	fmt.Println("Vous avez  : ", p.monnaie, " rubis")
-}
-
-func (p *Personnage) TakePot() {
-	potion := 20
-	for i := range p.inventaire {
-		if p.inventaire[i] == "potion" {
-			if p.point_de_vie_actuel+potion > p.point_de_vie_maximum {
-				p.point_de_vie_actuel = p.point_de_vie_maximum
-				p.inventaire = append(p.inventaire[:i], p.inventaire[i+1:]...)
-				break
-			} else {
-				p.point_de_vie_actuel += potion
-				p.inventaire = append(p.inventaire[:i], p.inventaire[i+1:]...)
-				break
-			}
-		}
-	}
-}
-
-func (p *Personnage) PoisonPot() {
-	p.point_de_vie_actuel -= 10
-	time.Sleep(1 * time.Second)
-	p.point_de_vie_actuel -= 10
-	time.Sleep(1 * time.Second)
-	p.point_de_vie_actuel -= 10
 }
 
 func (p Personnage) Afficher_info() {

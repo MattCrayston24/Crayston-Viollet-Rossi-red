@@ -4,17 +4,22 @@ import "fmt"
 
 func (p *Personnage) Marchand() {
 	var item_choisi string
-	if len(p.inventaire) < 10 {
-		fmt.Println("Potion de Poison taper 1 \n Potion de vie taper 2 \n Gain de trois places dans l'inventaire taper 3 ")
-		fmt.Scan(&item_choisi)
-		if item_choisi == "1" {
+	fmt.Println(" Taper le numéro du Produit que vous voulez acheter :\n 1:Potion de Poison \n2: Potion de vie \n3: Acheter slot invetaire")
+	fmt.Scan(&item_choisi)
+	for {
+		switch {
+		case item_choisi == "1":
 			p.addInventory("Potion de Poison")
-			p.monnaie -= 30
-		} else if item_choisi == "2" {
+			p.retrait_monnaie(30)
+		case item_choisi == "2":
 			p.addInventory("Potion de vie")
-			p.monnaie -= 20
-		} else if item_choisi == "3" {
+			p.retrait_monnaie(20)
+			fmt.Println("La potion a été ajouté a votre invertaire")
+		case item_choisi == "3":
 			p.taille_inventaire += 3
+			p.retrait_monnaie(500)
+		default:
+			fmt.Println("Vous n'avez pas ecrit un reponse valide ")
 		}
 	}
 }
