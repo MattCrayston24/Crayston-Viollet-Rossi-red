@@ -9,6 +9,7 @@ func (p *Personnage) Tank() {
 	p.niveau = 1
 	p.monnaie = 100
 	p.taille_inventaire = 10
+	p.initiative = 12
 
 }
 
@@ -21,6 +22,7 @@ func (p *Personnage) Attaquant() {
 	p.niveau = 1
 	p.monnaie = 100
 	p.taille_inventaire = 10
+	p.initiative = 8
 }
 
 func (p *Personnage) Equilibré() {
@@ -32,4 +34,5 @@ func (p *Personnage) Equilibré() {
 	p.niveau = 1
 	p.monnaie = 100
 	p.taille_inventaire = 10
+	p.initiative = 15
 }
