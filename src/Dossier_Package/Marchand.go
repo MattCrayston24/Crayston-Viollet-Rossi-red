@@ -4,7 +4,23 @@ import "fmt"
 
 func (p *Personnage) Marchand() {
 	var item_choisi int
-	fmt.Println(" Taper le numéro du Produit que vous voulez acheter :\n 1:Potion de Poison \n2: Potion de vie \n3: Acheter slot invetaire")
+	fmt.Println("_____________________________________")
+    fmt.Println("|                                    |")
+    fmt.Println("|                Menu                |")
+	fmt.Println("|                Marchand            |")
+    fmt.Println("|____________________________________|")
+	fmt.Println("|                                    |")
+    fmt.Println("|             1.Potion de Poison     |")
+	fmt.Println("|               (30 monnaie)         |")
+    fmt.Println("|                                    |")
+    fmt.Println("|             2.Potion de vie        |")
+	fmt.Println("|               (20 monnaie)         |")
+    fmt.Println("|                                    |")
+    fmt.Println("|             3.3 Places inventaire  |")
+	fmt.Println("|               (500 monnaie)        |")
+    fmt.Println("|                                    |")
+	fmt.Println("|             4.Quitter              |")
+    fmt.Println("|____________________________________|")
 	fmt.Scan(&item_choisi)
 	for {
 		switch item_choisi {
@@ -18,6 +34,10 @@ func (p *Personnage) Marchand() {
 		case 3:
 			p.taille_inventaire += 3
 			p.retrait_monnaie(500)
+			fmt.Println("Les places supplémentaires ont été ajoutées")
+		case 4:
+			fmt.Println("Vous quiitez le marchand")
+			break	
 		default:
 			fmt.Println("Vous n'avez pas ecrit un reponse valide ")
 		}
