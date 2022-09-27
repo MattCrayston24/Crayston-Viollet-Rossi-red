@@ -1,27 +1,29 @@
 package Dossier_Package
 
-import "fmt"
+import (
+	"fmt"
+)
 
 // Fonction pour définir le menu :
 func (p Personnage) Menu() {
 	var choix_menu int
-	fmt.Println("_____________________________________")
-    fmt.Println("|                                    |")
-    fmt.Println("|               Menu                 |")
-    fmt.Println("|____________________________________|")
+	fmt.Println("______________________________________")
 	fmt.Println("|                                    |")
-    fmt.Println("|             1.Inventaire           |")
-    fmt.Println("|                                    |")
-    fmt.Println("|             2.Stat Perso           |")
-    fmt.Println("|                                    |")
-    fmt.Println("|             3.Forgeron             |")
-    fmt.Println("|                                    |")
-    fmt.Println("|             4.Marchand             |")
+	fmt.Println("|               Menu                 |")
+	fmt.Println("|____________________________________|")
+	fmt.Println("|                                    |")
+	fmt.Println("|             1.Inventaire           |")
+	fmt.Println("|                                    |")
+	fmt.Println("|             2.Stat Perso           |")
+	fmt.Println("|                                    |")
+	fmt.Println("|             3.Forgeron             |")
+	fmt.Println("|                                    |")
+	fmt.Println("|             4.Marchand             |")
 	fmt.Println("|                                    |")
 	fmt.Println("|             5.Combat Entrainement  |")
 	fmt.Println("|                                    |")
 	fmt.Println("|             6.Quitter              |")
-    fmt.Println("|____________________________________|")
+	fmt.Println("|____________________________________|")
 	fmt.Scan(&choix_menu)
 
 	switch choix_menu {
@@ -44,23 +46,23 @@ func (p Personnage) Menu() {
 
 func (p Personnage) Menu_Fogeron() {
 	var objet_choisi int
-	fmt.Println("_____________________________________")
-    fmt.Println("|                                    |")
-    fmt.Println("|                Menu                |")
-	fmt.Println("|                Forgeron            |")
-    fmt.Println("|____________________________________|")
+	fmt.Println("______________________________________")
 	fmt.Println("|                                    |")
-    fmt.Println("|             1.Chapeau Cuir         |")
+	fmt.Println("|                Menu                |")
+	fmt.Println("|                Forgeron            |")
+	fmt.Println("|____________________________________|")
+	fmt.Println("|                                    |")
+	fmt.Println("|             1.Chapeau Cuir         |")
 	fmt.Println("|               (X monnaie)          |")
-    fmt.Println("|                                    |")
-    fmt.Println("|             2.Plastron Cuir        |")
+	fmt.Println("|                                    |")
+	fmt.Println("|             2.Plastron Cuir        |")
 	fmt.Println("|               (X monnaie)          |")
-    fmt.Println("|                                    |")
-    fmt.Println("|             3.3 Jambière Cuir      |")
+	fmt.Println("|                                    |")
+	fmt.Println("|             3.3 Jambière Cuir      |")
 	fmt.Println("|               (X monnaie)          |")
-    fmt.Println("|                                    |")
+	fmt.Println("|                                    |")
 	fmt.Println("|       (Autre).Quitter              |")
-    fmt.Println("|____________________________________|")
+	fmt.Println("|____________________________________|")
 	fmt.Scan(&objet_choisi)
 	switch objet_choisi {
 	case 1:
@@ -97,42 +99,42 @@ func (p Personnage) Creation_Objet(nb, nbr int, str1, str2 string) {
 
 func (p Personnage) Menu_Inventaire() {
 	var choix int
-	fmt.Println("_____________________________________")
-    fmt.Println("|                                    |")
-    fmt.Println("|                Menu                |")
-	fmt.Println("|                Inventaire          |")
-    fmt.Println("|____________________________________|")
+	fmt.Println(p.inventaire)
+	fmt.Println("______________________________________")
 	fmt.Println("|                                    |")
-    fmt.Println("|             1.Prendre Potion       |")
+	fmt.Println("|                Menu                |")
+	fmt.Println("|                Inventaire          |")
+	fmt.Println("|____________________________________|")
+	fmt.Println("|                                    |")
+	fmt.Println("|             1.Prendre Potion       |")
 	fmt.Println("|                de vie              |")
-    fmt.Println("|                                    |")
-    fmt.Println("|             2.Mettre un            |")
+	fmt.Println("|                                    |")
+	fmt.Println("|             2.Mettre un            |")
 	fmt.Println("|               équipement           |")
-    fmt.Println("|                                    |")
-    fmt.Println("|             3.Retour au            |")
+	fmt.Println("|                                    |")
+	fmt.Println("|             3.Retour au            |")
 	fmt.Println("|               Précédent            |")
-    fmt.Println("|____________________________________|")
+	fmt.Println("|____________________________________|")
 	fmt.Scan(&choix)
-	for{
+	for {
 		switch choix {
 		case 1:
 			p.TakePot()
 			p.Menu()
 		case 2:
 			p.Menu_Equipement()
-			p.Ajout_Stat_equipement()
 		case 3:
 			p.Menu()
 		default:
 			fmt.Println("Vous n'avez pas ecrit un reponse valide ")
 		}
-	}	
+	}
 }
 
 func (p Personnage) Menu_Equipement() {
-	for{	
+	for {
 		var choix int
-		fmt.Println("_____________________________________")
+		fmt.Println("______________________________________")
 		fmt.Println("|                                    |")
 		fmt.Println("|                Menu                |")
 		fmt.Println("|                Equipement          |")
@@ -144,10 +146,14 @@ func (p Personnage) Menu_Equipement() {
 		fmt.Println("|             2.Mettre un            |")
 		fmt.Println("|               plastron             |")
 		fmt.Println("|                                    |")
-		fmt.Println("|             3.Mettre des           |")
-		fmt.Println("|               jambières            |")
+		fmt.Println("|             3.Mettre une           |")
+		fmt.Println("|               paire de             |")
+		fmt.Println("|               bottes               |")
 		fmt.Println("|                                    |")
-		fmt.Println("|            4.Retour au menu        |")
+		fmt.Println("|             4.équiper une          |")
+		fmt.Println("|               arme                 |")
+		fmt.Println("|                                    |")
+		fmt.Println("|            5.Retour au menu        |")
 		fmt.Println("|              précédent             |")
 		fmt.Println("|____________________________________|")
 		fmt.Scan(&choix)
@@ -159,30 +165,46 @@ func (p Personnage) Menu_Equipement() {
 		case 3:
 			p.Menu_bottes()
 		case 4:
+			if p.verif_classe() == "archer " {
+				p.Menu_armes_archer()
+			} else if p.verif_classe() == "mage " {
+				p.Menu_armes_mage()
+			} else if p.verif_classe() == "épéiste " {
+				p.Menu_armes_épéiste()
+			}
+		case 5:
 			p.AccèsInventaire()
 		}
-	}	
+	}
 }
 
 func (p Personnage) Menu_casque() {
+	var e1 Equipement
+	e1.Init_List()
 	var choix int
-	fmt.Println("_____________________________________")
-    fmt.Println("|                                    |")
-    fmt.Println("|                Menu                |")
-	fmt.Println("|                Casque              |")
-    fmt.Println("|____________________________________|")
+	fmt.Println("______________________________________")
 	fmt.Println("|                                    |")
-    fmt.Println("|             1.Mettre un casque     |")
-	fmt.Println("|                en cuir             |")
-    fmt.Println("|                                    |")
-    fmt.Println("|             2.Retour au            |")
-    fmt.Println("|               Précédent            |")
-    fmt.Println("|____________________________________|")
+	fmt.Println("|                Menu                |")
+	fmt.Println("|                Casque              |")
+	fmt.Println("|____________________________________|")
+	fmt.Println("|                                    |")
+	for i := 0; i < len(e1.liste_casque); i++ {
+		fmt.Println("|             ", i+1, ".", e1.liste_casque[i], "   |")
+		fmt.Println("|                                    |")
+	}
+	fmt.Println("|____________________________________|")
 	fmt.Scan(&choix)
 	switch choix {
 	case 1:
-		p.Mettre_casque(1)
+		p.Mettre_casque(1, e1)
+		p.Menu_Equipement()
 	case 2:
+		p.Mettre_casque(2, e1)
+		p.Menu_Equipement()
+	case 3:
+		p.Mettre_casque(3, e1)
+		p.Menu_Equipement()
+	case 4:
 		p.Menu_Equipement()
 	default:
 
@@ -191,25 +213,33 @@ func (p Personnage) Menu_casque() {
 }
 
 func (p Personnage) Menu_plastron() {
+	var e1 Equipement
+	e1.Init_List()
 	var choix int
-	fmt.Println("_____________________________________")
-    fmt.Println("|                                    |")
-    fmt.Println("|                Menu                |")
-	fmt.Println("|                Plastron            |")
-    fmt.Println("|____________________________________|")
+	fmt.Println("______________________________________")
 	fmt.Println("|                                    |")
-    fmt.Println("|             1.Mettre un plastro    |")
-	fmt.Println("|                en cuir             |")
-    fmt.Println("|                                    |")
-    fmt.Println("|             2.Retour au            |")
-    fmt.Println("|               Précédent            |")
-    fmt.Println("|____________________________________|")
+	fmt.Println("|                Menu                |")
+	fmt.Println("|                Plastron            |")
+	fmt.Println("|____________________________________|")
+	fmt.Println("|                                    |")
+	for i := 0; i < len(e1.liste_plastron); i++ {
+		fmt.Println("|             ", i+1, ".", e1.liste_plastron[i], "   |")
+		fmt.Println("|                                    |")
+	}
+	fmt.Println("|____________________________________|")
 	fmt.Scan(&choix)
 
 	switch choix {
 	case 1:
-		p.Mettre_Plastron(1)
+		p.Mettre_Plastron(1, e1)
+		p.Menu_Equipement()
 	case 2:
+		p.Mettre_Plastron(2, e1)
+		p.Menu_Equipement()
+	case 3:
+		p.Mettre_Plastron(3, e1)
+		p.Menu_Equipement()
+	case 4:
 		p.Menu_Equipement()
 	default:
 
@@ -217,24 +247,32 @@ func (p Personnage) Menu_plastron() {
 }
 
 func (p Personnage) Menu_bottes() {
+	var e1 Equipement
+	e1.Init_List()
 	var choix int
-	fmt.Println("_____________________________________")
-    fmt.Println("|                                    |")
-    fmt.Println("|                Menu                |")
-	fmt.Println("|                Jambière            |")
-    fmt.Println("|____________________________________|")
+	fmt.Println("______________________________________")
 	fmt.Println("|                                    |")
-    fmt.Println("|             1.Mettre des jambières |")
-	fmt.Println("|                en cuir             |")
-    fmt.Println("|                                    |")
-    fmt.Println("|             2.Retour au            |")
-    fmt.Println("|               Précédent            |")
-    fmt.Println("|____________________________________|")
+	fmt.Println("|                Menu                |")
+	fmt.Println("|                Jambière            |")
+	fmt.Println("|____________________________________|")
+	fmt.Println("|                                    |")
+	for i := 0; i < len(e1.liste_bottes); i++ {
+		fmt.Println("|             ", i+1, ".", e1.liste_bottes[i], "   |")
+		fmt.Println("|                                    |")
+	}
+	fmt.Println("|____________________________________|")
 	fmt.Scan(&choix)
 	switch choix {
 	case 1:
-		p.Mettre_bottes(1)
+		p.Mettre_bottes(1, e1)
+		p.Menu_Equipement()
 	case 2:
+		p.Mettre_bottes(2, e1)
+		p.Menu_Equipement()
+	case 3:
+		p.Mettre_bottes(3, e1)
+		p.Menu_Equipement()
+	case 4:
 		p.Menu_Equipement()
 	default:
 
@@ -244,19 +282,16 @@ func (p Personnage) Menu_bottes() {
 func (p *Personnage) Menu_skill() {
 	var choix int
 	fmt.Println("Votre réserve de mana est de ", p.mana_actuel, "/", p.mana_maximum)
-	fmt.Println("_____________________________________")
-    fmt.Println("|                                    |")
-    fmt.Println("|                Menu                |")
-	fmt.Println("|                skill               |")
-    fmt.Println("|____________________________________|")
+	fmt.Println("______________________________________")
 	fmt.Println("|                                    |")
-    fmt.Println("|             1.Utilise boule        |")
-	fmt.Println("|               de feu               |")
-    fmt.Println("|                                    |")
-    fmt.Println("|             2.Utilise un           |")
-    fmt.Println("|               coup de poing        |")
-    fmt.Println("|____________________________________|")
-	fmt.Scan(choix)
+	fmt.Println("|                Menu                |")
+	fmt.Println("|                skill               |")
+	fmt.Println("|____________________________________|")
+	for i := 0; i < len(p.Skill); i++ {
+		fmt.Println("|             ", i+1, ".", p.Skill[i], "   |")
+	}
+	fmt.Println("|____________________________________|")
+	fmt.Scan(&choix)
 	switch choix {
 	case 1:
 		if p.mana_actuel >= 7 {
@@ -274,5 +309,105 @@ func (p *Personnage) Menu_skill() {
 			fmt.Println("Vous n'avez pas assez de mana pour utiliser ce sort")
 		}
 	default:
+		fmt.Println("Vous n'avez pas ecrit un reponse valide ")
+	}
+}
+
+func (p *Personnage) Menu_armes_archer() {
+	var e1 Equipement
+	e1.Init_List()
+	var choix int
+	fmt.Println("______________________________________")
+	fmt.Println("|                                    |")
+	fmt.Println("|                Menu                |")
+	fmt.Println("|                Armes               |")
+	fmt.Println("|____________________________________|")
+	fmt.Println("|                                    |")
+	for i := 0; i < len(e1.liste_armes_archer); i++ {
+		fmt.Println("|             ", i+1, ".", e1.liste_armes_archer[i], "   |")
+		fmt.Println("|                                    |")
+	}
+	fmt.Println("|____________________________________|")
+	fmt.Scan(&choix)
+
+	switch choix {
+	case 1:
+		p.Mettre_armes_archer(1, e1)
+		p.Menu_Equipement()
+	case 2:
+		p.Mettre_armes_archer(2, e1)
+		p.Menu_Equipement()
+	case 3:
+		p.Mettre_armes_archer(3, e1)
+		p.Menu_Equipement()
+	case 4:
+		p.Mettre_armes_archer(4, e1)
+		p.Menu_Equipement()
+	}
+}
+
+func (p *Personnage) Menu_armes_mage() {
+	var e1 Equipement
+	e1.Init_List()
+	var choix int
+	fmt.Println("______________________________________")
+	fmt.Println("|                                    |")
+	fmt.Println("|                Menu                |")
+	fmt.Println("|                Armes               |")
+	fmt.Println("|____________________________________|")
+	fmt.Println("|                                    |")
+	for i := 0; i < len(e1.liste_armes_mage); i++ {
+		fmt.Println("|             ", i+1, ".", e1.liste_armes_mage[i], "   |")
+		fmt.Println("|                                    |")
+	}
+	fmt.Println("|____________________________________|")
+	fmt.Scan(&choix)
+
+	switch choix {
+	case 1:
+		p.Mettre_armes_mage(1, e1)
+		p.Menu_Equipement()
+	case 2:
+		p.Mettre_armes_mage(2, e1)
+		p.Menu_Equipement()
+	case 3:
+		p.Mettre_armes_mage(3, e1)
+		p.Menu_Equipement()
+	case 4:
+		p.Mettre_armes_mage(4, e1)
+		p.Menu_Equipement()
+	}
+}
+
+func (p *Personnage) Menu_armes_épéiste() {
+	var e1 Equipement
+	e1.Init_List()
+	var choix int
+	fmt.Println("______________________________________")
+	fmt.Println("|                                    |")
+	fmt.Println("|                Menu                |")
+	fmt.Println("|                Armes               |")
+	fmt.Println("|____________________________________|")
+	fmt.Println("|                                    |")
+	for i := 0; i < len(e1.liste_armes_épéiste); i++ {
+		fmt.Println("|             ", i+1, ".", e1.liste_armes_épéiste[i], "   |")
+		fmt.Println("|                                    |")
+	}
+	fmt.Println("|____________________________________|")
+	fmt.Scan(&choix)
+
+	switch choix {
+	case 1:
+		p.Mettre_armes_épéiste(1, e1)
+		p.Menu_Equipement()
+	case 2:
+		p.Mettre_armes_épéiste(2, e1)
+		p.Menu_Equipement()
+	case 3:
+		p.Mettre_armes_épéiste(3, e1)
+		p.Menu_Equipement()
+	case 4:
+		p.Mettre_armes_épéiste(4, e1)
+		p.Menu_Equipement()
 	}
 }

@@ -22,16 +22,16 @@ func (p *Personnage) TakePot() {
 	fmt.Println("Vous avez maintenant", p.point_de_vie_actuel, "/", p.point_de_vie_maximum)
 }
 
-func (p *Personnage) PoisonPot(m *Monstre) {
-	for i := range p.inventaire{
-		if p.inventaire[i] == "Potion de poison"{
+func (p *Personnage) PoisonPot(m Monstre) {
+	for i := range p.inventaire {
+		if p.inventaire[i] == "Potion de poison" {
 			p.point_de_vie_actuel -= 10
 			time.Sleep(1 * time.Second)
 			p.point_de_vie_actuel -= 10
 			time.Sleep(1 * time.Second)
 			p.point_de_vie_actuel -= 10
-			fmt.Print("Les nouveau points de vie du gobelin sont :",m.point_de_vie_actuel,"/",m.point_de_vie_max)
+			fmt.Print("Les nouveau points de vie du gobelin sont :", m.point_de_vie_actuel, "/", m.point_de_vie_max)
 			break
-		}	
+		}
 	}
 }
