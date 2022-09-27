@@ -17,10 +17,10 @@ func (p *Personnage) ChatTurn(m *Monstre){
 			fmt.Print(p.inventaire, "Si vous taper un chiffre superieur a 2 vous quitterez l'inventaire \n Si vous taper 1 vous pourrez utiliser une potion de vie si vous en avez une \n si vous taper 2 vous pourrez alors utiliser une potion de poison si vous en avez une")
 			fmt.Scan(&choix_inventaire)
 			if choix_inventaire == 1 {
-				TakePot()
+				p.TakePot()
 				p.removeInventory("Potion de Vie")
 			}else if choix_inventaire == 2 {
-				PoisonPot(m)
+				p.PoisonPot(m)
 				p.removeInventory("Potion de poison")
 			}else {
 				fmt.Print("Vous quittez l'inventaire !")

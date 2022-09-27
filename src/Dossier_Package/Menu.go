@@ -153,3 +153,25 @@ func (p Personnage) Menu_bottes() {
 		}
 	}
 }
+
+func (p *Personnage)Menu_skill() {
+	var choix int
+	fmt.Println("Votre réserve de mana est de ",p.mana_actuel,"/",p.mana_maximum)
+	fmt.Println("taper le numéro de l'action que vous voulez faire : \n1: utiliser le skill boule de feu (cout = 7 mana) \n2 : utiliser le sort coup de poing (cout = 3 mana) \n autre : vous utiliserez aucun skill")
+	fmt.Scan(choix)
+	switch choix {
+	case 1:
+		if p.mana_actuel >= 7 {
+			p.mana_actuel -= 7
+		}else{
+			fmt.Println("Vous n'avez pas assez de mana pour utiliser ce sort")
+		}
+	case 2:
+		if p.mana_actuel >= 3 {
+			p.mana_actuel -= 3
+		}else{
+			fmt.Println("Vous n'avez pas assez de mana pour utiliser ce sort")
+		}
+	default:		
+	}
+}

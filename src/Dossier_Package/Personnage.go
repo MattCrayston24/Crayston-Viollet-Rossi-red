@@ -16,6 +16,8 @@ type Personnage struct {
 	monnaie              int
 	mon_equipement       Equipement
 	taille_inventaire    int
+	mana_maximum		 int
+	mana_actuel			 int
 }
 
 // Fonction init pour créer un personnage :
@@ -51,6 +53,7 @@ func (p *Personnage) Init() {
 
 	fmt.Println("\n Vos point de vie maximum sont : ", p.point_de_vie_maximum)
 	fmt.Println("Vos points de vie actuel sont : ", p.point_de_vie_actuel)
+	fmt.Println("Votre réserve de mana est :",p.mana_actuel,"/",p.mana_maximum)
 	fmt.Println("votre skil est :", p.Skill)
 	fmt.Println("Votre niveau actuel est : ", p.niveau)
 	fmt.Println("Vous avez  : ", p.monnaie, " rubis")
