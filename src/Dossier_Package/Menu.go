@@ -5,7 +5,23 @@ import "fmt"
 // Fonction pour définir le menu :
 func (p Personnage) Menu() {
 	var choix_menu int
-	fmt.Print("Taper le numéro du menu dans lequel vous voulez entrée: \n1 :inventaire \n2 :statistique \n3 :forge\n4 :Marchand \n5: Combat entrainement \n6:Quitter\n")
+	fmt.Println("_____________________________________")
+    fmt.Println("|                                    |")
+    fmt.Println("|               Menu                 |")
+    fmt.Println("|____________________________________|")
+	fmt.Println("|                                    |")
+    fmt.Println("|             1.Inventaire           |")
+    fmt.Println("|                                    |")
+    fmt.Println("|             2.Stat Perso           |")
+    fmt.Println("|                                    |")
+    fmt.Println("|             3.Forgeron             |")
+    fmt.Println("|                                    |")
+    fmt.Println("|             4.Marchand             |")
+	fmt.Println("|                                    |")
+	fmt.Println("|             5.Combat Entrainement  |")
+	fmt.Println("|                                    |")
+	fmt.Println("|             6.Quitter              |")
+    fmt.Println("|____________________________________|")
 	fmt.Scan(&choix_menu)
 
 	switch choix_menu {
@@ -28,7 +44,23 @@ func (p Personnage) Menu() {
 
 func (p Personnage) Menu_Fogeron() {
 	var objet_choisi int
-	fmt.Println("Taper le numero de l'objet que vous voulez fabriquer : \n1 :Chapeau en cuir \n2 :Plastron en cuir\n3: Jambière en cuir ")
+	fmt.Println("_____________________________________")
+    fmt.Println("|                                    |")
+    fmt.Println("|                Menu                |")
+	fmt.Println("|                Forgeron            |")
+    fmt.Println("|____________________________________|")
+	fmt.Println("|                                    |")
+    fmt.Println("|             1.Chapeau Cuir         |")
+	fmt.Println("|               (X monnaie)          |")
+    fmt.Println("|                                    |")
+    fmt.Println("|             2.Plastron Cuir        |")
+	fmt.Println("|               (X monnaie)          |")
+    fmt.Println("|                                    |")
+    fmt.Println("|             3.3 Jambière Cuir      |")
+	fmt.Println("|               (X monnaie)          |")
+    fmt.Println("|                                    |")
+	fmt.Println("|       (Autre).Quitter              |")
+    fmt.Println("|____________________________________|")
 	fmt.Scan(&objet_choisi)
 	switch objet_choisi {
 	case 1:
@@ -39,7 +71,6 @@ func (p Personnage) Menu_Fogeron() {
 
 	case 3:
 		p.Creation_Objet(2, 5, "cuir", "Jambière en cuir")
-
 	default:
 		break
 	}
@@ -66,41 +97,87 @@ func (p Personnage) Creation_Objet(nb, nbr int, str1, str2 string) {
 
 func (p Personnage) Menu_Inventaire() {
 	var choix int
-	fmt.Println("taper le numéro de l'action que vous voulez faire : \n1 : Prendre potion de vie \n2 :Mettre un équipement \n3 : retour au menu précedent")
+	fmt.Println("_____________________________________")
+    fmt.Println("|                                    |")
+    fmt.Println("|                Menu                |")
+	fmt.Println("|                Inventaire          |")
+    fmt.Println("|____________________________________|")
+	fmt.Println("|                                    |")
+    fmt.Println("|             1.Prendre Potion       |")
+	fmt.Println("|                de vie              |")
+    fmt.Println("|                                    |")
+    fmt.Println("|             2.Mettre un            |")
+	fmt.Println("|               équipement           |")
+    fmt.Println("|                                    |")
+    fmt.Println("|             3.Retour au            |")
+	fmt.Println("|               Précédent            |")
+    fmt.Println("|____________________________________|")
 	fmt.Scan(&choix)
-	switch choix {
-	case 1:
-		p.TakePot()
-		p.Menu()
-	case 2:
-		p.Menu_Equipement()
-		p.Ajout_Stat_equipement()
-	case 3:
-		p.Menu()
-	default:
-
-	}
+	for{
+		switch choix {
+		case 1:
+			p.TakePot()
+			p.Menu()
+		case 2:
+			p.Menu_Equipement()
+			p.Ajout_Stat_equipement()
+		case 3:
+			p.Menu()
+		default:
+			fmt.Println("Vous n'avez pas ecrit un reponse valide ")
+		}
+	}	
 }
 
 func (p Personnage) Menu_Equipement() {
-	var choix int
-	fmt.Println("taper le numéro de l'action que vous voulez faire : \n1 : mettre un casque \n2 :Mettre un plastron \n3: mettre des bottes \n4 :retour au menu précedent")
-	fmt.Scan(&choix)
-	switch choix {
-	case 1:
-		p.Menu_casque()
-	case 2:
-		p.Menu_plastron()
-	case 3:
-		p.Menu_plastron()
-	case 4:
-		p.AccèsInventaire()
-	}
+	for{	
+		var choix int
+		fmt.Println("_____________________________________")
+		fmt.Println("|                                    |")
+		fmt.Println("|                Menu                |")
+		fmt.Println("|                Equipement          |")
+		fmt.Println("|____________________________________|")
+		fmt.Println("|                                    |")
+		fmt.Println("|             1.Mettre un            |")
+		fmt.Println("|               casque               |")
+		fmt.Println("|                                    |")
+		fmt.Println("|             2.Mettre un            |")
+		fmt.Println("|               plastron             |")
+		fmt.Println("|                                    |")
+		fmt.Println("|             3.Mettre des           |")
+		fmt.Println("|               jambières            |")
+		fmt.Println("|                                    |")
+		fmt.Println("|            4.Retour au menu        |")
+		fmt.Println("|              précédent             |")
+		fmt.Println("|____________________________________|")
+		fmt.Scan(&choix)
+		switch choix {
+		case 1:
+			p.Menu_casque()
+		case 2:
+			p.Menu_plastron()
+		case 3:
+			p.Menu_bottes()
+		case 4:
+			p.AccèsInventaire()
+		}
+	}	
 }
 
 func (p Personnage) Menu_casque() {
 	var choix int
-	fmt.Println("taper le numéro de l'action que vous voulez faire : \n1 : mettre un casque en cuir \n2: retour au menu précedent ")
+	fmt.Println("_____________________________________")
+    fmt.Println("|                                    |")
+    fmt.Println("|                Menu                |")
+	fmt.Println("|                Casque              |")
+    fmt.Println("|____________________________________|")
+	fmt.Println("|                                    |")
+    fmt.Println("|             1.Mettre un casque     |")
+	fmt.Println("|                en cuir             |")
+    fmt.Println("|                                    |")
+    fmt.Println("|             2.Retour au            |")
+    fmt.Println("|               Précédent            |")
+    fmt.Println("|____________________________________|")
 	fmt.Scan(&choix)
 	switch choix {
 	case 1:
@@ -115,7 +192,18 @@ func (p Personnage) Menu_casque() {
 
 func (p Personnage) Menu_plastron() {
 	var choix int
-	fmt.Println("taper le numéro de l'action que vous voulez faire : \n1 : mettre un plastron en cuir \n2: retour au menu précedent")
+	fmt.Println("_____________________________________")
+    fmt.Println("|                                    |")
+    fmt.Println("|                Menu                |")
+	fmt.Println("|                Plastron            |")
+    fmt.Println("|____________________________________|")
+	fmt.Println("|                                    |")
+    fmt.Println("|             1.Mettre un plastro    |")
+	fmt.Println("|                en cuir             |")
+    fmt.Println("|                                    |")
+    fmt.Println("|             2.Retour au            |")
+    fmt.Println("|               Précédent            |")
+    fmt.Println("|____________________________________|")
 	fmt.Scan(&choix)
 
 	switch choix {
@@ -130,7 +218,18 @@ func (p Personnage) Menu_plastron() {
 
 func (p Personnage) Menu_bottes() {
 	var choix int
-	fmt.Println("taper le numéro de l'action que vous voulez faire : \n1 : mettre un bottes en cuir \n2: retour au menu précedent")
+	fmt.Println("_____________________________________")
+    fmt.Println("|                                    |")
+    fmt.Println("|                Menu                |")
+	fmt.Println("|                Jambière            |")
+    fmt.Println("|____________________________________|")
+	fmt.Println("|                                    |")
+    fmt.Println("|             1.Mettre des jambières |")
+	fmt.Println("|                en cuir             |")
+    fmt.Println("|                                    |")
+    fmt.Println("|             2.Retour au            |")
+    fmt.Println("|               Précédent            |")
+    fmt.Println("|____________________________________|")
 	fmt.Scan(&choix)
 	switch choix {
 	case 1:
@@ -145,7 +244,18 @@ func (p Personnage) Menu_bottes() {
 func (p *Personnage) Menu_skill() {
 	var choix int
 	fmt.Println("Votre réserve de mana est de ", p.mana_actuel, "/", p.mana_maximum)
-	fmt.Println("taper le numéro de l'action que vous voulez faire : \n1: utiliser le skill boule de feu (cout = 7 mana) \n2 : utiliser le sort coup de poing (cout = 3 mana) \n autre : vous utiliserez aucun skill")
+	fmt.Println("_____________________________________")
+    fmt.Println("|                                    |")
+    fmt.Println("|                Menu                |")
+	fmt.Println("|                skill               |")
+    fmt.Println("|____________________________________|")
+	fmt.Println("|                                    |")
+    fmt.Println("|             1.Utilise boule        |")
+	fmt.Println("|               de feu               |")
+    fmt.Println("|                                    |")
+    fmt.Println("|             2.Utilise un           |")
+    fmt.Println("|               coup de poing        |")
+    fmt.Println("|____________________________________|")
 	fmt.Scan(choix)
 	switch choix {
 	case 1:
