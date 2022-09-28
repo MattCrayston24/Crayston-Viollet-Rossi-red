@@ -16,6 +16,7 @@ func (p *Personnage) TakePot() {
 				break
 			} else {
 				p.point_de_vie_actuel += potion
+				p.removeInventory("Potion de Vie")
 				break
 			}
 		}
@@ -23,7 +24,7 @@ func (p *Personnage) TakePot() {
 	fmt.Println("Vous avez maintenant", p.point_de_vie_actuel, "/", p.point_de_vie_maximum)
 }
 
-func (p *Personnage) PoisonPot(m Monstre) {
+func (p *Personnage) PoisonPot(m *Monstre) {
 	for i := range p.inventaire {
 		if p.inventaire[i] == "Potion de poison" {
 			p.point_de_vie_actuel -= 10

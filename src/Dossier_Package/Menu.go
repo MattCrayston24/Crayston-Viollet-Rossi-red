@@ -23,7 +23,9 @@ func (p Personnage) Menu() {
 	fmt.Println("|                                    |")
 	fmt.Println("|             5.Combat Entrainement  |")
 	fmt.Println("|                                    |")
-	fmt.Println("|             6.Quitter              |")
+	fmt.Println("|             6.Menu Skill           |")
+	fmt.Println("|                                    |")
+	fmt.Println("|             7.Quitter              |")
 	fmt.Println("|____________________________________|")
 	fmt.Scan(&choix_menu)
 
@@ -231,7 +233,7 @@ func (p Personnage) Menu_bottes() {
 	}
 }
 
-func (p *Personnage) Menu_skill(m Monstre) {
+func (p *Personnage) Menu_skill(m *Monstre) {
 	var choix int
 	fmt.Println("Votre réserve de mana est de ", p.mana_actuel, "/", p.mana_maximum)
 	fmt.Println("______________________________________")

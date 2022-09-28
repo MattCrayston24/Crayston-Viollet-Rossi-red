@@ -2,7 +2,7 @@ package Dossier_Package
 
 import "fmt"
 
-func (p *Personnage) ChatTurn(m Monstre) {
+func (p *Personnage) ChatTurn(m *Monstre) {
 	var choix_inventaire int
 	var choix_menu int
 	fmt.Print("Si vous voulez attaquer taper 1 \n Si vous voulez accéder à l'inventaire taper 2 : \n")
@@ -31,16 +31,16 @@ func (p *Personnage) ChatTurn(m Monstre) {
 }
 
 func (p *Personnage) trainingFight() {
-	var m1 Monstre
+	var m1 *Monstre = new(Monstre)
 	m1.InitMonstre(Menu_Choix_Monstre())
 	fmt.Println("le monstre a été initialiser en tant que :", m1.nom)
 	var nbtours int
-	i := 0
+	var compt_mort int 
 	if p.initiative < m1.initiative {
-		i = 1
+		nbtours = 1
 	}
-	for ; p.point_de_vie_actuel >= 0 || m1.point_de_vie_actuel >= 0; i++ {
-		if i%2 == 0 {
+	for ;p.point_de_vie_actuel >= 0 || m1.point_de_vie_actuel > 0;{
+		if nbtours%2 == 0 {
 			p.ChatTurn(m1)
 			nbtours++
 		} else {
@@ -50,19 +50,34 @@ func (p *Personnage) trainingFight() {
 			nbtours++
 		}
 		fmt.Println("nombre de tour :", nbtours)
+		if p.point_de_vie_actuel <= 0 && compt_mort >= 1 {
+			fmt.Println("t'es mort cheh")
+			break
+		}else if m1.point_de_vie_actuel <= 0{
+			fmt.Println("t'es mort ")
+			break
+		}
+		if p.wasted() && compt_mort!=1 {
+			p.point_de_vie_actuel = p.point_de_vie_maximum /2
+			fmt.Println("votre personnage est mort mais vous revenez a la vie avec :",p.point_de_vie_actuel,"de PV ")
+			compt_mort = 1 
+		}
+	
 	}
-	if p.point_de_vie_actuel < 0 {
+	if p.point_de_vie_actuel > 0 {
 		p.addExp(m1.Experience)
+		fmt.Println("l'experience a été ajouté")
 		for j := 0; j < len(m1.drop); j++ {
 			p.addInventory(m1.drop[j])
-			fmt.Println(m1.drop, " a été ajouter a votre inventaire")
+			fmt.Println(m1.drop[j], " a été ajouter a votre inventaire")
 		}
 		p.ajout_monnaie(m1.monnaie)
 		fmt.Println(m1.monnaie, "a été ajoutée a votre monnaie")
 	}
+	p.Menu()
 }
 
-func (p *Personnage) Menu_attaque(m Monstre) {
+func (p *Personnage) Menu_attaque(m *Monstre) {
 	var choix int
 
 	fmt.Println("______________________________________")

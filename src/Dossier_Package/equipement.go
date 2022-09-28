@@ -183,45 +183,45 @@ func (p *Personnage) Mettre_armes_mage(nb int, e Equipement) {
 }
 
 func (p *Personnage) Ajout_Stat_armes_archer(e Equipement) {
-	plastron := p.mon_equipement.plastron
+	armes := p.mon_equipement.armes
 
-	switch plastron {
+	switch armes {
 	case e.liste_armes_archer[0]:
-		p.points_attaque += 4
+		p.attaque_base += 4
 	case e.liste_armes_archer[1]:
-		p.points_attaque += 7
+		p.attaque_base += 7
 	case e.liste_armes_archer[2]:
-		p.points_attaque += 10
+		p.attaque_base += 10
 	default:
 		break
 	}
 }
 
 func (p *Personnage) Ajout_Stat_armes_épéiste(e Equipement) {
-	plastron := p.mon_equipement.plastron
+	armes := p.mon_equipement.armes
 
-	switch plastron {
+	switch armes {
 	case e.liste_armes_épéiste[0]:
-		p.points_attaque += 4
+		p.attaque_base += 4
 	case e.liste_armes_épéiste[1]:
-		p.points_attaque += 7
+		p.attaque_base += 7
 	case e.liste_armes_épéiste[2]:
-		p.points_attaque += 10
+		p.attaque_base += 10
 	default:
 		break
 	}
 }
 
 func (p *Personnage) Ajout_Stat_armes_mage(e Equipement) {
-	plastron := p.mon_equipement.plastron
+	armes := p.mon_equipement.armes
 
-	switch plastron {
+	switch armes {
 	case e.liste_armes_mage[0]:
-		p.points_attaque += 4
+		p.attaque_base += 4
 	case e.liste_armes_mage[1]:
-		p.points_attaque += 7
+		p.attaque_base += 7
 	case e.liste_armes_mage[2]:
-		p.points_attaque += 10
+		p.attaque_base += 10
 	default:
 		break
 	}

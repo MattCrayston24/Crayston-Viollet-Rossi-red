@@ -35,7 +35,7 @@ func (p Personnage) Menu_Fogeron() {
 	}
 }
 
-func (p Personnage) Creation_Objet(nb, nbr int, str1, str2 string) {
+func (p *Personnage) Creation_Objet(nb, nbr int, str1, str2 string) {
 
 	if p.verif_materiaux(nb, str1) && p.monnaie > nbr && p.CheckInventory() {
 		for i := 1; i < nb; i++ {
@@ -55,7 +55,7 @@ func (p Personnage) Creation_Objet(nb, nbr int, str1, str2 string) {
 
 }
 
-func (p Personnage) Menu_Equipement_Creation() {
+func (p *Personnage) Menu_Equipement_Creation() {
 	for {
 		var choix int
 		fmt.Println("______________________________________")
@@ -91,7 +91,7 @@ func (p Personnage) Menu_Equipement_Creation() {
 	}
 }
 
-func (p Personnage) Menu_casque_Creation() {
+func (p *Personnage) Menu_casque_Creation() {
 	var e1 Equipement
 	e1.Init_List()
 	i := 0
@@ -127,7 +127,7 @@ func (p Personnage) Menu_casque_Creation() {
 
 }
 
-func (p Personnage) Menu_plastron_Creation() {
+func (p *Personnage) Menu_plastron_Creation() {
 	var e1 Equipement
 	e1.Init_List()
 	i := 0
@@ -137,7 +137,7 @@ func (p Personnage) Menu_plastron_Creation() {
 	fmt.Println("|                Menu                |")
 	fmt.Println("|                plastron            |")
 	fmt.Println("|                Création            |")
-
+	fmt.Println("|                8 Materiaux          ")
 	fmt.Println("|                                    |")
 	for ; i < len(e1.liste_plastron); i++ {
 		fmt.Println("|             ", i+1, ".", e1.liste_plastron[i], "   |")
@@ -164,7 +164,7 @@ func (p Personnage) Menu_plastron_Creation() {
 
 }
 
-func (p Personnage) Menu_bottes_Creation() {
+func (p *Personnage) Menu_bottes_Creation() {
 	var e1 Equipement
 	e1.Init_List()
 	i := 0
@@ -200,7 +200,7 @@ func (p Personnage) Menu_bottes_Creation() {
 
 }
 
-func (p Personnage) Menu_arme_mage_Creation() {
+func (p *Personnage) Menu_arme_mage_Creation() {
 	var e1 Equipement
 	e1.Init_List()
 	i := 0
@@ -238,7 +238,7 @@ func (p Personnage) Menu_arme_mage_Creation() {
 	}
 }
 
-func (p Personnage) Menu_arme_archer_Creation() {
+func (p *Personnage) Menu_arme_archer_Creation() {
 	var e1 Equipement
 	i := 0
 	e1.Init_List()
@@ -276,7 +276,7 @@ func (p Personnage) Menu_arme_archer_Creation() {
 	}
 }
 
-func (p Personnage) Menu_arme_épéiste_Creation() {
+func (p *Personnage) Menu_arme_épéiste_Creation() {
 	var e1 Equipement
 	e1.Init_List()
 	i := 0

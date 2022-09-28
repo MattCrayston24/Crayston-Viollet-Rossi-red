@@ -22,7 +22,7 @@ func (m *Monstre) InitMonstre(str string) {
 		m.points_d_attaque = 5
 		m.initiative = 10
 		m.element = "Eau"
-		m.drop = []string{"cuir", "cuir", "cuir"}
+		m.drop = []string{"Cuir", "Cuir", "Cuir"}
 		m.monnaie = 30
 	} else if str == "Kobolt" {
 		m.nom = "Kobolt"
