@@ -10,7 +10,7 @@ type Personnage struct {
 	classe               string
 	point_de_vie_maximum int
 	point_de_vie_actuel  int
-	Skill                []string
+	skill                Skill
 	inventaire           []string
 	niveau               int
 	monnaie              int
