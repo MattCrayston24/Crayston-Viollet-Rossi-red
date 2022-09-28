@@ -35,7 +35,7 @@ func (p *Personnage) Init() {
 		fmt.Scan(&nom_choisi)
 		if p.verif_nom(nom_choisi) == true {
 			p.nom = p.majuscule(nom_choisi)
-			fmt.Println("Votre nom est :", p.nom)
+			fmt.Println("Votre nom est ", p.nom)
 			break
 		}	
 		fmt.Println("Votre nom est invalide")
