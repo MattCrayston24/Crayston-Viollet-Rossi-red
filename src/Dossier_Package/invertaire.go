@@ -23,7 +23,7 @@ func (p *Personnage) addInventory(s string) {
 	}
 }
 func (p *Personnage) removeInventory(s string) {
-	for i := range s {
+	for i := range p.inventaire {
 		if p.inventaire[i] == s {
 			p.inventaire = append(p.inventaire[:i], p.inventaire[i+1:]...)
 		}

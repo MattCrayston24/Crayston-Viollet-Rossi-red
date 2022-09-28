@@ -10,7 +10,8 @@ func (p *Personnage) ChatTurn(m Monstre) {
 	switch choix_menu {
 	case 1:
 		p.Menu_attaque(m)
-		fmt.Println("Gobelin d'entrainement PV :", m.point_de_vie_actuel, "/", m.point_de_vie_max)
+		m.point_de_vie_actuel -= p.points_attaque
+		fmt.Println(m.nom, "PV :", m.point_de_vie_actuel, "/", m.point_de_vie_max)
 	case 2:
 		fmt.Print(p.inventaire, "Si vous taper un chiffre superieur a 2 vous quitterez l'inventaire \n Si vous taper 1 vous pourrez utiliser une potion de vie si vous en avez une \n si vous taper 2 vous pourrez alors utiliser une potion de poison si vous en avez une")
 		fmt.Scan(&choix_inventaire)
@@ -31,7 +32,8 @@ func (p *Personnage) ChatTurn(m Monstre) {
 
 func (p *Personnage) trainingFight() {
 	var m1 Monstre
-	m1.InitMonstre()
+	m1.InitMonstre(Menu_Choix_Monstre())
+	fmt.Println("le monstre a été initialiser en tant que :", m1.nom)
 	var nbtours int
 	i := 0
 	if p.initiative < m1.initiative {
@@ -51,6 +53,12 @@ func (p *Personnage) trainingFight() {
 	}
 	if p.point_de_vie_actuel < 0 {
 		p.addExp(m1.Experience)
+		for j := 0; j < len(m1.drop); j++ {
+			p.addInventory(m1.drop[j])
+			fmt.Println(m1.drop, " a été ajouter a votre inventaire")
+		}
+		p.ajout_monnaie(m1.monnaie)
+		fmt.Println(m1.monnaie, "a été ajoutée a votre monnaie")
 	}
 }
 
@@ -71,7 +79,6 @@ func (p *Personnage) Menu_attaque(m Monstre) {
 	switch choix {
 	case 1:
 		p.points_attaque = p.attaque_base
-		m.point_de_vie_actuel -= p.points_attaque
 		fmt.Println("Vous utilisez attaque basique et infligé ", p.points_attaque, "points de dégats")
 	case 2:
 		p.Menu_skill(m)

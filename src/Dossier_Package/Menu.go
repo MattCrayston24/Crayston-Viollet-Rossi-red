@@ -115,12 +115,14 @@ func (p Personnage) Menu_Equipement() {
 		case 3:
 			p.Menu_bottes()
 		case 4:
-			if p.verif_classe() == "archer " {
+			if p.verif_classe() == "archer" {
 				p.Menu_armes_archer()
-			} else if p.verif_classe() == "mage " {
+			} else if p.verif_classe() == "mage" {
 				p.Menu_armes_mage()
-			} else if p.verif_classe() == "épéiste " {
+			} else if p.verif_classe() == "épéiste" {
 				p.Menu_armes_épéiste()
+			} else {
+				fmt.Println("error")
 			}
 		case 5:
 			p.AccèsInventaire()

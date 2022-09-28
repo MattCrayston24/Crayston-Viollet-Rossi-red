@@ -21,7 +21,13 @@ func (p Personnage) Menu_Fogeron() {
 	case 1:
 		p.Menu_Equipement_Creation()
 	case 2:
-
+		if p.verif_classe() == "mage" {
+			p.Menu_arme_mage_Creation()
+		} else if p.verif_classe() == "archer" {
+			p.Menu_arme_archer_Creation()
+		} else if p.verif_classe() == "épéiste" {
+			p.Menu_arme_épéiste_Creation()
+		}
 	case 3:
 		p.Menu()
 	default:
@@ -36,6 +42,7 @@ func (p Personnage) Creation_Objet(nb, nbr int, str1, str2 string) {
 			p.removeInventory(str1)
 		}
 		p.addInventory(str2)
+		fmt.Println("vous avez frabriqué", str2)
 		p.retrait_monnaie(nbr)
 
 	} else if !p.verif_materiaux(nb, str1) {

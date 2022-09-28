@@ -1,5 +1,7 @@
 package Dossier_Package
 
+import "fmt"
+
 type Monstre struct {
 	nom                 string
 	point_de_vie_max    int
@@ -8,15 +10,39 @@ type Monstre struct {
 	initiative          int
 	Experience          int
 	element             string
+	drop                []string
+	monnaie             int
 }
 
-func (m *Monstre) InitMonstre() {
-	m.nom = "Gobelin d'entrainement"
-	m.point_de_vie_max = 40
-	m.point_de_vie_actuel = m.point_de_vie_max
-	m.points_d_attaque = 5
-	m.initiative = 10
-	m.element = "Eau"
+func (m *Monstre) InitMonstre(str string) {
+	if str == "Gobelin" {
+		m.nom = "Gobelin"
+		m.point_de_vie_max = 40
+		m.point_de_vie_actuel = m.point_de_vie_max
+		m.points_d_attaque = 5
+		m.initiative = 10
+		m.element = "Eau"
+		m.drop = []string{"cuir", "cuir", "cuir"}
+		m.monnaie = 30
+	} else if str == "Kobolt" {
+		m.nom = "Kobolt"
+		m.point_de_vie_max = 60
+		m.point_de_vie_actuel = m.point_de_vie_max
+		m.points_d_attaque = 8
+		m.initiative = 15
+		m.element = "Terre"
+		m.drop = []string{"Fer", "Fer", "Fer"}
+		m.monnaie = 50
+	} else if str == "Orc" {
+		m.nom = "Orc"
+		m.point_de_vie_max = 80
+		m.point_de_vie_actuel = m.point_de_vie_max
+		m.points_d_attaque = 10
+		m.initiative = 20
+		m.element = "Feu"
+		m.drop = []string{"Mithril", "Mithril", "Mithril"}
+		m.monnaie = 80
+	}
 }
 
 func (m *Monstre) gobelin_parterne(nb_tour int) {
@@ -26,4 +52,32 @@ func (m *Monstre) gobelin_parterne(nb_tour int) {
 		m.points_d_attaque = 5
 	}
 
+}
+
+func Menu_Choix_Monstre() string {
+	var choix int
+	fmt.Println("______________________________________")
+	fmt.Println("|                                    |")
+	fmt.Println("|               Menu                 |")
+	fmt.Println("|               Monstre              |")
+	fmt.Println("|____________________________________|")
+	fmt.Println("|                                    |")
+	fmt.Println("|             1.Gobelin              |")
+	fmt.Println("|                                    |")
+	fmt.Println("|             2.Kobolt               |")
+	fmt.Println("|                                    |")
+	fmt.Println("|             3. Orc                 |")
+	fmt.Println("|                                    |")
+	fmt.Println("|____________________________________|")
+	fmt.Scan(&choix)
+
+	switch choix {
+	case 1:
+		return "Gobelin"
+	case 2:
+		return "Kobolt"
+	case 3:
+		return "Orc"
+	}
+	return "aucun monstre choisi"
 }
