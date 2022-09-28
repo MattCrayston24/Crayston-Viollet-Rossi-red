@@ -304,6 +304,7 @@ func (p Personnage) Menu_arme_épéiste_Creation() {
 		p.Menu_arme_épéiste_Creation()
 	case 3:
 		p.Creation_Objet(4, 40, "Acier", e1.liste_armes_épéiste[2])
+		p.Menu_arme_épéiste_Creation()
 	case 4:
 		p.Creation_Objet(4, 50, "Mitrhil", e1.liste_armes_épéiste[3])
 		p.Menu_arme_épéiste_Creation()
