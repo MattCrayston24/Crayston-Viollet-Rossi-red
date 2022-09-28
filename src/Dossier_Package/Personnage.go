@@ -29,46 +29,76 @@ func (p *Personnage) Init() {
 	var classe_choisi int
 	var nom_choisi string
 	for {
-		fmt.Print("Choisissez votre nom comprenant au moins 3 caractères :")
+		fmt.Println("_____________________________________________________________________________")
+		fmt.Println("| Choisissez votre nom comprenant au moins 3 caractères et que des lettres :|")
+		fmt.Println("|___________________________________________________________________________|")
 		fmt.Scan(&nom_choisi)
-		if len(nom_choisi) >= 3 {
-			fmt.Print("Votre nom est : ", nom_choisi)
-			p.nom = nom_choisi
+		if p.verif_nom(nom_choisi) == true {
+			p.nom = p.majuscule(nom_choisi)
+			fmt.Println("Votre nom est :", p.nom)
 			break
-		}
+		}	
+		fmt.Println("Votre nom est invalide")
 	}
-	fmt.Print("Choisissez votre classe, \n Si vous voulez la classe Archer taper 1, \n Si vous voulez la classe épéiste taper 2, \n Si vous voulez la calsse mage tapez 3 :")
-	fmt.Scan(&classe_choisi)
-	for i := 0; i < 1; i++ {
+	for i := 0 ; i<1 ; i++  {	
+		fmt.Println("______________________________________")
+		fmt.Println("|                                    |")
+		fmt.Println("|                Choix               |")
+		fmt.Println("|                Classe              |")
+		fmt.Println("|____________________________________|")
+		fmt.Println("|                                    |")
+		fmt.Println("|             1.Archer               |")
+		fmt.Println("|                                    |")
+		fmt.Println("|             2.Epéiste              |")
+		fmt.Println("|                                    |")
+		fmt.Println("|             3.Mage                 |")
+		fmt.Println("|____________________________________|")
+		fmt.Scan(&classe_choisi)
 		switch classe_choisi {
 		case 1:
 			p.Archer()
-			fmt.Print("Votre classe est : ", p.classe)
+			fmt.Println("Votre classe est : ", p.classe)
 		case 2:
 			p.Epéiste()
-			fmt.Print("Votre classe est : ", p.classe)
+			fmt.Println("Votre classe est : ", p.classe)
 		case 3:
 			p.Mage()
-			fmt.Print("Votre classe est : ", p.classe)
+			fmt.Println("Votre classe est : ", p.classe)
 		default:
-			fmt.Println("taper un reponse valide ")
-			p.Init()
-		}
+			fmt.Println("Erreur le caractère entré n'est pas valide")
+			i--
+		}	
+					
 	}
-	fmt.Println("\n Vos point de vie maximum sont : ", p.point_de_vie_maximum)
-	fmt.Println("Vos points de vie actuel sont : ", p.point_de_vie_actuel)
-	fmt.Println("Votre réserve de mana est :", p.mana_actuel, "/", p.mana_maximum)
-	fmt.Println("vos skil sont :", p.Skill)
-	fmt.Println("Votre niveau actuel est : ", p.niveau)
-	fmt.Println("Vous avez  : ", p.monnaie, " rubis")
+	fmt.Println("______________________________________")
+	fmt.Println("|                                     ")
+	fmt.Println("|              Statistique            ")
+	fmt.Println("|_____________________________________")
+	fmt.Println("|                                     ")
+	fmt.Println("|     pseudo : ",p.nom,"              ")
+	fmt.Println("|                                     ")
+	fmt.Println("|     vie : ",p.point_de_vie_actuel,"/",p.point_de_vie_maximum ,"                         ")
+	fmt.Println("|                                     ")
+	fmt.Println("|     mana : ",p.mana_actuel,"/",p.mana_maximum ,"                         ")
+	fmt.Println("|                                     ")
+	fmt.Println("|     skill : ",p.Skill,"                         ")                                                              
+	fmt.Println("|_____________________________________")	
 }
 
 func (p Personnage) Afficher_info() {
-	fmt.Println("Votre nom est :", p.nom)
-	fmt.Println("Votre classe est:", p.classe)
-	fmt.Println("Vos point de vie max sont :", p.point_de_vie_maximum)
-	fmt.Println("Vos point de vie actuel sont :", p.point_de_vie_actuel)
-	fmt.Println("vos skill sont :", p.Skill)
+	fmt.Println("______________________________________")
+	fmt.Println("|                                     ")
+	fmt.Println("|              Statistique            ")
+	fmt.Println("|_____________________________________")
+	fmt.Println("|                                     ")
+	fmt.Println("|     pseudo : ",p.nom,"              ")
+	fmt.Println("|                                     ")
+	fmt.Println("|     vie : ",p.point_de_vie_actuel,"/",p.point_de_vie_maximum ,"")
+	fmt.Println("|                                     ")
+	fmt.Println("|     mana : ",p.mana_actuel,"/",p.mana_maximum ,"")
+	fmt.Println("|                                     ")
+	fmt.Println("|     skill : ",p.Skill,"             ")                                                              
+	fmt.Println("|_____________________________________")
 	p.Menu()
 }
 
