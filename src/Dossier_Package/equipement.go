@@ -22,15 +22,15 @@ func (e *Equipement) Init_List() {
 	e.liste_armes_mage = []string{"baton d'entrainement", "baton en fer  ", "baton en acier ", "épée en mithril"}
 }
 
-func (p *Personnage) Ajout_Stat_equipement_casque() {
+func (p *Personnage) Ajout_Stat_equipement_casque(e Equipement) {
 	casque := p.mon_equipement.casque
 
 	switch casque {
-	case p.mon_equipement.liste_casque[0]:
+	case e.liste_casque[0]:
 		p.point_de_vie_maximum += 10
-	case p.mon_equipement.liste_casque[1]:
+	case e.liste_casque[1]:
 		p.point_de_vie_maximum += 17
-	case p.mon_equipement.liste_casque[2]:
+	case e.liste_casque[2]:
 		p.point_de_vie_maximum += 24
 	default:
 		break
@@ -38,30 +38,30 @@ func (p *Personnage) Ajout_Stat_equipement_casque() {
 
 }
 
-func (p *Personnage) Ajout_Stat_equipement_plastron() {
+func (p *Personnage) Ajout_Stat_equipement_plastron(e Equipement) {
 	plastron := p.mon_equipement.plastron
 
 	switch plastron {
-	case p.mon_equipement.liste_plastron[0]:
+	case e.liste_plastron[0]:
 		p.point_de_vie_maximum += 20
-	case p.mon_equipement.liste_plastron[1]:
+	case e.liste_plastron[1]:
 		p.point_de_vie_maximum += 27
-	case p.mon_equipement.liste_plastron[2]:
+	case e.liste_plastron[2]:
 		p.point_de_vie_maximum += 34
 	default:
 		break
 	}
 
 }
-func (p *Personnage) Ajout_Stat_equipement_bottes() {
+func (p *Personnage) Ajout_Stat_equipement_bottes(e Equipement) {
 	bottes := p.mon_equipement.bottes
 
 	switch bottes {
-	case p.mon_equipement.liste_bottes[0]:
+	case e.liste_bottes[0]:
 		p.point_de_vie_maximum += 7
-	case p.mon_equipement.liste_bottes[1]:
+	case e.liste_bottes[1]:
 		p.point_de_vie_maximum += 14
-	case p.mon_equipement.liste_bottes[2]:
+	case e.liste_bottes[2]:
 		p.point_de_vie_maximum += 21
 	default:
 		break
@@ -77,7 +77,7 @@ func (p *Personnage) Mettre_casque(nb int, e Equipement) {
 		if p.inventaire[i] == e.liste_casque[nb-1] {
 			p.mon_equipement.casque = p.inventaire[i]
 			p.removeInventory(e.liste_casque[nb-1])
-			p.Ajout_Stat_equipement_casque()
+			p.Ajout_Stat_equipement_casque(e)
 		}
 	}
 
@@ -93,7 +93,7 @@ func (p *Personnage) Mettre_Plastron(nb int, e Equipement) {
 			if p.inventaire[i] == e.liste_plastron[nb-1] {
 				p.mon_equipement.plastron = p.inventaire[i]
 				p.removeInventory(e.liste_plastron[nb-1])
-				p.Ajout_Stat_equipement_plastron()
+				p.Ajout_Stat_equipement_plastron(e)
 			}
 		}
 	}
@@ -108,6 +108,7 @@ func (p *Personnage) Mettre_bottes(nb int, e Equipement) {
 		if p.inventaire[i] == e.liste_bottes[nb-1] {
 			p.mon_equipement.bottes = p.inventaire[i]
 			p.removeInventory(e.liste_bottes[nb])
+			p.Ajout_Stat_equipement_bottes(e)
 
 		}
 	}
@@ -122,7 +123,7 @@ func (p *Personnage) Mettre_armes_archer(nb int, e Equipement) {
 		if p.inventaire[i] == e.liste_armes_archer[nb-1] {
 			p.mon_equipement.bottes = p.inventaire[i]
 			p.removeInventory(e.liste_armes_archer[nb-1])
-			p.Ajout_Stat_armes_archer()
+			p.Ajout_Stat_armes_archer(e)
 
 		}
 	}
@@ -137,7 +138,7 @@ func (p *Personnage) Mettre_armes_épéiste(nb int, e Equipement) {
 		if p.inventaire[i] == e.liste_armes_épéiste[nb-1] {
 			p.mon_equipement.bottes = p.inventaire[i]
 			p.removeInventory(e.liste_armes_épéiste[nb-1])
-			p.Ajout_Stat_armes_épéiste()
+			p.Ajout_Stat_armes_épéiste(e)
 
 		}
 	}
@@ -152,51 +153,51 @@ func (p *Personnage) Mettre_armes_mage(nb int, e Equipement) {
 		if p.inventaire[i] == e.liste_armes_mage[nb-1] {
 			p.mon_equipement.bottes = p.inventaire[i]
 			p.removeInventory(e.liste_armes_mage[nb-1])
-			p.Ajout_Stat_armes_mage()
+			p.Ajout_Stat_armes_mage(e)
 
 		}
 	}
 }
 
-func (p *Personnage) Ajout_Stat_armes_archer() {
+func (p *Personnage) Ajout_Stat_armes_archer(e Equipement) {
 	plastron := p.mon_equipement.plastron
 
 	switch plastron {
-	case p.mon_equipement.liste_armes_archer[0]:
+	case e.liste_armes_archer[0]:
 		p.points_attaque += 4
-	case p.mon_equipement.liste_armes_archer[1]:
+	case e.liste_armes_archer[1]:
 		p.points_attaque += 7
-	case p.mon_equipement.liste_armes_archer[2]:
+	case e.liste_armes_archer[2]:
 		p.points_attaque += 10
 	default:
 		break
 	}
 }
 
-func (p *Personnage) Ajout_Stat_armes_épéiste() {
+func (p *Personnage) Ajout_Stat_armes_épéiste(e Equipement) {
 	plastron := p.mon_equipement.plastron
 
 	switch plastron {
-	case p.mon_equipement.liste_armes_épéiste[0]:
+	case e.liste_armes_épéiste[0]:
 		p.points_attaque += 4
-	case p.mon_equipement.liste_armes_épéiste[1]:
+	case e.liste_armes_épéiste[1]:
 		p.points_attaque += 7
-	case p.mon_equipement.liste_armes_épéiste[2]:
+	case e.liste_armes_épéiste[2]:
 		p.points_attaque += 10
 	default:
 		break
 	}
 }
 
-func (p *Personnage) Ajout_Stat_armes_mage() {
+func (p *Personnage) Ajout_Stat_armes_mage(e Equipement) {
 	plastron := p.mon_equipement.plastron
 
 	switch plastron {
-	case p.mon_equipement.liste_armes_mage[0]:
+	case e.liste_armes_mage[0]:
 		p.points_attaque += 4
-	case p.mon_equipement.liste_armes_mage[1]:
+	case e.liste_armes_mage[1]:
 		p.points_attaque += 7
-	case p.mon_equipement.liste_armes_mage[2]:
+	case e.liste_armes_mage[2]:
 		p.points_attaque += 10
 	default:
 		break

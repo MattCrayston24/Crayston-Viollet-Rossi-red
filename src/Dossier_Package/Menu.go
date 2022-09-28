@@ -2,6 +2,7 @@ package Dossier_Package
 
 import (
 	"fmt"
+	"os"
 )
 
 // Fonction pour définir le menu :
@@ -38,63 +39,10 @@ func (p Personnage) Menu() {
 	case 5:
 		p.trainingFight()
 	case 6:
-		break
+		os.Exit(3)
 	default:
 		fmt.Println("Vous n'avez pas selectionner un reponse valide")
 	}
-}
-
-func (p Personnage) Menu_Fogeron() {
-	var objet_choisi int
-	fmt.Println("______________________________________")
-	fmt.Println("|                                    |")
-	fmt.Println("|                Menu                |")
-	fmt.Println("|                Forgeron            |")
-	fmt.Println("|____________________________________|")
-	fmt.Println("|                                    |")
-	fmt.Println("|             1.Chapeau Cuir         |")
-	fmt.Println("|               (X monnaie)          |")
-	fmt.Println("|                                    |")
-	fmt.Println("|             2.Plastron Cuir        |")
-	fmt.Println("|               (X monnaie)          |")
-	fmt.Println("|                                    |")
-	fmt.Println("|             3.3 Jambière Cuir      |")
-	fmt.Println("|               (X monnaie)          |")
-	fmt.Println("|                                    |")
-	fmt.Println("|       (Autre).Quitter              |")
-	fmt.Println("|____________________________________|")
-	fmt.Scan(&objet_choisi)
-	switch objet_choisi {
-	case 1:
-		p.Creation_Objet(2, 5, "cuir", "Chapeau en cuir")
-
-	case 2:
-		p.Creation_Objet(3, 10, "cuir", "Plastron en cuir")
-
-	case 3:
-		p.Creation_Objet(2, 5, "cuir", "Jambière en cuir")
-	default:
-		break
-	}
-}
-
-func (p Personnage) Creation_Objet(nb, nbr int, str1, str2 string) {
-
-	if p.verif_materiaux(nb, str1) && p.monnaie > nbr && p.CheckInventory() {
-		for i := 0; i < nb; i++ {
-			p.removeInventory(str1)
-		}
-		p.addInventory(str2)
-		p.retrait_monnaie(nbr)
-
-	} else if !p.verif_materiaux(nb, str1) {
-		fmt.Println("vous n'avez pas assez de marteriaux pour faire cet objet")
-	} else if p.monnaie < nbr {
-		fmt.Println("vous n'avez pas assez de rubis pour payer la fabrication de l'objet")
-	} else if !p.CheckInventory() {
-		fmt.Println("vous n'avez pas assez de place dans votre inventaire")
-	}
-
 }
 
 func (p Personnage) Menu_Inventaire() {

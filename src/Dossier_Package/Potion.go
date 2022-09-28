@@ -12,6 +12,7 @@ func (p *Personnage) TakePot() {
 		if p.inventaire[i] == "Potion de Vie" {
 			if p.point_de_vie_actuel+potion > p.point_de_vie_maximum {
 				p.point_de_vie_actuel = p.point_de_vie_maximum
+				p.removeInventory("Potion de Vie")
 				break
 			} else {
 				p.point_de_vie_actuel += potion

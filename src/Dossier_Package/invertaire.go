@@ -9,7 +9,7 @@ func (p Personnage) verif_materiaux(nb int, str string) bool {
 			count++
 		}
 	}
-	return count == nb
+	return count >= nb
 }
 
 func (p Personnage) CheckInventory() bool {
