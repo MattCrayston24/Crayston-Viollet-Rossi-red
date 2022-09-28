@@ -7,6 +7,7 @@ type Monstre struct {
 	points_d_attaque    int
 	initiative          int
 	Experience          int
+	element             string
 }
 
 func (m *Monstre) InitMonstre() {
@@ -15,6 +16,7 @@ func (m *Monstre) InitMonstre() {
 	m.point_de_vie_actuel = m.point_de_vie_max
 	m.points_d_attaque = 5
 	m.initiative = 10
+	m.element = "Eau"
 }
 
 func (m *Monstre) gobelin_parterne(nb_tour int) {

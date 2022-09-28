@@ -78,6 +78,7 @@ func (p *Personnage) Mettre_casque(nb int, e Equipement) {
 			p.mon_equipement.casque = p.inventaire[i]
 			p.removeInventory(e.liste_casque[nb-1])
 			p.Ajout_Stat_equipement_casque(e)
+			Affichage_equipement(p.mon_equipement.casque)
 		}
 	}
 
@@ -94,9 +95,11 @@ func (p *Personnage) Mettre_Plastron(nb int, e Equipement) {
 				p.mon_equipement.plastron = p.inventaire[i]
 				p.removeInventory(e.liste_plastron[nb-1])
 				p.Ajout_Stat_equipement_plastron(e)
+				Affichage_equipement(p.mon_equipement.plastron)
 			}
 		}
 	}
+
 }
 
 func (p *Personnage) Mettre_bottes(nb int, e Equipement) {
@@ -109,7 +112,7 @@ func (p *Personnage) Mettre_bottes(nb int, e Equipement) {
 			p.mon_equipement.bottes = p.inventaire[i]
 			p.removeInventory(e.liste_bottes[nb])
 			p.Ajout_Stat_equipement_bottes(e)
-
+			Affichage_equipement(p.mon_equipement.bottes)
 		}
 	}
 }

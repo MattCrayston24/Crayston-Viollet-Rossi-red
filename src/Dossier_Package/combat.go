@@ -9,8 +9,7 @@ func (p *Personnage) ChatTurn(m Monstre) {
 	fmt.Scan(&choix_menu)
 	switch choix_menu {
 	case 1:
-		p.Menu_attaque()
-		m.point_de_vie_actuel -= p.points_attaque
+		p.Menu_attaque(m)
 		fmt.Println("Gobelin d'entrainement PV :", m.point_de_vie_actuel, "/", m.point_de_vie_max)
 	case 2:
 		fmt.Print(p.inventaire, "Si vous taper un chiffre superieur a 2 vous quitterez l'inventaire \n Si vous taper 1 vous pourrez utiliser une potion de vie si vous en avez une \n si vous taper 2 vous pourrez alors utiliser une potion de poison si vous en avez une")
@@ -55,7 +54,7 @@ func (p *Personnage) trainingFight() {
 	}
 }
 
-func (p *Personnage) Menu_attaque() {
+func (p *Personnage) Menu_attaque(m Monstre) {
 	var choix int
 
 	fmt.Println("______________________________________")
@@ -71,10 +70,11 @@ func (p *Personnage) Menu_attaque() {
 
 	switch choix {
 	case 1:
+		p.points_attaque = p.attaque_base
+		m.point_de_vie_actuel -= p.points_attaque
 		fmt.Println("Vous utilisez attaque basique et infligé ", p.points_attaque, "points de dégats")
 	case 2:
-		p.Menu_skill()
-		fmt.Println("Vous utilisez un skill et infligé ", p.points_attaque, "points de dégats")
+		p.Menu_skill(m)
 	default:
 		fmt.Println("Vous avez entré une valeur éroné")
 	}

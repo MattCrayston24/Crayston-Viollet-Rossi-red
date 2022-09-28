@@ -22,6 +22,8 @@ type Personnage struct {
 	experience_max       int
 	mana_maximum         int
 	mana_actuel          int
+	attaque_base         int
+	point_skill          int
 }
 
 // Fonction init pour créer un personnage :
@@ -33,14 +35,14 @@ func (p *Personnage) Init() {
 		fmt.Println("| Choisissez votre nom comprenant au moins 3 caractères et que des lettres :|")
 		fmt.Println("|___________________________________________________________________________|")
 		fmt.Scan(&nom_choisi)
-		if p.verif_nom(nom_choisi) == true {
+		if p.verif_nom(nom_choisi) {
 			p.nom = p.majuscule(nom_choisi)
 			fmt.Println("Votre nom est ", p.nom)
 			break
-		}	
+		}
 		fmt.Println("Votre nom est invalide")
 	}
-	for i := 0 ; i<1 ; i++  {	
+	for i := 0; i < 1; i++ {
 		fmt.Println("______________________________________")
 		fmt.Println("|                                    |")
 		fmt.Println("|                Choix               |")
@@ -67,22 +69,21 @@ func (p *Personnage) Init() {
 		default:
 			fmt.Println("Erreur le caractère entré n'est pas valide")
 			i--
-		}	
-					
+		}
 	}
 	fmt.Println("______________________________________")
 	fmt.Println("|                                     ")
 	fmt.Println("|              Statistique            ")
 	fmt.Println("|_____________________________________")
 	fmt.Println("|                                     ")
-	fmt.Println("|     pseudo : ",p.nom,"              ")
+	fmt.Println("|     pseudo : ", p.nom, "              ")
 	fmt.Println("|                                     ")
-	fmt.Println("|     vie : ",p.point_de_vie_actuel,"/",p.point_de_vie_maximum ,"                         ")
+	fmt.Println("|     vie : ", p.point_de_vie_actuel, "/", p.point_de_vie_maximum, "                         ")
 	fmt.Println("|                                     ")
-	fmt.Println("|     mana : ",p.mana_actuel,"/",p.mana_maximum ,"                         ")
+	fmt.Println("|     mana : ", p.mana_actuel, "/", p.mana_maximum, "                         ")
 	fmt.Println("|                                     ")
-	fmt.Println("|     skill : ",p.Skill,"                         ")                                                              
-	fmt.Println("|_____________________________________")	
+	fmt.Println("|     skill : ", p.skill.nom, "                         ")
+	fmt.Println("|_____________________________________")
 }
 
 func (p Personnage) Afficher_info() {
@@ -91,13 +92,13 @@ func (p Personnage) Afficher_info() {
 	fmt.Println("|              Statistique            ")
 	fmt.Println("|_____________________________________")
 	fmt.Println("|                                     ")
-	fmt.Println("|     pseudo : ",p.nom,"              ")
+	fmt.Println("|     pseudo : ", p.nom, "              ")
 	fmt.Println("|                                     ")
-	fmt.Println("|     vie : ",p.point_de_vie_actuel,"/",p.point_de_vie_maximum ,"")
+	fmt.Println("|     vie : ", p.point_de_vie_actuel, "/", p.point_de_vie_maximum, "")
 	fmt.Println("|                                     ")
-	fmt.Println("|     mana : ",p.mana_actuel,"/",p.mana_maximum ,"")
+	fmt.Println("|     mana : ", p.mana_actuel, "/", p.mana_maximum, "")
 	fmt.Println("|                                     ")
-	fmt.Println("|     skill : ",p.Skill,"             ")                                                              
+	fmt.Println("|     skill : ", p.skill.nom, "             ")
 	fmt.Println("|_____________________________________")
 	p.Menu()
 }

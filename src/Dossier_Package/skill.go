@@ -78,45 +78,45 @@ func (p Personnage) Menu_skill_Feu() {
 
 	switch choix_menu {
 	case 1:
-		if p.verif_classe() == "mage"{
+		if p.verif_classe() == "mage" {
 			p.addSkill("Feu", "Boule de Feu", 8, 12)
-		}else{
+		} else {
 			fmt.Print("Vous n'avez pas accés à ce skill")
 		}
 		p.Menu_skill_Feu()
 	case 2:
-		if p.verif_classe() == "mage"{
+		if p.verif_classe() == "mage" {
 			p.addSkill("Feu", "esprit de feu", 10, 15)
-			}else{
-				fmt.Print("Vous n'avez pas accés à ce skill")
+		} else {
+			fmt.Print("Vous n'avez pas accés à ce skill")
 		}
 		p.Menu_skill_Feu()
 	case 3:
-		if p.verif_classe() == "Epéiste"{
+		if p.verif_classe() == "Epéiste" {
 			p.addSkill("Feu", "Epée de feu", 8, 9)
-			}else{
-				fmt.Print("Vous n'avez pas accés à ce skill")
+		} else {
+			fmt.Print("Vous n'avez pas accés à ce skill")
 		}
 		p.Menu_skill_Feu()
 	case 4:
-		if p.verif_classe() == "Epéiste"{
+		if p.verif_classe() == "Epéiste" {
 			p.addSkill("Feu", "Epée enflammée", 6, 5)
-			}else{
-				fmt.Print("Vous n'avez pas accés à ce skill")
+		} else {
+			fmt.Print("Vous n'avez pas accés à ce skill")
 		}
 		p.Menu_skill_Feu()
 	case 5:
-		if p.verif_classe() == "archer"{
+		if p.verif_classe() == "archer" {
 			p.addSkill("Feu", "Flèche enflammée", 7, 6)
-			}else{
-				fmt.Print("Vous n'avez pas accés à ce skill")
+		} else {
+			fmt.Print("Vous n'avez pas accés à ce skill")
 		}
 		p.Menu_skill_Feu()
 	case 6:
-		if p.verif_classe() == "archer"{
+		if p.verif_classe() == "archer" {
 			p.addSkill("Feu", "Arc enflammé", 10, 14)
-			}else{
-				fmt.Print("Vous n'avez pas accés à ce skill")
+		} else {
+			fmt.Print("Vous n'avez pas accés à ce skill")
 		}
 		p.Menu_skill_Feu()
 	case 7:
@@ -152,45 +152,45 @@ func (p Personnage) Menu_skill_Eau() {
 
 	switch choix_menu {
 	case 1:
-		if p.verif_classe() == "mage"{
+		if p.verif_classe() == "mage" {
 			p.addSkill("Eau", "vague géante", 8, 12)
-		}else{
+		} else {
 			fmt.Print("Vous n'avez pas accés à ce skill")
 		}
 		p.Menu_skill_Eau()
 	case 2:
-		if p.verif_classe() == "mage"{
+		if p.verif_classe() == "mage" {
 			p.addSkill("Eau", "mur d'eau", 10, 15)
-			}else{
-				fmt.Print("Vous n'avez pas accés à ce skill")
+		} else {
+			fmt.Print("Vous n'avez pas accés à ce skill")
 		}
 		p.Menu_skill_Eau()
 	case 3:
-		if p.verif_classe() == "Epéiste"{
+		if p.verif_classe() == "Epéiste" {
 			p.addSkill("Eau", "Epée d'Eau", 8, 9)
-			}else{
-				fmt.Print("Vous n'avez pas accés à ce skill")
+		} else {
+			fmt.Print("Vous n'avez pas accés à ce skill")
 		}
 		p.Menu_skill_Eau()
 	case 4:
-		if p.verif_classe() == "Epéiste"{
+		if p.verif_classe() == "Epéiste" {
 			p.addSkill("Eau", "Epée lance d'eau", 6, 5)
-			}else{
-				fmt.Print("Vous n'avez pas accés à ce skill")
+		} else {
+			fmt.Print("Vous n'avez pas accés à ce skill")
 		}
 		p.Menu_skill_Eau()
 	case 5:
-		if p.verif_classe() == "archer"{
+		if p.verif_classe() == "archer" {
 			p.addSkill("Eau", "Flèche d'eau", 7, 6)
-			}else{
-				fmt.Print("Vous n'avez pas accés à ce skill")
+		} else {
+			fmt.Print("Vous n'avez pas accés à ce skill")
 		}
 		p.Menu_skill_Eau()
 	case 6:
-		if p.verif_classe() == "archer"{
+		if p.verif_classe() == "archer" {
 			p.addSkill("Eau", "Arc impermeable", 10, 14)
-			}else{
-				fmt.Print("Vous n'avez pas accés à ce skill")
+		} else {
+			fmt.Print("Vous n'avez pas accés à ce skill")
 		}
 		p.Menu_skill_Eau()
 	case 7:
@@ -226,46 +226,46 @@ func (p Personnage) Menu_skill_Air() {
 
 	switch choix_menu {
 	case 1:
-		if p.verif_classe() == "mage"{
+		if p.verif_classe() == "mage" {
 			p.addSkill("Air", "tornade", 8, 12)
-		}else{
+		} else {
 			fmt.Print("Vous n'avez pas accés à ce skill")
 		}
 		p.Menu_skill_Air()
 	case 2:
-		if p.verif_classe() == "mage"{
+		if p.verif_classe() == "mage" {
 			p.addSkill("Air", "souffle ultime", 10, 15)
-			}else{
-				fmt.Print("Vous n'avez pas accés à ce skill")
+		} else {
+			fmt.Print("Vous n'avez pas accés à ce skill")
 		}
 		p.Menu_skill_Air()
 	case 3:
-		if p.verif_classe() == "Epéiste"{
+		if p.verif_classe() == "Epéiste" {
 			p.addSkill("Air", "Epée tornade", 8, 9)
-			}else{
-				fmt.Print("Vous n'avez pas accés à ce skill")
+		} else {
+			fmt.Print("Vous n'avez pas accés à ce skill")
 		}
 		p.Menu_skill_Air()
 	case 4:
-		if p.verif_classe() == "Epéiste"{
+		if p.verif_classe() == "Epéiste" {
 			p.addSkill("Air", "lame invisible", 6, 5)
-			}else{
-				fmt.Print("Vous n'avez pas accés à ce skill")
+		} else {
+			fmt.Print("Vous n'avez pas accés à ce skill")
 		}
 		p.Menu_skill_Air()
 	case 5:
-		if p.verif_classe() == "archer"{
+		if p.verif_classe() == "archer" {
 			p.addSkill("Air", "Flèche légère", 7, 6)
-			}else{
-				fmt.Print("Vous n'avez pas accés à ce skill")
-		}		
+		} else {
+			fmt.Print("Vous n'avez pas accés à ce skill")
+		}
 		p.Menu_skill_Air()
 
 	case 6:
-		if p.verif_classe() == "archer"{
+		if p.verif_classe() == "archer" {
 			p.addSkill("Air", "Arc teleportant", 10, 14)
-			}else{
-				fmt.Print("Vous n'avez pas accés à ce skill")
+		} else {
+			fmt.Print("Vous n'avez pas accés à ce skill")
 		}
 		p.Menu_skill_Air()
 	case 7:
@@ -301,45 +301,45 @@ func (p Personnage) Menu_skill_Terre() {
 
 	switch choix_menu {
 	case 1:
-		if p.verif_classe() == "mage"{
+		if p.verif_classe() == "mage" {
 			p.addSkill("Terre", "racine tueuse", 8, 12)
-		}else{
+		} else {
 			fmt.Print("Vous n'avez pas accés à ce skill")
 		}
 		p.Menu_skill_Terre()
 	case 2:
-		if p.verif_classe() == "mage"{
+		if p.verif_classe() == "mage" {
 			p.addSkill("Terre", "sable mouvant", 10, 15)
-			}else{
-				fmt.Print("Vous n'avez pas accés à ce skill")
+		} else {
+			fmt.Print("Vous n'avez pas accés à ce skill")
 		}
 		p.Menu_skill_Terre()
 	case 3:
-		if p.verif_classe() == "Epéiste"{
+		if p.verif_classe() == "Epéiste" {
 			p.addSkill("Terre", "Epée en pierre", 8, 9)
-			}else{
-				fmt.Print("Vous n'avez pas accés à ce skill")
+		} else {
+			fmt.Print("Vous n'avez pas accés à ce skill")
 		}
 		p.Menu_skill_Terre()
 	case 4:
-		if p.verif_classe() == "Epéiste"{
+		if p.verif_classe() == "Epéiste" {
 			p.addSkill("Terre", "lame en diamant", 6, 5)
-			}else{
-				fmt.Print("Vous n'avez pas accés à ce skill")
+		} else {
+			fmt.Print("Vous n'avez pas accés à ce skill")
 		}
 		p.Menu_skill_Terre()
 	case 5:
-		if p.verif_classe() == "archer"{
+		if p.verif_classe() == "archer" {
 			p.addSkill("Terre", "Flèche en or", 7, 6)
-			}else{
-				fmt.Print("Vous n'avez pas accés à ce skill")
+		} else {
+			fmt.Print("Vous n'avez pas accés à ce skill")
 		}
 		p.Menu_skill_Terre()
 	case 6:
-		if p.verif_classe() == "archer"{
+		if p.verif_classe() == "archer" {
 			p.addSkill("Terre", "Arc en marbre", 10, 14)
-			}else{
-				fmt.Print("Vous n'avez pas accés à ce skill")
+		} else {
+			fmt.Print("Vous n'avez pas accés à ce skill")
 		}
 		p.Menu_skill_Terre()
 	case 7:

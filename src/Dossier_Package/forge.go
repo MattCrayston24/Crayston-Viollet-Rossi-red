@@ -105,13 +105,13 @@ func (p Personnage) Menu_casque_Creation() {
 	switch choix {
 	case 1:
 		p.Creation_Objet(4, 15, "Cuir", e1.liste_casque[0])
-		p.Menu_Equipement_Creation()
+		p.Menu_casque_Creation()
 	case 2:
 		p.Creation_Objet(4, 25, "Fer", e1.liste_casque[1])
-		p.Menu_Equipement_Creation()
+		p.Menu_casque_Creation()
 	case 3:
 		p.Creation_Objet(4, 35, "Mitrhil", e1.liste_casque[2])
-		p.Menu_Equipement_Creation()
+		p.Menu_casque_Creation()
 	case 4:
 		p.Menu_Equipement_Creation()
 	default:
@@ -142,13 +142,13 @@ func (p Personnage) Menu_plastron_Creation() {
 	switch choix {
 	case 1:
 		p.Creation_Objet(8, 25, "Cuir", e1.liste_plastron[0])
-		p.Menu_Equipement_Creation()
+		p.Menu_plastron_Creation()
 	case 2:
 		p.Creation_Objet(8, 35, "Fer", e1.liste_plastron[1])
-		p.Menu_Equipement_Creation()
+		p.Menu_plastron_Creation()
 	case 3:
 		p.Creation_Objet(8, 45, "Mitrhil", e1.liste_plastron[2])
-		p.Menu_Equipement_Creation()
+		p.Menu_plastron_Creation()
 	case 4:
 		p.Menu_Equipement_Creation()
 	default:
@@ -178,13 +178,13 @@ func (p Personnage) Menu_bottes_Creation() {
 	switch choix {
 	case 1:
 		p.Creation_Objet(4, 20, "Cuir", e1.liste_bottes[0])
-		p.Menu_Equipement_Creation()
+		p.Menu_bottes_Creation()
 	case 2:
 		p.Creation_Objet(4, 30, "fer", e1.liste_bottes[1])
-		p.Menu_Equipement_Creation()
+		p.Menu_bottes_Creation()
 	case 3:
 		p.Creation_Objet(4, 40, "mitrhil", e1.liste_bottes[2])
-		p.Menu_Equipement_Creation()
+		p.Menu_bottes_Creation()
 	case 4:
 		p.Menu_Equipement_Creation()
 	default:
@@ -215,15 +215,15 @@ func (p Personnage) Menu_arme_mage_Creation() {
 	switch choix {
 	case 1:
 		p.Creation_Objet(4, 20, "Bois", e1.liste_armes_mage[0])
-		p.Menu_Equipement_Creation()
+		p.Menu_arme_mage_Creation()
 	case 2:
 		p.Creation_Objet(4, 30, "Fer", e1.liste_armes_mage[1])
-		p.Menu_Equipement_Creation()
+		p.Menu_arme_mage_Creation()
 	case 3:
 		p.Creation_Objet(4, 40, "Acier", e1.liste_armes_mage[2])
 	case 4:
 		p.Creation_Objet(4, 50, "Mitrhil", e1.liste_armes_mage[3])
-		p.Menu_Equipement_Creation()
+		p.Menu_arme_mage_Creation()
 	case 5:
 		p.Menu_Equipement_Creation()
 	default:
@@ -253,17 +253,17 @@ func (p Personnage) Menu_arme_archer_Creation() {
 	switch choix {
 	case 1:
 		p.Creation_Objet(4, 20, "Bois", e1.liste_armes_archer[0])
-		p.Menu_Equipement_Creation()
+		p.Menu_arme_archer_Creation()
 	case 2:
 		p.Creation_Objet(4, 30, "Fer", e1.liste_armes_archer[1])
-		p.Menu_Equipement_Creation()
+		p.Menu_arme_archer_Creation()
 	case 3:
 		p.Creation_Objet(4, 40, "Acier", e1.liste_armes_archer[2])
 	case 4:
 		p.Creation_Objet(4, 50, "Mitrhil", e1.liste_armes_archer[3])
-		p.Menu_Equipement_Creation()
+		p.Menu_arme_archer_Creation()
 	case 5:
-		p.Menu_Equipement_Creation()
+		p.Menu_arme_archer_Creation()
 	default:
 
 	}
@@ -291,15 +291,15 @@ func (p Personnage) Menu_arme_épéiste_Creation() {
 	switch choix {
 	case 1:
 		p.Creation_Objet(4, 20, "Bois", e1.liste_armes_épéiste[0])
-		p.Menu_Equipement_Creation()
+		p.Menu_arme_épéiste_Creation()
 	case 2:
 		p.Creation_Objet(4, 30, "Fer", e1.liste_armes_épéiste[1])
-		p.Menu_Equipement_Creation()
+		p.Menu_arme_épéiste_Creation()
 	case 3:
 		p.Creation_Objet(4, 40, "Acier", e1.liste_armes_épéiste[2])
 	case 4:
 		p.Creation_Objet(4, 50, "Mitrhil", e1.liste_armes_épéiste[3])
-		p.Menu_Equipement_Creation()
+		p.Menu_arme_épéiste_Creation()
 	case 5:
 		p.Menu_Equipement_Creation()
 	default:
