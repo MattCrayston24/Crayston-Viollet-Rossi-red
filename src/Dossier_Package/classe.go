@@ -1,5 +1,5 @@
 package Dossier_Package
-
+//Fonction qui definit la classe Archer
 func (p *Personnage) Archer() {
 	p.classe = "archer"
 	p.point_de_vie_maximum = 80
@@ -18,6 +18,7 @@ func (p *Personnage) Archer() {
 	p.experience_max = 100
 }
 
+//Fonction qui definit la classe Epéiste
 func (p *Personnage) Epéiste() {
 	p.classe = "épéiste"
 	p.point_de_vie_maximum = 100
@@ -35,6 +36,7 @@ func (p *Personnage) Epéiste() {
 	p.experience_max = 100
 }
 
+//Fonction qui definit la classe Mage
 func (p *Personnage) Mage() {
 	p.classe = "mage"
 	p.point_de_vie_maximum = 70

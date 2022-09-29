@@ -2,6 +2,7 @@ package Dossier_Package
 
 import "fmt"
 
+//Fonction qui sert de menu pour le marchand
 func (p *Personnage) Marchand() {
 	fmt.Println("_____________________________________")
 	fmt.Println("|                                    |")

@@ -2,6 +2,7 @@ package Dossier_Package
 
 import "fmt"
 
+//Fonction pour ajouter de l'experience
 func (p *Personnage) addExp(nb int) {
 	p.experience_actuel += nb
 	if p.experience_actuel > p.experience_max {
@@ -11,6 +12,7 @@ func (p *Personnage) addExp(nb int) {
 	}
 }
 
+//Fonction pour ajouter un niveau
 func (p *Personnage) addLevev() {
 	p.experience_max += 100
 	p.niveau += 1

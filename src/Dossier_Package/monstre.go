@@ -1,7 +1,7 @@
 package Dossier_Package
 
 import "fmt"
-
+//Structure Monstre
 type Monstre struct {
 	nom                 string
 	point_de_vie_max    int
@@ -14,6 +14,7 @@ type Monstre struct {
 	monnaie             int
 }
 
+//Fonction qui permet de créer un monstre
 func (m *Monstre) InitMonstre(str string) {
 	if str == "Gobelin" {
 		m.nom = "Gobelin"
@@ -49,6 +50,7 @@ func (m *Monstre) InitMonstre(str string) {
 	}
 }
 
+//Fonction qui détermine le paterne d'attaque du monstre
 func (m *Monstre) gobelin_parterne(nb_tour int) {
 	if nb_tour%3 == 1 {
 		m.points_d_attaque *= 2
@@ -58,6 +60,7 @@ func (m *Monstre) gobelin_parterne(nb_tour int) {
 
 }
 
+//Fonction qui sert de menu et permet a l'utilisateur de choisir le monstre qu'il veut affronter
 func Menu_Choix_Monstre() string {
 	var choix string
 	fmt.Println("______________________________________")

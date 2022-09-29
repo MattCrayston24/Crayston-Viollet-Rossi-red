@@ -2,6 +2,7 @@ package Dossier_Package
 
 import "fmt"
 
+//Structure de l'equipement
 type Equipement struct {
 	casque              string
 	plastron            string
@@ -15,6 +16,7 @@ type Equipement struct {
 	liste_armes_mage    []string
 }
 
+//Fonction qui permet de mettre sous forme de liste les equipement avec les differents materiaux
 func (e *Equipement) Init_List() {
 	e.liste_casque = []string{"casque en cuir", "casque en fer", "casque en mithril"}
 	e.liste_plastron = []string{"plastron en cuir", "plastron en fer", "plastron en mithril"}
@@ -24,6 +26,7 @@ func (e *Equipement) Init_List() {
 	e.liste_armes_mage = []string{"baton d'entrainement", "baton en fer  ", "baton en acier ", "épée en mithril"}
 }
 
+//Fonction  qui permet d'ajouter des statistiques garce au casque
 func (p *Personnage) Ajout_Stat_equipement_casque(e Equipement) {
 	casque := p.mon_equipement.casque
 
@@ -40,6 +43,7 @@ func (p *Personnage) Ajout_Stat_equipement_casque(e Equipement) {
 
 }
 
+//Fonction qui permet d'ajouter des statistiques garce au plastron
 func (p *Personnage) Ajout_Stat_equipement_plastron(e Equipement) {
 	plastron := p.mon_equipement.plastron
 
@@ -55,6 +59,8 @@ func (p *Personnage) Ajout_Stat_equipement_plastron(e Equipement) {
 	}
 
 }
+
+//Fonction qui permet d'ajouter des statistiques garce aux bottes
 func (p *Personnage) Ajout_Stat_equipement_bottes(e Equipement) {
 	bottes := p.mon_equipement.bottes
 
@@ -70,6 +76,8 @@ func (p *Personnage) Ajout_Stat_equipement_bottes(e Equipement) {
 	}
 
 }
+
+//Fonction qui permet d'equiper le casque 
 func (p *Personnage) Mettre_casque(nb int, e Equipement) {
 	if p.mon_equipement.casque != "" {
 		p.addInventory(p.mon_equipement.casque)
@@ -89,6 +97,7 @@ func (p *Personnage) Mettre_casque(nb int, e Equipement) {
 
 }
 
+//Fonction qui permet d'equiper le plastron
 func (p *Personnage) Mettre_Plastron(nb int, e Equipement) {
 	if p.mon_equipement.plastron != "" {
 		p.addInventory(p.mon_equipement.plastron)
@@ -110,6 +119,7 @@ func (p *Personnage) Mettre_Plastron(nb int, e Equipement) {
 
 }
 
+//Fonction qui permet de mettre les bottes
 func (p *Personnage) Mettre_bottes(nb int, e Equipement) {
 	if p.mon_equipement.bottes != "" {
 		p.addInventory(p.mon_equipement.bottes)
@@ -128,6 +138,7 @@ func (p *Personnage) Mettre_bottes(nb int, e Equipement) {
 	}
 }
 
+//Fonction qui permet d'equiper l'arme de l archer
 func (p *Personnage) Mettre_armes_archer(nb int, e Equipement) {
 	if p.mon_equipement.armes != "" {
 		p.addInventory(p.mon_equipement.armes)
@@ -146,6 +157,7 @@ func (p *Personnage) Mettre_armes_archer(nb int, e Equipement) {
 	}
 }
 
+//Fonction qui permet d'equiper l'arme de l'épéiste
 func (p *Personnage) Mettre_armes_épéiste(nb int, e Equipement) {
 	if p.mon_equipement.armes != "" {
 		p.addInventory(p.mon_equipement.armes)
@@ -164,6 +176,7 @@ func (p *Personnage) Mettre_armes_épéiste(nb int, e Equipement) {
 	}
 }
 
+//Fonction qui permet d'equiper l'arme du mage
 func (p *Personnage) Mettre_armes_mage(nb int, e Equipement) {
 	if p.mon_equipement.armes != "" {
 		p.addInventory(p.mon_equipement.armes)
@@ -182,6 +195,7 @@ func (p *Personnage) Mettre_armes_mage(nb int, e Equipement) {
 	}
 }
 
+//Fonction qui permet d'ajouter des stats grâce a l'arme de l'archer
 func (p *Personnage) Ajout_Stat_armes_archer(e Equipement) {
 	armes := p.mon_equipement.armes
 
@@ -197,6 +211,7 @@ func (p *Personnage) Ajout_Stat_armes_archer(e Equipement) {
 	}
 }
 
+//Fonction qui permet d'ajouter des stats grâce a l'arme de l'épéiste
 func (p *Personnage) Ajout_Stat_armes_épéiste(e Equipement) {
 	armes := p.mon_equipement.armes
 
@@ -212,6 +227,7 @@ func (p *Personnage) Ajout_Stat_armes_épéiste(e Equipement) {
 	}
 }
 
+//Fonction qui permet d'ajouter des stats grâce a l'arme du mage
 func (p *Personnage) Ajout_Stat_armes_mage(e Equipement) {
 	armes := p.mon_equipement.armes
 	switch armes {

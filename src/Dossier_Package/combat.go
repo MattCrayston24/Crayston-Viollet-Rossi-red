@@ -4,6 +4,7 @@ import (
 	"fmt"
 )
 
+//Fonction qui sert de menu pendant le combat
 func (p *Personnage) ChatTurn(m *Monstre) {
 	fmt.Println("______________________________________")
 	fmt.Println("|                                    |")
@@ -42,6 +43,7 @@ func (p *Personnage) ChatTurn(m *Monstre) {
 	}
 }
 
+//Fonction qui sert pour le combat
 func (p *Personnage) trainingFight() {
 	var m1 *Monstre = new(Monstre)
 	m1.InitMonstre(Menu_Choix_Monstre())
@@ -89,6 +91,7 @@ func (p *Personnage) trainingFight() {
 	p.Menu()
 }
 
+//Fonction qui sert de menu d'attaque pendant le combat
 func (p *Personnage) Menu_attaque(m *Monstre) {
 	fmt.Println("______________________________________")
 	fmt.Println("|                                    |")

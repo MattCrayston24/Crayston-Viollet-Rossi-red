@@ -2,6 +2,7 @@ package Dossier_Package
 
 import "fmt"
 
+//Fonction qui sert de menu pour le forgeron
 func (p Personnage) Menu_Fogeron() {
 	fmt.Println("______________________________________")
 	fmt.Println("|                                    |")
@@ -33,6 +34,7 @@ func (p Personnage) Menu_Fogeron() {
 	}
 }
 
+//Fonction qui permet de fabriquer un objet grace au matériaux et a l'argent du joueur
 func (p *Personnage) Creation_Objet(nb, nbr int, str1, str2 string) {
 
 	if p.verif_materiaux(nb, str1) && p.monnaie > nbr && p.CheckInventory() {
@@ -53,6 +55,7 @@ func (p *Personnage) Creation_Objet(nb, nbr int, str1, str2 string) {
 
 }
 
+//Fonction qui sert de menu pour les equipement pour les fabriquer
 func (p *Personnage) Menu_Equipement_Creation() {
 	fmt.Println("______________________________________")
 	fmt.Println("|                                    |")
@@ -88,6 +91,7 @@ func (p *Personnage) Menu_Equipement_Creation() {
 	}
 }
 
+//Fonction qui sert de menu pour les casques pour les fabriquer
 func (p *Personnage) Menu_casque_Creation() {
 	var e1 Equipement
 	e1.Init_List()
@@ -122,6 +126,7 @@ func (p *Personnage) Menu_casque_Creation() {
 	}
 }
 
+//Fonction qui sert de menu pour les plastrons pour les fabriquer
 func (p *Personnage) Menu_plastron_Creation() {
 	var e1 Equipement
 	e1.Init_List()
@@ -156,6 +161,8 @@ func (p *Personnage) Menu_plastron_Creation() {
 		p.Menu_plastron_Creation()
 	}
 }
+
+//Fonction qui sert de menu pour les bottes pour les fabriquer
 func (p *Personnage) Menu_bottes_Creation() {
 	var e1 Equipement
 	e1.Init_List()
@@ -192,6 +199,7 @@ func (p *Personnage) Menu_bottes_Creation() {
 
 }
 
+//Fonction qui sert de menu pour les armes de mage pour les fabriquer
 func (p *Personnage) Menu_arme_mage_Creation() {
 	var e1 Equipement
 	e1.Init_List()
@@ -229,6 +237,7 @@ func (p *Personnage) Menu_arme_mage_Creation() {
 	}
 }
 
+//Fonction qui sert de menu pour les armes d archer pour les fabriquer
 func (p *Personnage) Menu_arme_archer_Creation() {
 	var e1 Equipement
 	i := 0
@@ -266,6 +275,7 @@ func (p *Personnage) Menu_arme_archer_Creation() {
 	}
 }
 
+//Fonction qui sert de menu pour les armes d'épéiste pour les fabriquer
 func (p *Personnage) Menu_arme_épéiste_Creation() {
 	var e1 Equipement
 	e1.Init_List()

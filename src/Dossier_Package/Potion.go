@@ -5,6 +5,7 @@ import (
 	"time"
 )
 
+//Fonction qui permet de prendre une potion de vie si elle est dans l'inventaire et la supprimer de l'inventaire après utilisation 
 func (p *Personnage) TakePot() {
 	fmt.Println("vous aviez", p.point_de_vie_actuel, "/", p.point_de_vie_maximum)
 	potion := 20
@@ -24,6 +25,7 @@ func (p *Personnage) TakePot() {
 	fmt.Println("Vous avez maintenant", p.point_de_vie_actuel, "/", p.point_de_vie_maximum)
 }
 
+//Fonction qui permet d'utiliser une potion de poison contre l'ennemi si elle est dans l'inventaire et la supprimer de l'inventaire après utilisation
 func (p *Personnage) PoisonPot(m *Monstre) {
 	for i := range p.inventaire {
 		if p.inventaire[i] == "Potion de poison" {

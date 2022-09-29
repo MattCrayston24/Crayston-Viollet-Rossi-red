@@ -5,7 +5,7 @@ import (
 	"os"
 )
 
-// Fonction pour définir le menu :
+// Fonction pour définir le menu principal
 func (p Personnage) Menu() {
 	fmt.Println("______________________________________")
 	fmt.Println("|                                    |")
@@ -47,6 +47,7 @@ func (p Personnage) Menu() {
 	}
 }
 
+//Fonction pour définir le menu de l'inventaire
 func (p Personnage) Menu_Inventaire() {
 	fmt.Println(p.inventaire)
 	fmt.Println("______________________________________")
@@ -78,6 +79,7 @@ func (p Personnage) Menu_Inventaire() {
 	}
 }
 
+//Fonction pour définir le menu de l'equipement
 func (p Personnage) Menu_Equipement() {
 	fmt.Println("______________________________________")
 	fmt.Println("|                                    |")
@@ -126,6 +128,7 @@ func (p Personnage) Menu_Equipement() {
 	}
 }
 
+//Fonction pour définir le menu des casques
 func (p Personnage) Menu_casque() {
 	var e1 Equipement
 	e1.Init_List()
@@ -159,6 +162,7 @@ func (p Personnage) Menu_casque() {
 
 }
 
+//Fonction pour définir le menu des plastrons
 func (p Personnage) Menu_plastron() {
 	var e1 Equipement
 	e1.Init_List()
@@ -191,6 +195,7 @@ func (p Personnage) Menu_plastron() {
 	}
 }
 
+//Fonction pour définir le menu des bottes
 func (p Personnage) Menu_bottes() {
 	var e1 Equipement
 	e1.Init_List()
@@ -223,6 +228,7 @@ func (p Personnage) Menu_bottes() {
 	}
 }
 
+//Focntion pour définir le menu des skills
 func (p *Personnage) Menu_skill(m *Monstre) {
 	var choix int
 	fmt.Println("Votre réserve de mana est de ", p.mana_actuel, "/", p.mana_maximum)
@@ -252,6 +258,7 @@ func (p *Personnage) Menu_skill(m *Monstre) {
 	}
 }
 
+//Fonction pour définir les armes de la classe archer et les ajouter dans la liste des armes
 func (p *Personnage) Menu_armes_archer() {
 	var e1 Equipement
 	e1.Init_List()
@@ -285,6 +292,7 @@ func (p *Personnage) Menu_armes_archer() {
 	}
 }
 
+//Fonction pour définir les armes de la classe mage et les ajouter dans la liste des armes
 func (p *Personnage) Menu_armes_mage() {
 	var e1 Equipement
 	e1.Init_List()
@@ -319,6 +327,7 @@ func (p *Personnage) Menu_armes_mage() {
 	}
 }
 
+//Fonction pour définir les armes de la classe épéiste et les ajouter dans la liste des armes
 func (p *Personnage) Menu_armes_épéiste() {
 	var e1 Equipement
 	e1.Init_List()

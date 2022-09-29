@@ -6,7 +6,7 @@ import (
 	"os"
 )
 
-// Définition d'une structure :
+// Structure du personnage avec ses attributs et ses méthodes
 type Personnage struct {
 	nom                  string
 	classe               string
@@ -28,7 +28,7 @@ type Personnage struct {
 	point_skill          int
 }
 
-// Fonction init pour créer un personnage :
+// Fonction init pour créer un personnage avec son pseudo
 func (p *Personnage) Init() {
 	for {
 		fmt.Println("______________________________________________________________________________")
@@ -51,6 +51,7 @@ func (p *Personnage) Init() {
 
 }
 
+//Fonction qui affiche les statistiques du personnage
 func (p Personnage) Afficher_info() {
 	fmt.Println("______________________________________")
 	fmt.Println("|                                     ")
@@ -76,19 +77,23 @@ func (p Personnage) Afficher_info() {
 	p.Menu()
 }
 
+//Fonction qui retire de la monnaie au personnage 
 func (p *Personnage) retrait_monnaie(nb int) {
 	p.monnaie -= nb
 
 }
 
+//Fonction qui ajoute de la monnaie au personnage
 func (p *Personnage) ajout_monnaie(nb int) {
 	p.monnaie += nb
 }
 
+//Fonction qui vérifie si les points de vie du personnage sont inférieur ou égal à 0
 func (p *Personnage) wasted() bool {
 	return p.point_de_vie_actuel <= 0
 }
 
+//Fonction qui permet a l'utilisateur de choisir sa classe et envoie les statistiques du personnage en fonction de la classe choisie
 func (p *Personnage) choix_classe() {
 	var classe_choisi string
 	fmt.Println("______________________________________")

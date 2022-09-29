@@ -4,6 +4,7 @@ import (
 	"fmt"
 )
 
+//Fonction qui permet d'ajouter un skill a un personnage
 func (p *Personnage) addSkill(str, str1 string, nb, nbr int) {
 	if len(p.skill.nom) < 5 {
 		p.skill.element = append(p.skill.element, str)
@@ -13,6 +14,7 @@ func (p *Personnage) addSkill(str, str1 string, nb, nbr int) {
 	}
 }
 
+//Structure Skill qui contient les elements, les noms, les degats et les couts de mana
 type Skill struct {
 	element   []string
 	cout_mana []int
@@ -20,6 +22,7 @@ type Skill struct {
 	nom       []string
 }
 
+//Fonction qui sert de menu pour choisir l'element du skill
 func (p Personnage) Menu_skill_choix() {
 	fmt.Println("______________________________________")
 	fmt.Println("|                                    |")
@@ -59,6 +62,7 @@ func (p Personnage) Menu_skill_choix() {
 	}
 }
 
+//Fonction qui sert de menu pour choisir un skill de l'élément Feu
 func (p Personnage) Menu_skill_Feu() {
 	fmt.Println("______________________________________")
 	fmt.Println("|                                    |")
@@ -150,6 +154,7 @@ func (p Personnage) Menu_skill_Feu() {
 	}
 }
 
+//Fonction qui permet de choisir un skill de type eau
 func (p Personnage) Menu_skill_Eau() {
 	fmt.Println("______________________________________")
 	fmt.Println("|                                    |")
@@ -244,6 +249,7 @@ func (p Personnage) Menu_skill_Eau() {
 	}
 }
 
+//Fonction qui permet de choisir un skill de type Air
 func (p Personnage) Menu_skill_Air() {
 	fmt.Println("______________________________________")
 	fmt.Println("|                                    |")
@@ -338,6 +344,7 @@ func (p Personnage) Menu_skill_Air() {
 	}
 }
 
+//Fonction qui permet de choisir un skill de type Terre
 func (p Personnage) Menu_skill_Terre() {
 	fmt.Println("______________________________________")
 	fmt.Println("|                                    |")
