@@ -16,6 +16,7 @@ func (p *Personnage) Archer() {
 	p.points_attaque = p.attaque_base
 	p.experience_actuel = 0
 	p.experience_max = 100
+
 }
 
 func (p *Personnage) Epéiste() {
@@ -30,6 +31,7 @@ func (p *Personnage) Epéiste() {
 	p.mana_actuel = 15
 	p.mana_maximum = 15
 	p.attaque_base = 5
+
 	p.point_skill = 2
 	p.experience_actuel = 0
 	p.experience_max = 100
@@ -41,7 +43,7 @@ func (p *Personnage) Mage() {
 	p.point_de_vie_actuel = 70
 	p.taille_inventaire = 50
 	p.inventaire = []string{"Potion de Vie", "Baton d'entrainement "}
-	p.niveau = 2
+	p.niveau = 1
 	p.monnaie = 100
 	p.initiative = 15
 	p.mana_actuel = 50

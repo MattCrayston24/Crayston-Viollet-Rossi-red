@@ -7,7 +7,11 @@ import (
 
 // Fonction pour définir le menu :
 func (p Personnage) Menu() {
+<<<<<<< HEAD
+	var choix_menu string
+=======
 	var choix_menu int
+>>>>>>> main
 	fmt.Println("______________________________________")
 	fmt.Println("|                                    |")
 	fmt.Println("|               Menu                 |")
@@ -30,6 +34,24 @@ func (p Personnage) Menu() {
 	fmt.Scan(&choix_menu)
 
 	switch choix_menu {
+<<<<<<< HEAD
+	case "1":
+		p.AccèsInventaire()
+	case "2":
+		p.Afficher_info()
+	case "3":
+		p.Menu_Fogeron()
+	case "4":
+		p.Marchand()
+	case "5":
+		p.trainingFight()
+	case "6":
+		p.Menu_skill_choix()
+	case "7":
+		os.Exit(3)
+	default:
+		fmt.Println("Vous n'avez pas selectionner un reponse valide")
+=======
 	case 1:
 		p.AccèsInventaire()
 	case 2:
@@ -47,11 +69,16 @@ func (p Personnage) Menu() {
 	default:
 		fmt.Println("Vous n'avez pas selectionner un reponse valide")
 		p.Menu()
+>>>>>>> main
 	}
 }
 
 func (p Personnage) Menu_Inventaire() {
+<<<<<<< HEAD
+	var choix string
+=======
 	var choix int
+>>>>>>> main
 	fmt.Println(p.inventaire)
 	fmt.Println("______________________________________")
 	fmt.Println("|                                    |")
@@ -69,6 +96,21 @@ func (p Personnage) Menu_Inventaire() {
 	fmt.Println("|               Précédent            |")
 	fmt.Println("|____________________________________|")
 	fmt.Scan(&choix)
+<<<<<<< HEAD
+	p.verif_espace(choix)
+	switch choix {
+	case "1":
+		p.TakePot()
+		p.Menu()
+	case "2":
+		p.Menu_Equipement()
+	case "3":
+		p.Menu()
+	default:
+		fmt.Println("Vous n'avez pas ecrit un reponse valide ")
+		p.Menu_Inventaire()
+	
+=======
 	for {
 		switch choix {
 		case 1:
@@ -82,10 +124,54 @@ func (p Personnage) Menu_Inventaire() {
 			fmt.Println("Vous n'avez pas ecrit un reponse valide ")
 			p.Menu_Inventaire()
 		}
+>>>>>>> main
 	}
 }
 
 func (p Personnage) Menu_Equipement() {
+<<<<<<< HEAD
+	var choix string
+	fmt.Println("______________________________________")
+	fmt.Println("|                                    |")
+	fmt.Println("|                Menu                |")
+	fmt.Println("|                Equipement          |")
+	fmt.Println("|____________________________________|")
+	fmt.Println("|                                    |")
+	fmt.Println("|             1.Mettre un            |")
+	fmt.Println("|               casque               |")
+	fmt.Println("|                                    |")
+	fmt.Println("|             2.Mettre un            |")
+	fmt.Println("|               plastron             |")
+	fmt.Println("|                                    |")
+	fmt.Println("|             3.Mettre une           |")
+	fmt.Println("|               paire de             |")
+	fmt.Println("|               bottes               |")
+	fmt.Println("|                                    |")
+	fmt.Println("|             4.équiper une          |")
+	fmt.Println("|               arme                 |")
+	fmt.Println("|                                    |")
+	fmt.Println("|            5.Retour au menu        |")
+	fmt.Println("|              précédent             |")
+	fmt.Println("|____________________________________|")
+	fmt.Scan(&choix)
+	p.verif_espace(choix)
+	switch choix {
+	case "1":
+		p.Menu_casque()
+	case "2":
+		p.Menu_plastron()
+	case "3":
+		p.Menu_bottes()
+	case "4":
+		if p.verif_classe() == "archer" {
+			p.Menu_armes_archer()
+		} else if p.verif_classe() == "mage" {
+			p.Menu_armes_mage()
+		} else if p.verif_classe() == "épéiste" {
+			p.Menu_armes_épéiste()
+		} else {
+			fmt.Println("error")
+=======
 	for {
 		var choix int
 		fmt.Println("______________________________________")
@@ -133,14 +219,24 @@ func (p Personnage) Menu_Equipement() {
 		default:
 			fmt.Println("Vous n'avez pas ecrit un reponse valide ")
 			p.Menu_Equipement()
+>>>>>>> main
 		}
+	case "5":
+		p.AccèsInventaire()
+	default:
+		fmt.Println("Vous n'avez pas ecrit un reponse valide ")
+		p.Menu_Equipement()	
 	}
 }
 
 func (p Personnage) Menu_casque() {
 	var e1 Equipement
 	e1.Init_List()
+<<<<<<< HEAD
+	var choix string
+=======
 	var choix int
+>>>>>>> main
 	fmt.Println("______________________________________")
 	fmt.Println("|                                    |")
 	fmt.Println("|                Menu                |")
@@ -153,22 +249,22 @@ func (p Personnage) Menu_casque() {
 	}
 	fmt.Println("|____________________________________|")
 	fmt.Scan(&choix)
+	p.verif_espace(choix)
 	switch choix {
-	case 1:
+	case "1":
 		p.Mettre_casque(1, e1)
 		p.Menu_Equipement()
-	case 2:
+	case "2":
 		p.Mettre_casque(2, e1)
 		p.Menu_Equipement()
-	case 3:
+	case "3":
 		p.Mettre_casque(3, e1)
 		p.Menu_Equipement()
-	case 4:
+	case "4":
 		p.Menu_Equipement()
 	default:
 		fmt.Println("Vous n'avez pas ecrit un reponse valide ")
 		p.Menu_casque()
-
 	}
 
 }
@@ -176,7 +272,7 @@ func (p Personnage) Menu_casque() {
 func (p Personnage) Menu_plastron() {
 	var e1 Equipement
 	e1.Init_List()
-	var choix int
+	var choix string
 	fmt.Println("______________________________________")
 	fmt.Println("|                                    |")
 	fmt.Println("|                Menu                |")
@@ -189,30 +285,29 @@ func (p Personnage) Menu_plastron() {
 	}
 	fmt.Println("|____________________________________|")
 	fmt.Scan(&choix)
-
+	p.verif_espace(choix)
 	switch choix {
-	case 1:
+	case "1":
 		p.Mettre_Plastron(1, e1)
 		p.Menu_Equipement()
-	case 2:
+	case "2":
 		p.Mettre_Plastron(2, e1)
 		p.Menu_Equipement()
-	case 3:
+	case "3":
 		p.Mettre_Plastron(3, e1)
 		p.Menu_Equipement()
-	case 4:
+	case "4":
 		p.Menu_Equipement()
 	default:
 		fmt.Println("Vous n'avez pas ecrit un reponse valide ")
 		p.Menu_plastron()
-
 	}
 }
 
 func (p Personnage) Menu_bottes() {
 	var e1 Equipement
 	e1.Init_List()
-	var choix int
+	var choix string
 	fmt.Println("______________________________________")
 	fmt.Println("|                                    |")
 	fmt.Println("|                Menu                |")
@@ -225,21 +320,22 @@ func (p Personnage) Menu_bottes() {
 	}
 	fmt.Println("|____________________________________|")
 	fmt.Scan(&choix)
+	p.verif_espace(choix)
 	switch choix {
-	case 1:
+	case "1":
 		p.Mettre_bottes(1, e1)
 		p.Menu_Equipement()
-	case 2:
+	case "2":
 		p.Mettre_bottes(2, e1)
 		p.Menu_Equipement()
-	case 3:
+	case "3":
 		p.Mettre_bottes(3, e1)
 		p.Menu_Equipement()
-	case 4:
+	case "4":
 		p.Menu_Equipement()
 	default:
+		fmt.Println("Vous n'avez pas ecrit un reponse valide ")
 		p.Menu_bottes()
-
 	}
 }
 
@@ -275,7 +371,8 @@ func (p *Personnage) Menu_skill(m *Monstre) {
 func (p *Personnage) Menu_armes_archer() {
 	var e1 Equipement
 	e1.Init_List()
-	var choix int
+
+	var choix string
 	fmt.Println("______________________________________")
 	fmt.Println("|                                    |")
 	fmt.Println("|                Menu                |")
@@ -288,30 +385,30 @@ func (p *Personnage) Menu_armes_archer() {
 	}
 	fmt.Println("|____________________________________|")
 	fmt.Scan(&choix)
-
+	p.verif_espace(choix)
 	switch choix {
-	case 1:
+	case "1":
 		p.Mettre_armes_archer(1, e1)
 		p.Menu_Equipement()
-	case 2:
+	case "2":
 		p.Mettre_armes_archer(2, e1)
 		p.Menu_Equipement()
-	case 3:
+	case "3":
 		p.Mettre_armes_archer(3, e1)
 		p.Menu_Equipement()
-	case 4:
+	case "4":
 		p.Mettre_armes_archer(4, e1)
 		p.Menu_Equipement()
 	default:
 		fmt.Println("Vous n'avez pas ecrit un reponse valide ")
-		p.Menu_armes_archer()
+		p.Menu_armes_archer()	
 	}
 }
 
 func (p *Personnage) Menu_armes_mage() {
 	var e1 Equipement
 	e1.Init_List()
-	var choix int
+	var choix string
 	fmt.Println("______________________________________")
 	fmt.Println("|                                    |")
 	fmt.Println("|                Menu                |")
@@ -324,31 +421,31 @@ func (p *Personnage) Menu_armes_mage() {
 	}
 	fmt.Println("|____________________________________|")
 	fmt.Scan(&choix)
-
+	p.verif_espace(choix)
 	switch choix {
-	case 1:
+	case "1":
 		p.Mettre_armes_mage(1, e1)
 		p.Menu_Equipement()
-	case 2:
+	case "2":
 		p.Mettre_armes_mage(2, e1)
 		p.Menu_Equipement()
-	case 3:
+	case "3":
 		p.Mettre_armes_mage(3, e1)
 		p.Menu_Equipement()
-	case 4:
+	case "4":
 		p.Mettre_armes_mage(4, e1)
 		p.Menu_Equipement()
 	default:
 		fmt.Println("Vous n'avez pas ecrit un reponse valide ")
-		p.Menu_armes_mage()
 
+		p.Menu_armes_mage()	
 	}
 }
 
 func (p *Personnage) Menu_armes_épéiste() {
 	var e1 Equipement
 	e1.Init_List()
-	var choix int
+	var choix string
 	fmt.Println("______________________________________")
 	fmt.Println("|                                    |")
 	fmt.Println("|                Menu                |")
@@ -361,22 +458,23 @@ func (p *Personnage) Menu_armes_épéiste() {
 	}
 	fmt.Println("|____________________________________|")
 	fmt.Scan(&choix)
-
+	p.verif_espace(choix)
 	switch choix {
-	case 1:
+	case "1":
 		p.Mettre_armes_épéiste(1, e1)
 		p.Menu_Equipement()
-	case 2:
+	case "2":
 		p.Mettre_armes_épéiste(2, e1)
 		p.Menu_Equipement()
-	case 3:
+	case "3":
 		p.Mettre_armes_épéiste(3, e1)
 		p.Menu_Equipement()
-	case 4:
+	case "4":
+
 		p.Mettre_armes_épéiste(4, e1)
 		p.Menu_Equipement()
 	default:
 		fmt.Println("Vous n'avez pas ecrit un reponse valide ")
-		p.Menu_armes_épéiste()
+		p.Menu_armes_épéiste()	
 	}
 }
