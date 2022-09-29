@@ -39,5 +39,9 @@ func (p *Personnage) removeInventory(s string) {
 func (p Personnage) AccèsInventaire() {
 
 	p.Menu_Inventaire()
-	fmt.Println(p.inventaire)
+	if len(p.inventaire) > 0 {
+		fmt.Println(p.inventaire)
+	} else {
+		fmt.Println("votre inventaire est vide")
+	}
 }

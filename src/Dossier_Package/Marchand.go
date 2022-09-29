@@ -40,7 +40,7 @@ func (p *Personnage) Marchand() {
 			p.addInventory("Potion de Poison")
 			p.retrait_monnaie(30)
 			fmt.Println("La potion a été ajouté a votre invertaire")
-		}else{
+		} else {
 			fmt.Println("Vous n'avez pas assez de monnaie ou votre inventaire est plein")
 		}
 		p.Marchand()
@@ -49,16 +49,16 @@ func (p *Personnage) Marchand() {
 			p.addInventory("Potion de vie")
 			p.retrait_monnaie(20)
 			fmt.Println("La potion a été ajouté a votre invertaire")
-		}else{
+		} else {
 			fmt.Println("Vous n'avez pas assez de monnaie ou votre inventaire est plein")
-		}	
+		}
 		p.Marchand()
 	case "3":
 		if p.verif_monnaie(500) && p.CheckInventory() {
 			p.taille_inventaire += 3
 			p.retrait_monnaie(500)
 			fmt.Println("Les places supplémentaires ont été ajoutées")
-		}else{
+		} else {
 			fmt.Println("Vous n'avez pas assez de monnaie ou votre inventaire est plein")
 		}
 		p.Marchand()
@@ -67,6 +67,8 @@ func (p *Personnage) Marchand() {
 			p.addInventory("Cuir")
 			p.retrait_monnaie(15)
 			fmt.Println("Le Cuir a été ajouter a votre inventaire")
+		} else {
+			fmt.Println("Vous n'avez pas assez de monnaie ou votre inventaire est plein")
 		}
 		p.Marchand()
 	case "5":
@@ -74,7 +76,7 @@ func (p *Personnage) Marchand() {
 			p.addInventory("Fer")
 			p.retrait_monnaie(25)
 			fmt.Println("Le Fer a été ajouter a votre inventaire")
-		}else{
+		} else {
 			fmt.Println("Vous n'avez pas assez de monnaie ou votre inventaire est plein")
 		}
 		p.Marchand()
@@ -83,7 +85,7 @@ func (p *Personnage) Marchand() {
 			p.addInventory("Acier")
 			p.retrait_monnaie(35)
 			fmt.Println("Le Acier a été ajouter a votre inventaire")
-		}else{
+		} else {
 			fmt.Println("Vous n'avez pas assez de monnaie ou votre inventaire est plein")
 		}
 		p.Marchand()
@@ -92,7 +94,7 @@ func (p *Personnage) Marchand() {
 			p.addInventory("Mithril")
 			p.retrait_monnaie(45)
 			fmt.Println("Le Mithril a été ajouter a votre inventaire")
-		}else{
+		} else {
 			fmt.Println("Vous n'avez pas assez de monnaie ou votre inventaire est plein")
 		}
 		p.Marchand()

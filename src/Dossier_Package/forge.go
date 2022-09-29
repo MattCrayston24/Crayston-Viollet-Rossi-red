@@ -38,7 +38,7 @@ func (p Personnage) Menu_Fogeron() {
 func (p *Personnage) Creation_Objet(nb, nbr int, str1, str2 string) {
 
 	if p.verif_materiaux(nb, str1) && p.monnaie > nbr && p.CheckInventory() {
-		for i := 1; i < nb; i++ {
+		for i := 1; i <= nb; i++ {
 			p.removeInventory(str1)
 		}
 		p.addInventory(str2)
@@ -108,7 +108,7 @@ func (p *Personnage) Menu_casque_Creation() {
 	}
 	fmt.Println("|        ", i+1, "Revenir au ménu précédent            |")
 	fmt.Println("|____________________________________|")
-	switch p.Scan(){
+	switch p.Scan() {
 	case "1":
 		p.Creation_Objet(4, 15, "Cuir", e1.liste_casque[0])
 		p.Menu_casque_Creation()
@@ -293,7 +293,7 @@ func (p *Personnage) Menu_arme_épéiste_Creation() {
 	}
 	fmt.Println("|        ", i+1, "Revenir au ménu précédent            |")
 	fmt.Println("|____________________________________|")
-	switch p.Scan(){
+	switch p.Scan() {
 	case "1":
 		p.Creation_Objet(4, 20, "Bois", e1.liste_armes_épéiste[0])
 		p.Menu_arme_épéiste_Creation()

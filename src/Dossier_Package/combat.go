@@ -4,7 +4,6 @@ import (
 	"fmt"
 )
 
-//Fonction qui sert de menu pendant le combat
 func (p *Personnage) ChatTurn(m *Monstre) {
 	fmt.Println("______________________________________")
 	fmt.Println("|                                    |")
@@ -14,15 +13,14 @@ func (p *Personnage) ChatTurn(m *Monstre) {
 	fmt.Println("|                                    |")
 	fmt.Println("|             1.Attaquer             |")
 	fmt.Println("|                                    |")
-	fmt.Println("|             2.Inventaire           |")
+	"&	<x<fmt.Println("|             2.Inventaire           |")
 	fmt.Println("|____________________________________|")
 	switch p.Scan() {
 	case "1":
 		p.Menu_attaque(m)
-		m.point_de_vie_actuel -= p.points_attaque
 		fmt.Println(m.nom, "PV :", m.point_de_vie_actuel, "/", m.point_de_vie_max)
 	case "2":
-		fmt.Print(p.inventaire, "Si vous taper un chiffre superieur a 2 vous quitterez l'inventaire \n Si vous taper 1 vous pourrez utiliser une potion de vie si vous en avez une \n si vous taper 2 vous pourrez alors utiliser une potion de poison si vous en avez une")
+		fmt.Println(p.inventaire, "Si vous taper un chiffre superieur a 2 vous quitterez l'inventaire \n Si vous taper 1 vous pourrez utiliser une potion de vie si vous en avez une \n si vous taper 2 vous pourrez alors utiliser une potion de poison si vous en avez une")
 		fmt.Println("______________________________________")
 		fmt.Println("|                                    |")
 		fmt.Println("|   1.Potion de vie                  |")
@@ -37,13 +35,12 @@ func (p *Personnage) ChatTurn(m *Monstre) {
 		} else if p.Scan() == "2" {
 			p.PoisonPot(m)
 			p.removeInventory("Potion de poison")
-		}else {
+		} else {
 			p.ChatTurn(m)
 		}
 	}
 }
 
-//Fonction qui sert pour le combat
 func (p *Personnage) trainingFight() {
 	var m1 *Monstre = new(Monstre)
 	m1.InitMonstre(Menu_Choix_Monstre())
@@ -65,10 +62,10 @@ func (p *Personnage) trainingFight() {
 		}
 		fmt.Println("nombre de tour :", nbtours)
 		if p.point_de_vie_actuel <= 0 && compt_mort >= 1 {
-			fmt.Println("t'es mort cheh")
+			fmt.Println("Vous étes mort , vous avez perdu")
 			break
 		} else if m1.point_de_vie_actuel <= 0 {
-			fmt.Println("t'es mort ")
+			fmt.Println("Le monstre est mort, vous avez gagnez")
 			break
 		}
 		if p.wasted() && compt_mort != 1 {
@@ -91,7 +88,6 @@ func (p *Personnage) trainingFight() {
 	p.Menu()
 }
 
-//Fonction qui sert de menu d'attaque pendant le combat
 func (p *Personnage) Menu_attaque(m *Monstre) {
 	fmt.Println("______________________________________")
 	fmt.Println("|                                    |")
