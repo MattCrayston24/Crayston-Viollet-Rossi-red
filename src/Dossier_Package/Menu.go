@@ -24,7 +24,9 @@ func (p Personnage) Menu() {
 	fmt.Println("|                                    |")
 	fmt.Println("|             6.Menu Skill           |")
 	fmt.Println("|                                    |")
-	fmt.Println("|             7.Quitter              |")
+	fmt.Println("|             7.Qui sont-ils ?       |")
+	fmt.Println("|                                    |")
+	fmt.Println("|             8.Quitter              |")
 	fmt.Println("|____________________________________|")
 	switch p.Scan() {
 	case "1":
@@ -40,6 +42,16 @@ func (p Personnage) Menu() {
 	case "6":
 		p.Menu_skill_choix()
 	case "7":
+	fmt.Println("______________________________________")
+	fmt.Println("|                                    |")
+	fmt.Println("|            Qui sont-ils ?          |")
+	fmt.Println("|____________________________________|")
+	fmt.Println("|                                    |")
+	fmt.Println("|  partie 2: Abba                    |")
+	fmt.Println("|  partie 3: Spielberg               |")
+	fmt.Println("|____________________________________|")
+	p.Menu()	
+	case "8":
 		os.Exit(3)
 	default:
 		fmt.Println("Vous n'avez pas selectionner un reponse valide")
