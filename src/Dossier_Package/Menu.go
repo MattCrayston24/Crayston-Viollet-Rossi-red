@@ -43,7 +43,7 @@ func (p Personnage) Menu() {
 		os.Exit(3)
 	default:
 		fmt.Println("Vous n'avez pas selectionner un reponse valide")
-		p.Menu()
+
 	}
 }
 
@@ -122,7 +122,7 @@ func (p Personnage) Menu_Equipement() {
 		p.AccèsInventaire()
 	default:
 		fmt.Println("Vous n'avez pas ecrit un reponse valide ")
-		p.Menu_Equipement()
+		p.Menu_Equipement()	
 	}
 }
 
@@ -266,7 +266,7 @@ func (p *Personnage) Menu_armes_archer() {
 		fmt.Println("|                                    |")
 	}
 	fmt.Println("|____________________________________|")
-	switch p.Scan(){
+	switch p.Scan() {
 	case "1":
 		p.Mettre_armes_archer(1, e1)
 		p.Menu_Equipement()
@@ -281,7 +281,7 @@ func (p *Personnage) Menu_armes_archer() {
 		p.Menu_Equipement()
 	default:
 		fmt.Println("Vous n'avez pas ecrit un reponse valide ")
-		p.Menu_armes_archer()
+		p.Menu_armes_archer()	
 	}
 }
 
@@ -315,7 +315,7 @@ func (p *Personnage) Menu_armes_mage() {
 	default:
 		fmt.Println("Vous n'avez pas ecrit un reponse valide ")
 
-		p.Menu_armes_mage()
+		p.Menu_armes_mage()	
 	}
 }
 
@@ -349,6 +349,6 @@ func (p *Personnage) Menu_armes_épéiste() {
 		p.Menu_Equipement()
 	default:
 		fmt.Println("Vous n'avez pas ecrit un reponse valide ")
-		p.Menu_armes_épéiste()
+		p.Menu_armes_épéiste()	
 	}
 }
