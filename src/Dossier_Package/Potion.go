@@ -12,9 +12,11 @@ func (p *Personnage) TakePot() {
 		if p.inventaire[i] == "Potion de Vie" {
 			if p.point_de_vie_actuel+potion > p.point_de_vie_maximum {
 				p.point_de_vie_actuel = p.point_de_vie_maximum
+				p.removeInventory("Potion de Vie")
 				break
 			} else {
 				p.point_de_vie_actuel += potion
+				p.removeInventory("Potion de Vie")
 				break
 			}
 		}
@@ -23,15 +25,15 @@ func (p *Personnage) TakePot() {
 }
 
 func (p *Personnage) PoisonPot(m *Monstre) {
-	for i := range p.inventaire{
-		if p.inventaire[i] == "Potion de poison"{
-			p.point_de_vie_actuel -= 10
+	for i := range p.inventaire {
+		if p.inventaire[i] == "Potion de poison" {
+			m.point_de_vie_actuel -= 10
 			time.Sleep(1 * time.Second)
-			p.point_de_vie_actuel -= 10
+			m.point_de_vie_actuel -= 10
 			time.Sleep(1 * time.Second)
-			p.point_de_vie_actuel -= 10
-			fmt.Print("Les nouveau points de vie du gobelin sont :",m.point_de_vie_actuel,"/",m.point_de_vie_max)
+			m.point_de_vie_actuel -= 10
+			fmt.Print("Les nouveau points de vie du gobelin sont :", m.point_de_vie_actuel, "/", m.point_de_vie_max)
 			break
-		}	
+		}
 	}
 }
