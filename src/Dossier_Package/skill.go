@@ -91,7 +91,7 @@ func (p Personnage) Menu_skill_Feu() {
 			p.point_skill--
 
 		} else {
-			fmt.Println("Vous n'avez pas accés à ce skill ou vous n'avez pas assez de point de skill")
+			fmt.Println("Vous n'avez pas accés à ce skill ou vous n'avez pas assez de point de skill ou alors vous avez déjà ce skill")
 			fmt.Println("Vous avez ", p.point_skill, "point de skill")
 		}
 		p.Menu_skill_Feu()
@@ -102,7 +102,7 @@ func (p Personnage) Menu_skill_Feu() {
 
 			fmt.Println("Vous avec acquis le skill esprit de feu")
 		} else {
-			fmt.Println("Vous n'avez pas accés à ce skill ou vous n'avez pas assez de point de skill")
+			fmt.Println("Vous n'avez pas accés à ce skill ou vous n'avez pas assez de point de skill ou alors vous avez déjà ce skill")
 			fmt.Println("Vous avez ", p.point_skill, "point de skill")
 		}
 		p.Menu_skill_Feu()
@@ -112,7 +112,7 @@ func (p Personnage) Menu_skill_Feu() {
 			p.point_skill--
 			fmt.Println("Vous avec acquis le skill Epée de feu")
 		} else {
-			fmt.Println("Vous n'avez pas accés à ce skill ou vous n'avez pas assez de point de skill")
+			fmt.Println("Vous n'avez pas accés à ce skill ou vous n'avez pas assez de point de skill ou alors vous avez déjà ce skill")
 			fmt.Println("Vous avez ", p.point_skill, "point de skill")
 		}
 		p.Menu_skill_Feu()
@@ -122,7 +122,7 @@ func (p Personnage) Menu_skill_Feu() {
 			p.point_skill--
 			fmt.Println("Vous avec acquis le skill Epée enflammée")
 		} else {
-			fmt.Print("Vous n'avez pas accés à ce skill ou vous n'avez pas assez de point de skill")
+			fmt.Print("Vous n'avez pas accés à ce skill ou vous n'avez pas assez de point de skill ou alors vous avez déjà ce skill")
 			fmt.Println("Vous avez ", p.point_skill, "point de skill")
 		}
 		p.Menu_skill_Feu()
@@ -132,7 +132,7 @@ func (p Personnage) Menu_skill_Feu() {
 			p.point_skill--
 			fmt.Println("Vous avec acquis le skill Flèche enflammée")
 		} else {
-			fmt.Print("Vous n'avez pas accés à ce skill ou vous n'avez pas assez de point de skill")
+			fmt.Print("Vous n'avez pas accés à ce skill ou vous n'avez pas assez de point de skill ou alors vous avez déjà ce skill")
 			fmt.Println("Vous avez ", p.point_skill, "point de skill")
 		}
 		p.Menu_skill_Feu()
@@ -142,7 +142,7 @@ func (p Personnage) Menu_skill_Feu() {
 			p.point_skill--
 			fmt.Println("Vous avec acquis le skill Arc enflammé")
 		} else {
-			fmt.Print("Vous n'avez pas accés à ce skill ou vous n'avez pas assez de point de skill")
+			fmt.Print("Vous n'avez pas accés à ce skill ou vous n'avez pas assez de point de skill ou alors vous avez déjà ce skill")
 			fmt.Println("Vous avez ", p.point_skill, "point de skill")
 		}
 		p.Menu_skill_Feu()
@@ -183,7 +183,7 @@ func (p Personnage) Menu_skill_Eau() {
 
 			fmt.Println("Vous avec acquis le skill vague géante")
 		} else {
-			fmt.Print("Vous n'avez pas accés à ce skill ou vous n'avez pas assez de point de skill")
+			fmt.Print("Vous n'avez pas accés à ce skill ou vous n'avez pas assez de point de skill ou alors vous avez déjà ce skill")
 			fmt.Println("Vous avez ", p.point_skill, "point de skill")
 		}
 		p.Menu_skill_Eau()
@@ -193,7 +193,7 @@ func (p Personnage) Menu_skill_Eau() {
 			p.point_skill--
 			fmt.Println("Vous avec acquis le skill mur d'eau")
 		} else {
-			fmt.Print("Vous n'avez pas accés à ce skill ou vous n'avez pas assez de point de skill")
+			fmt.Print("Vous n'avez pas accés à ce skill ou vous n'avez pas assez de point de skill ou alors vous avez déjà ce skill")
 			fmt.Println("Vous avez ", p.point_skill, "point de skill")
 		}
 		p.Menu_skill_Eau()
@@ -205,7 +205,7 @@ func (p Personnage) Menu_skill_Eau() {
 
 			fmt.Println("Vous avec acquis le skill Epée d'Eau")
 		} else {
-			fmt.Print("Vous n'avez pas accés à ce skill ou vous n'avez pas assez de point de skill")
+			fmt.Print("Vous n'avez pas accés à ce skill ou vous n'avez pas assez de point de skill ou alors vous avez déjà ce skill")
 			fmt.Println("Vous avez ", p.point_skill, "point de skill")
 		}
 		p.Menu_skill_Eau()
@@ -216,7 +216,7 @@ func (p Personnage) Menu_skill_Eau() {
 
 			fmt.Println("Vous avec acquis le skill Epée lance d'eau")
 		} else {
-			fmt.Print("Vous n'avez pas accés à ce skill ou vous n'avez pas assez de point de skill")
+			fmt.Print("Vous n'avez pas accés à ce skill ou vous n'avez pas assez de point de skill ou alors vous avez déjà ce skill")
 			fmt.Println("Vous avez ", p.point_skill, "point de skill")
 		}
 		p.Menu_skill_Eau()
@@ -227,7 +227,7 @@ func (p Personnage) Menu_skill_Eau() {
 			p.point_skill--
 			fmt.Println("Vous avec acquis le skill Flèche d'eau")
 		} else {
-			fmt.Print("Vous n'avez pas accés à ce skill ou vous n'avez pas assez de point de skill")
+			fmt.Print("Vous n'avez pas accés à ce skill ou vous n'avez pas assez de point de skill ou alors vous avez déjà ce skill")
 			fmt.Println("Vous avez ", p.point_skill, "point de skill")
 		}
 		p.Menu_skill_Eau()
@@ -237,7 +237,7 @@ func (p Personnage) Menu_skill_Eau() {
 			p.point_skill--
 			fmt.Println("Vous avec acquis le skill Arc impermeable")
 		} else {
-			fmt.Print("Vous n'avez pas accés à ce skill ou vous n'avez pas assez de point de skill")
+			fmt.Print("Vous n'avez pas accés à ce skill ou vous n'avez pas assez de point de skill ou alors vous avez déjà ce skill")
 			fmt.Println("Vous avez ", p.point_skill, "point de skill")
 		}
 		p.Menu_skill_Eau()
@@ -277,7 +277,7 @@ func (p Personnage) Menu_skill_Air() {
 			p.point_skill--
 			fmt.Println("Vous avec acquis le skill tornade")
 		} else {
-			fmt.Print("Vous n'avez pas accés à ce skill ou vous n'avez pas assez de point de skill")
+			fmt.Print("Vous n'avez pas accés à ce skill ou vous n'avez pas assez de point de skill ou alors vous avez déjà ce skill")
 			fmt.Println("Vous avez ", p.point_skill, "point de skill")
 		}
 		p.Menu_skill_Air()
@@ -288,7 +288,7 @@ func (p Personnage) Menu_skill_Air() {
 
 			fmt.Println("Vous avec acquis le skill souffle ultime")
 		} else {
-			fmt.Print("Vous n'avez pas accés à ce skill ou vous n'avez pas assez de point de skill")
+			fmt.Print("Vous n'avez pas accés à ce skill ou vous n'avez pas assez de point de skill ou alors vous avez déjà ce skill")
 			fmt.Println("Vous avez ", p.point_skill, "point de skill")
 		}
 		p.Menu_skill_Air()
@@ -299,7 +299,7 @@ func (p Personnage) Menu_skill_Air() {
 			p.point_skill--
 			fmt.Println("Vous avec acquis le skill Epée tornade")
 		} else {
-			fmt.Print("Vous n'avez pas accés à ce skill ou vous n'avez pas assez de point de skill")
+			fmt.Print("Vous n'avez pas accés à ce skill ou vous n'avez pas assez de point de skill ou alors vous avez déjà ce skill")
 			fmt.Println("Vous avez ", p.point_skill, "point de skill")
 		}
 		p.Menu_skill_Air()
@@ -310,7 +310,7 @@ func (p Personnage) Menu_skill_Air() {
 			p.point_skill--
 			fmt.Println("Vous avec acquis le skill lame invisible")
 		} else {
-			fmt.Print("Vous n'avez pas accés à ce skill ou vous n'avez pas assez de point de skill")
+			fmt.Print("Vous n'avez pas accés à ce skill ou vous n'avez pas assez de point de skill ou alors vous avez déjà ce skill")
 			fmt.Println("Vous avez ", p.point_skill, "point de skill")
 		}
 		p.Menu_skill_Air()
@@ -321,7 +321,7 @@ func (p Personnage) Menu_skill_Air() {
 
 			fmt.Println("Vous avec acquis le skill Flèche légère")
 		} else {
-			fmt.Print("Vous n'avez pas accés à ce skill ou vous n'avez pas assez de point de skill")
+			fmt.Print("Vous n'avez pas accés à ce skill ou vous n'avez pas assez de point de skill ou alors vous avez déjà ce skill")
 			fmt.Println("Vous avez ", p.point_skill, "point de skill")
 		}
 		p.Menu_skill_Air()
@@ -331,7 +331,7 @@ func (p Personnage) Menu_skill_Air() {
 			p.point_skill--
 			fmt.Println("Vous avec acquis le skill Arc teleportant")
 		} else {
-			fmt.Print("Vous n'avez pas accés à ce skill ou vous n'avez pas assez de point de skill")
+			fmt.Print("Vous n'avez pas accés à ce skill ou vous n'avez pas assez de point de skill ou alors vous avez déjà ce skill")
 			fmt.Println("Vous avez ", p.point_skill, "point de skill")
 		}
 		p.Menu_skill_Air()
@@ -372,7 +372,7 @@ func (p Personnage) Menu_skill_Terre() {
 			p.point_skill--
 			fmt.Println("Vous avec acquis le skill racine tueuse")
 		} else {
-			fmt.Print("Vous n'avez pas accés à ce skill ou vous n'avez pas assez de point de skill")
+			fmt.Print("Vous n'avez pas accés à ce skill ou vous n'avez pas assez de point de skill ou alors vous avez déjà ce skill")
 			fmt.Println("Vous avez ", p.point_skill, "point de skill")
 		}
 		p.Menu_skill_Terre()
@@ -383,7 +383,7 @@ func (p Personnage) Menu_skill_Terre() {
 			p.point_skill--
 			fmt.Println("Vous avec acquis le skill sable mouvant")
 		} else {
-			fmt.Print("Vous n'avez pas accés à ce skill ou vous n'avez pas assez de point de skill")
+			fmt.Print("Vous n'avez pas accés à ce skill ou vous n'avez pas assez de point de skill ou alors vous avez déjà ce skill")
 			fmt.Println("Vous avez ", p.point_skill, "point de skill")
 		}
 		p.Menu_skill_Terre()
@@ -393,7 +393,7 @@ func (p Personnage) Menu_skill_Terre() {
 			p.point_skill--
 			fmt.Println("Vous avec acquis le skill Epée en pierre")
 		} else {
-			fmt.Print("Vous n'avez pas accés à ce skill ou vous n'avez pas assez de point de skill")
+			fmt.Print("Vous n'avez pas accés à ce skill ou vous n'avez pas assez de point de skill ou alors vous avez déjà ce skill")
 			fmt.Println("Vous avez ", p.point_skill, "point de skill")
 		}
 		p.Menu_skill_Terre()
@@ -403,7 +403,7 @@ func (p Personnage) Menu_skill_Terre() {
 			p.point_skill--
 			fmt.Println("Vous avec acquis le skill lame en diamant")
 		} else {
-			fmt.Print("Vous n'avez pas accés à ce skill ou vous n'avez pas assez de point de skill")
+			fmt.Print("Vous n'avez pas accés à ce skill ou vous n'avez pas assez de point de skill ou alors vous avez déjà ce skill")
 			fmt.Println("Vous avez ", p.point_skill, "point de skill")
 		}
 		p.Menu_skill_Terre()
@@ -414,7 +414,7 @@ func (p Personnage) Menu_skill_Terre() {
 			p.point_skill--
 			fmt.Println("Vous avec acquis le skill Flèche en or")
 		} else {
-			fmt.Print("Vous n'avez pas accés à ce skill ou vous n'avez pas assez de point de skill")
+			fmt.Print("Vous n'avez pas accés à ce skill ou vous n'avez pas assez de point de skill ou alors vous avez déjà ce skill")
 			fmt.Println("Vous avez ", p.point_skill, "point de skill")
 		}
 		p.Menu_skill_Terre()
@@ -424,7 +424,7 @@ func (p Personnage) Menu_skill_Terre() {
 			p.point_skill--
 			fmt.Println("Vous avec acquis le skill Arc en marbre")
 		} else {
-			fmt.Print("Vous n'avez pas accés à ce skill ou vous n'avez pas assez de point de skill")
+			fmt.Print("Vous n'avez pas accés à ce skill ou vous n'avez pas assez de point de skill ou alors vous avez déjà ce skill")
 			fmt.Println("Vous avez ", p.point_skill, "point de skill")
 		}
 		p.Menu_skill_Terre()

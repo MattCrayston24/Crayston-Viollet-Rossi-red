@@ -94,6 +94,9 @@ func (p *Personnage) Mettre_casque(nb int, e Equipement) {
 			fmt.Println("Vos stat on été ajouté ")
 		}
 	}
+	if p.mon_equipement.casque == "" {
+		fmt.Println("vous n'avez pas cet equipement")
+	}
 
 }
 
@@ -104,19 +107,19 @@ func (p *Personnage) Mettre_Plastron(nb int, e Equipement) {
 		fmt.Println("vous avez retiré ", p.mon_equipement.plastron, "et l'avez ajouter a votre inventaire")
 		p.mon_equipement.plastron = ""
 	}
-	if nb == 1 {
-		for i := 0; i < len(p.inventaire); i++ {
-			if p.inventaire[i] == e.liste_plastron[nb-1] {
-				p.mon_equipement.plastron = p.inventaire[i]
-				p.removeInventory(e.liste_plastron[nb-1])
-				fmt.Println("vous avez retirer de votre inventaire", e.liste_plastron[nb-1])
-				p.Ajout_Stat_equipement_plastron(e)
-				Affichage_equipement(p.mon_equipement.plastron)
-				fmt.Println("Vos stat on été ajouté ")
-			}
+	for i := 0; i < len(p.inventaire); i++ {
+		if p.inventaire[i] == e.liste_plastron[nb-1] {
+			p.mon_equipement.plastron = p.inventaire[i]
+			p.removeInventory(e.liste_plastron[nb-1])
+			fmt.Println("vous avez retirer de votre inventaire", e.liste_plastron[nb-1])
+			p.Ajout_Stat_equipement_plastron(e)
+			Affichage_equipement(p.mon_equipement.plastron)
+			fmt.Println("Vos stat on été ajouté ")
 		}
 	}
-
+	if p.mon_equipement.plastron == "" {
+		fmt.Println("vous n'avez pas cet equipement")
+	}
 }
 
 //Fonction qui permet de mettre les bottes
@@ -135,6 +138,9 @@ func (p *Personnage) Mettre_bottes(nb int, e Equipement) {
 			Affichage_equipement(p.mon_equipement.bottes)
 			fmt.Println("Vos stat on été ajouté ")
 		}
+	}
+	if p.mon_equipement.bottes == "" {
+		fmt.Println("vous n'avez pas cet equipement")
 	}
 }
 
@@ -155,6 +161,9 @@ func (p *Personnage) Mettre_armes_archer(nb int, e Equipement) {
 			fmt.Println("Vos stat on été ajouté ")
 		}
 	}
+	if p.mon_equipement.armes == "" {
+		fmt.Println("vous n'avez pas cet equipement")
+	}
 }
 
 //Fonction qui permet d'equiper l'arme de l'épéiste
@@ -174,6 +183,9 @@ func (p *Personnage) Mettre_armes_épéiste(nb int, e Equipement) {
 			fmt.Println("Vos stat on été ajouté ")
 		}
 	}
+	if p.mon_equipement.armes == "" {
+		fmt.Println("vous n'avez pas cet equipement")
+	}
 }
 
 //Fonction qui permet d'equiper l'arme du mage
@@ -192,6 +204,9 @@ func (p *Personnage) Mettre_armes_mage(nb int, e Equipement) {
 			Affichage_equipement(p.mon_equipement.armes)
 			fmt.Println("Vos stat on été ajouté ")
 		}
+	}
+	if p.mon_equipement.armes == "" {
+		fmt.Println("vous n'avez pas cet equipement")
 	}
 }
 

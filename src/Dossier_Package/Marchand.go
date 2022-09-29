@@ -40,6 +40,8 @@ func (p *Personnage) Marchand() {
 			p.addInventory("Potion de Poison")
 			p.retrait_monnaie(30)
 			fmt.Println("La potion a été ajouté a votre invertaire")
+		}else{
+			fmt.Println("Vous n'avez pas assez de monnaie ou votre inventaire est plein")
 		}
 		p.Marchand()
 	case "2":
@@ -47,14 +49,17 @@ func (p *Personnage) Marchand() {
 			p.addInventory("Potion de vie")
 			p.retrait_monnaie(20)
 			fmt.Println("La potion a été ajouté a votre invertaire")
-		}
+		}else{
+			fmt.Println("Vous n'avez pas assez de monnaie ou votre inventaire est plein")
+		}	
 		p.Marchand()
 	case "3":
 		if p.verif_monnaie(500) && p.CheckInventory() {
 			p.taille_inventaire += 3
 			p.retrait_monnaie(500)
 			fmt.Println("Les places supplémentaires ont été ajoutées")
-
+		}else{
+			fmt.Println("Vous n'avez pas assez de monnaie ou votre inventaire est plein")
 		}
 		p.Marchand()
 	case "4":
@@ -69,6 +74,8 @@ func (p *Personnage) Marchand() {
 			p.addInventory("Fer")
 			p.retrait_monnaie(25)
 			fmt.Println("Le Fer a été ajouter a votre inventaire")
+		}else{
+			fmt.Println("Vous n'avez pas assez de monnaie ou votre inventaire est plein")
 		}
 		p.Marchand()
 	case "6":
@@ -76,6 +83,8 @@ func (p *Personnage) Marchand() {
 			p.addInventory("Acier")
 			p.retrait_monnaie(35)
 			fmt.Println("Le Acier a été ajouter a votre inventaire")
+		}else{
+			fmt.Println("Vous n'avez pas assez de monnaie ou votre inventaire est plein")
 		}
 		p.Marchand()
 	case "7":
@@ -83,6 +92,8 @@ func (p *Personnage) Marchand() {
 			p.addInventory("Mithril")
 			p.retrait_monnaie(45)
 			fmt.Println("Le Mithril a été ajouter a votre inventaire")
+		}else{
+			fmt.Println("Vous n'avez pas assez de monnaie ou votre inventaire est plein")
 		}
 		p.Marchand()
 	case "8":
