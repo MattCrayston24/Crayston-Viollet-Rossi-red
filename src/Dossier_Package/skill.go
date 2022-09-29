@@ -21,7 +21,6 @@ type Skill struct {
 }
 
 func (p Personnage) Menu_skill_choix() {
-	var choix_menu string
 	fmt.Println("______________________________________")
 	fmt.Println("|                                    |")
 	fmt.Println("|         Menu Skill Choix           |")
@@ -37,10 +36,8 @@ func (p Personnage) Menu_skill_choix() {
 	fmt.Println("|                                    |")
 	fmt.Println("|             5.Quitter              |")
 	fmt.Println("|____________________________________|")
-	fmt.Scan(&choix_menu)
-	p.verif_espace(choix_menu)
 	for i := 0; i < 2; i++ {
-		switch choix_menu {
+		switch p.Scan() {
 		case "1":
 			p.Menu_skill_Feu()
 			break
@@ -63,8 +60,6 @@ func (p Personnage) Menu_skill_choix() {
 }
 
 func (p Personnage) Menu_skill_Feu() {
-	var choix_menu string
-
 	fmt.Println("______________________________________")
 	fmt.Println("|                                    |")
 	fmt.Println("|           Menu Skill Feu           |")
@@ -84,9 +79,7 @@ func (p Personnage) Menu_skill_Feu() {
 	fmt.Println("|                                    |")
 	fmt.Println("|             7 .Quitter             |")
 	fmt.Println("|____________________________________|")
-	fmt.Scan(&choix_menu)
-	p.verif_espace(choix_menu)
-	switch choix_menu {
+	switch p.Scan() {
 	case "1":
 		if p.verif_classe() == "mage" && p.point_skill > 0 && !p.verif_skill("Boule de Feu") {
 			p.addSkill("Feu", "Boule de Feu", 8, 12)
@@ -158,8 +151,6 @@ func (p Personnage) Menu_skill_Feu() {
 }
 
 func (p Personnage) Menu_skill_Eau() {
-
-	var choix_menu string
 	fmt.Println("______________________________________")
 	fmt.Println("|                                    |")
 	fmt.Println("|           Menu Skill Eau           |")
@@ -179,9 +170,7 @@ func (p Personnage) Menu_skill_Eau() {
 	fmt.Println("|                                    |")
 	fmt.Println("|             7 .Quitter             |")
 	fmt.Println("|____________________________________|")
-	fmt.Scan(&choix_menu)
-	p.verif_espace(choix_menu)
-	switch choix_menu {
+	switch p.Scan(){
 	case "1":
 		if p.verif_classe() == "mage" && p.point_skill > 0 && !p.verif_skill("vague géante") {
 			p.addSkill("Eau", "vague géante", 8, 12)
@@ -256,8 +245,6 @@ func (p Personnage) Menu_skill_Eau() {
 }
 
 func (p Personnage) Menu_skill_Air() {
-	var choix_menu string
-
 	fmt.Println("______________________________________")
 	fmt.Println("|                                    |")
 	fmt.Println("|           Menu Skill Air           |")
@@ -277,9 +264,7 @@ func (p Personnage) Menu_skill_Air() {
 	fmt.Println("|                                    |")
 	fmt.Println("|             7 .Quitter             |")
 	fmt.Println("|____________________________________|")
-	fmt.Scan(&choix_menu)
-	p.verif_espace(choix_menu)
-	switch choix_menu {
+	switch p.Scan() {
 	case "1":
 		if p.verif_classe() == "mage" && p.point_skill > 0 && !p.verif_skill("tornade") {
 			p.addSkill("Air", "tornade", 8, 12)
@@ -354,8 +339,6 @@ func (p Personnage) Menu_skill_Air() {
 }
 
 func (p Personnage) Menu_skill_Terre() {
-
-	var choix_menu string
 	fmt.Println("______________________________________")
 	fmt.Println("|                                    |")
 	fmt.Println("|          Menu Skill Terre          |")
@@ -375,9 +358,7 @@ func (p Personnage) Menu_skill_Terre() {
 	fmt.Println("|                                    |")
 	fmt.Println("|             7 .Quitter             |")
 	fmt.Println("|____________________________________|")
-	fmt.Scan(&choix_menu)
-	p.verif_espace(choix_menu)
-	switch choix_menu {
+	switch p.Scan() {
 	case "1":
 		if p.verif_classe() == "mage" && p.point_skill > 0 && !p.verif_skill("racine tueuse") {
 			p.addSkill("Terre", "racine tueuse", 8, 12)

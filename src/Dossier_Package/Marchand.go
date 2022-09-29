@@ -3,7 +3,6 @@ package Dossier_Package
 import "fmt"
 
 func (p *Personnage) Marchand() {
-	var item_choisi string
 	fmt.Println("_____________________________________")
 	fmt.Println("|                                    |")
 	fmt.Println("|                Menu                |")
@@ -33,9 +32,8 @@ func (p *Personnage) Marchand() {
 	fmt.Println("|                                    |")
 	fmt.Println("|             8.Quitter              |")
 	fmt.Println("|____________________________________|")
-	fmt.Scan(&item_choisi)
-	p.verif_espace(item_choisi)
-	switch item_choisi {
+
+	switch p.Scan() {
 	case "1":
 		if p.verif_monnaie(30) && p.CheckInventory() {
 			p.addInventory("Potion de Poison")

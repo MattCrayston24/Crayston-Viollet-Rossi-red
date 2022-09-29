@@ -5,8 +5,6 @@ import (
 )
 
 func (p *Personnage) ChatTurn(m *Monstre) {
-	var choix_inventaire string
-	var choix_menu string
 	fmt.Println("______________________________________")
 	fmt.Println("|                                    |")
 	fmt.Println("|                Menu                |")
@@ -17,9 +15,7 @@ func (p *Personnage) ChatTurn(m *Monstre) {
 	fmt.Println("|                                    |")
 	fmt.Println("|             2.Inventaire           |")
 	fmt.Println("|____________________________________|")
-	fmt.Scanln(&choix_menu)
-	p.verif_espace(choix_menu)
-	switch choix_menu {
+	switch p.Scan() {
 	case "1":
 		p.Menu_attaque(m)
 		m.point_de_vie_actuel -= p.points_attaque
@@ -34,12 +30,14 @@ func (p *Personnage) ChatTurn(m *Monstre) {
 		fmt.Println("|                                    |")
 		fmt.Println("|   Autre. Quitter                   |")
 		fmt.Println("|____________________________________|")
-		fmt.Scan(&choix_inventaire)
-		p.verif_espace(choix_inventaire)
-		if choix_inventaire == "1" {
+		if p.Scan() == "1" {
 			p.TakePot()
 			p.removeInventory("Potion de Vie")
-		} else if choix_inventaire == "2" {
+		} else if p.Scan() == "2" {
+			p.PoisonPot(m)
+			p.removeInventory("Potion de poison")
+		}else {
+			p.ChatTurn(m)
 		}
 	}
 }
@@ -92,7 +90,6 @@ func (p *Personnage) trainingFight() {
 }
 
 func (p *Personnage) Menu_attaque(m *Monstre) {
-	var choix string
 	fmt.Println("______________________________________")
 	fmt.Println("|                                    |")
 	fmt.Println("|               Menu                 |")
@@ -102,11 +99,7 @@ func (p *Personnage) Menu_attaque(m *Monstre) {
 	fmt.Println("|                                    |")
 	fmt.Println("|             2.Skill                |")
 	fmt.Println("|____________________________________|")
-	fmt.Scan(&choix)
-
-	p.verif_espace(choix)
-
-	switch choix {
+	switch p.Scan() {
 	case "1":
 		p.points_attaque = p.attaque_base
 		fmt.Println("Vous utilisez attaque basique et infligé ", p.points_attaque, "points de dégats")

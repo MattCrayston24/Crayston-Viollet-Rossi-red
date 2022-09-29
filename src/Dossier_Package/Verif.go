@@ -1,7 +1,10 @@
 package Dossier_Package
 
-import "unicode"
-
+import (
+	"unicode"
+	"bufio"
+	"os"
+)	
 func (p *Personnage) verif_nom(nom string) bool {
 	var nb_lettre int
 	for _, letter := range nom {
@@ -70,13 +73,8 @@ func (p *Personnage) verif_skill(str string) bool {
 	return false
 }
 
-//fonction qui enleve les espace d'une chaine de caractere
-func (p *Personnage) verif_espace(str string) string {
-	var str1 string
-	for _, letter := range str {
-		if letter != ' ' {
-			str1 += string(letter)
-		}
-	}
-	return str1
+func (p *Personnage)Scan() string{
+	scanner := bufio.NewScanner(os.Stdin)
+	scanner.Scan()
+	return scanner.Text()
 }

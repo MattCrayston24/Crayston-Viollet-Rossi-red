@@ -3,7 +3,6 @@ package Dossier_Package
 import "fmt"
 
 func (p Personnage) Menu_Fogeron() {
-	var objet_choisi string
 	fmt.Println("______________________________________")
 	fmt.Println("|                                    |")
 	fmt.Println("|                Menu                |")
@@ -16,10 +15,7 @@ func (p Personnage) Menu_Fogeron() {
 	fmt.Println("|                                    |")
 	fmt.Println("|             3.Quitter              |")
 	fmt.Println("|____________________________________|")
-	fmt.Scan(&objet_choisi)
-
-	p.verif_espace(objet_choisi)
-	switch objet_choisi {
+	switch p.Scan() {
 	case "1":
 		p.Menu_Equipement_Creation()
 	case "2":
@@ -58,7 +54,6 @@ func (p *Personnage) Creation_Objet(nb, nbr int, str1, str2 string) {
 }
 
 func (p *Personnage) Menu_Equipement_Creation() {
-	var choix string
 	fmt.Println("______________________________________")
 	fmt.Println("|                                    |")
 	fmt.Println("|                Menu                |")
@@ -78,9 +73,7 @@ func (p *Personnage) Menu_Equipement_Creation() {
 	fmt.Println("|            4.Retour au menu        |")
 	fmt.Println("|              précédent             |")
 	fmt.Println("|____________________________________|")
-	fmt.Scan(&choix)
-	p.verif_espace(choix)
-	switch choix {
+	switch p.Scan() {
 	case "1":
 		p.Menu_casque_Creation()
 	case "2":
@@ -99,7 +92,6 @@ func (p *Personnage) Menu_casque_Creation() {
 	var e1 Equipement
 	e1.Init_List()
 	i := 0
-	var choix string
 	fmt.Println("______________________________________")
 	fmt.Println("|                                    |")
 	fmt.Println("|                Menu                |")
@@ -112,9 +104,7 @@ func (p *Personnage) Menu_casque_Creation() {
 	}
 	fmt.Println("|        ", i+1, "Revenir au ménu précédent            |")
 	fmt.Println("|____________________________________|")
-	fmt.Scan(&choix)
-	p.verif_espace(choix)
-	switch choix {
+	switch p.Scan(){
 	case "1":
 		p.Creation_Objet(4, 15, "Cuir", e1.liste_casque[0])
 		p.Menu_casque_Creation()
@@ -136,7 +126,6 @@ func (p *Personnage) Menu_plastron_Creation() {
 	var e1 Equipement
 	e1.Init_List()
 	i := 0
-	var choix string
 	fmt.Println("______________________________________")
 	fmt.Println("|                                    |")
 	fmt.Println("|                Menu                |")
@@ -150,10 +139,7 @@ func (p *Personnage) Menu_plastron_Creation() {
 	}
 	fmt.Println("|        ", i+1, "Revenir au ménu précédent            |")
 	fmt.Println("|____________________________________|")
-	fmt.Scan(&choix)
-
-	p.verif_espace(choix)
-	switch choix {
+	switch p.Scan() {
 	case "1":
 		p.Creation_Objet(8, 25, "Cuir", e1.liste_plastron[0])
 		p.Menu_plastron_Creation()
@@ -174,7 +160,6 @@ func (p *Personnage) Menu_bottes_Creation() {
 	var e1 Equipement
 	e1.Init_List()
 	i := 0
-	var choix string
 	fmt.Println("______________________________________")
 	fmt.Println("|                                    |")
 	fmt.Println("|                Menu                |")
@@ -187,9 +172,7 @@ func (p *Personnage) Menu_bottes_Creation() {
 	}
 	fmt.Println("|        ", i+1, "Revenir au ménu précédent            |")
 	fmt.Println("|____________________________________|")
-	fmt.Scan(&choix)
-	p.verif_espace(choix)
-	switch choix {
+	switch p.Scan() {
 	case "1":
 		p.Creation_Objet(4, 20, "Cuir", e1.liste_bottes[0])
 		p.Menu_bottes_Creation()
@@ -213,7 +196,6 @@ func (p *Personnage) Menu_arme_mage_Creation() {
 	var e1 Equipement
 	e1.Init_List()
 	i := 0
-	var choix string
 	fmt.Println("______________________________________")
 	fmt.Println("|                                    |")
 	fmt.Println("|                Menu                |")
@@ -227,9 +209,7 @@ func (p *Personnage) Menu_arme_mage_Creation() {
 	}
 	fmt.Println("|        ", i+1, "Revenir au ménu précédent            |")
 	fmt.Println("|____________________________________|")
-	fmt.Scan(&choix)
-	p.verif_espace(choix)
-	switch choix {
+	switch p.Scan() {
 	case "1":
 		p.Creation_Objet(4, 20, "Bois", e1.liste_armes_mage[0])
 		p.Menu_arme_mage_Creation()
@@ -253,8 +233,6 @@ func (p *Personnage) Menu_arme_archer_Creation() {
 	var e1 Equipement
 	i := 0
 	e1.Init_List()
-	var choix string
-
 	fmt.Println("______________________________________")
 	fmt.Println("|                                    |")
 	fmt.Println("|                Menu                |")
@@ -268,9 +246,7 @@ func (p *Personnage) Menu_arme_archer_Creation() {
 	}
 	fmt.Println("|        ", i+1, "Revenir au ménu précédent            |")
 	fmt.Println("|____________________________________|")
-	fmt.Scan(&choix)
-	p.verif_espace(choix)
-	switch choix {
+	switch p.Scan() {
 	case "1":
 		p.Creation_Objet(4, 20, "Bois", e1.liste_armes_archer[0])
 		p.Menu_arme_archer_Creation()
@@ -294,8 +270,6 @@ func (p *Personnage) Menu_arme_épéiste_Creation() {
 	var e1 Equipement
 	e1.Init_List()
 	i := 0
-	var choix string
-
 	fmt.Println("______________________________________")
 	fmt.Println("|                                    |")
 	fmt.Println("|                Menu                |")
@@ -309,9 +283,7 @@ func (p *Personnage) Menu_arme_épéiste_Creation() {
 	}
 	fmt.Println("|        ", i+1, "Revenir au ménu précédent            |")
 	fmt.Println("|____________________________________|")
-	fmt.Scan(&choix)
-	p.verif_espace(choix)
-	switch choix {
+	switch p.Scan(){
 	case "1":
 		p.Creation_Objet(4, 20, "Bois", e1.liste_armes_épéiste[0])
 		p.Menu_arme_épéiste_Creation()
