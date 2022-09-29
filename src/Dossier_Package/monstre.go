@@ -24,6 +24,7 @@ func (m *Monstre) InitMonstre(str string) {
 		m.element = "Eau"
 		m.drop = []string{"Cuir", "Cuir", "Cuir"}
 		m.monnaie = 30
+		m.Experience = 80
 	} else if str == "Kobolt" {
 		m.nom = "Kobolt"
 		m.point_de_vie_max = 60
@@ -33,6 +34,7 @@ func (m *Monstre) InitMonstre(str string) {
 		m.element = "Terre"
 		m.drop = []string{"Fer", "Fer", "Fer"}
 		m.monnaie = 50
+		m.Experience = 50
 	} else if str == "Orc" {
 		m.nom = "Orc"
 		m.point_de_vie_max = 80
@@ -42,6 +44,7 @@ func (m *Monstre) InitMonstre(str string) {
 		m.element = "Feu"
 		m.drop = []string{"Mithril", "Mithril", "Mithril"}
 		m.monnaie = 80
+		m.Experience = 80
 	}
 }
 

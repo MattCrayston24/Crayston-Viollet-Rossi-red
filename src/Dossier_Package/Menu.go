@@ -46,6 +46,7 @@ func (p Personnage) Menu() {
 		os.Exit(3)
 	default:
 		fmt.Println("Vous n'avez pas selectionner un reponse valide")
+		p.Menu()
 	}
 }
 
@@ -79,6 +80,7 @@ func (p Personnage) Menu_Inventaire() {
 			p.Menu()
 		default:
 			fmt.Println("Vous n'avez pas ecrit un reponse valide ")
+			p.Menu_Inventaire()
 		}
 	}
 }
@@ -128,6 +130,9 @@ func (p Personnage) Menu_Equipement() {
 			}
 		case 5:
 			p.AccèsInventaire()
+		default:
+			fmt.Println("Vous n'avez pas ecrit un reponse valide ")
+			p.Menu_Equipement()
 		}
 	}
 }
@@ -161,6 +166,8 @@ func (p Personnage) Menu_casque() {
 	case 4:
 		p.Menu_Equipement()
 	default:
+		fmt.Println("Vous n'avez pas ecrit un reponse valide ")
+		p.Menu_casque()
 
 	}
 
@@ -196,6 +203,8 @@ func (p Personnage) Menu_plastron() {
 	case 4:
 		p.Menu_Equipement()
 	default:
+		fmt.Println("Vous n'avez pas ecrit un reponse valide ")
+		p.Menu_plastron()
 
 	}
 }
@@ -229,6 +238,7 @@ func (p Personnage) Menu_bottes() {
 	case 4:
 		p.Menu_Equipement()
 	default:
+		p.Menu_bottes()
 
 	}
 }
@@ -258,6 +268,7 @@ func (p *Personnage) Menu_skill(m *Monstre) {
 		fmt.Println("Vous utilisez un skill et infligé ", p.points_attaque, "points de dégats")
 	} else {
 		fmt.Println("Vous n'avez pas assez de mana pour utiliser ce sort")
+		p.Menu_attaque(m)
 	}
 }
 
@@ -291,6 +302,9 @@ func (p *Personnage) Menu_armes_archer() {
 	case 4:
 		p.Mettre_armes_archer(4, e1)
 		p.Menu_Equipement()
+	default:
+		fmt.Println("Vous n'avez pas ecrit un reponse valide ")
+		p.Menu_armes_archer()
 	}
 }
 
@@ -324,6 +338,10 @@ func (p *Personnage) Menu_armes_mage() {
 	case 4:
 		p.Mettre_armes_mage(4, e1)
 		p.Menu_Equipement()
+	default:
+		fmt.Println("Vous n'avez pas ecrit un reponse valide ")
+		p.Menu_armes_mage()
+
 	}
 }
 
@@ -357,5 +375,8 @@ func (p *Personnage) Menu_armes_épéiste() {
 	case 4:
 		p.Mettre_armes_épéiste(4, e1)
 		p.Menu_Equipement()
+	default:
+		fmt.Println("Vous n'avez pas ecrit un reponse valide ")
+		p.Menu_armes_épéiste()
 	}
 }

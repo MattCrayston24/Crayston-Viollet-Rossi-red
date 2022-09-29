@@ -87,6 +87,8 @@ func (p *Personnage) Menu_Equipement_Creation() {
 			p.Menu_bottes_Creation()
 		case 4:
 			p.Menu_Fogeron()
+		default:
+			fmt.Println("")
 		}
 	}
 }
@@ -122,9 +124,9 @@ func (p *Personnage) Menu_casque_Creation() {
 	case 4:
 		p.Menu_Equipement_Creation()
 	default:
-
+		fmt.Println("Vous n'avez pas ecrit un reponse valide ")
+		p.Menu_casque_Creation()
 	}
-
 }
 
 func (p *Personnage) Menu_plastron_Creation() {
@@ -159,6 +161,8 @@ func (p *Personnage) Menu_plastron_Creation() {
 	case 4:
 		p.Menu_Equipement_Creation()
 	default:
+		fmt.Println("Vous n'avez pas ecrit un reponse valide ")
+		p.Menu_plastron_Creation()
 
 	}
 
@@ -195,6 +199,8 @@ func (p *Personnage) Menu_bottes_Creation() {
 	case 4:
 		p.Menu_Equipement_Creation()
 	default:
+		fmt.Println("Vous n'avez pas ecrit un reponse valide ")
+		p.Menu_bottes_Creation()
 
 	}
 
@@ -234,6 +240,8 @@ func (p *Personnage) Menu_arme_mage_Creation() {
 	case 5:
 		p.Menu_Equipement_Creation()
 	default:
+		fmt.Println("Vous n'avez pas ecrit un reponse valide ")
+		p.Menu_arme_mage_Creation()
 
 	}
 }
@@ -272,7 +280,8 @@ func (p *Personnage) Menu_arme_archer_Creation() {
 	case 5:
 		p.Menu_arme_archer_Creation()
 	default:
-
+		fmt.Println("Vous n'avez pas ecrit un reponse valide ")
+		p.Menu_arme_archer_Creation()
 	}
 }
 
@@ -311,6 +320,7 @@ func (p *Personnage) Menu_arme_épéiste_Creation() {
 	case 5:
 		p.Menu_Equipement_Creation()
 	default:
-
+		fmt.Println("Vous n'avez pas ecrit un reponse valide ")
+		p.Menu_arme_épéiste_Creation()
 	}
 }
