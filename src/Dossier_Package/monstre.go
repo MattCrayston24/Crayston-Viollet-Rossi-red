@@ -24,10 +24,7 @@ func (m *Monstre) InitMonstre(str string) {
 		m.element = "Eau"
 		m.drop = []string{"Cuir", "Cuir", "Cuir"}
 		m.monnaie = 30
-<<<<<<< HEAD
-=======
 		m.Experience = 80
->>>>>>> main
 	} else if str == "Kobolt" {
 		m.nom = "Kobolt"
 		m.point_de_vie_max = 60
@@ -37,10 +34,7 @@ func (m *Monstre) InitMonstre(str string) {
 		m.element = "Terre"
 		m.drop = []string{"Fer", "Fer", "Fer"}
 		m.monnaie = 50
-<<<<<<< HEAD
-=======
 		m.Experience = 50
->>>>>>> main
 	} else if str == "Orc" {
 		m.nom = "Orc"
 		m.point_de_vie_max = 80
@@ -50,10 +44,8 @@ func (m *Monstre) InitMonstre(str string) {
 		m.element = "Feu"
 		m.drop = []string{"Mithril", "Mithril", "Mithril"}
 		m.monnaie = 80
-<<<<<<< HEAD
-=======
 		m.Experience = 80
->>>>>>> main
+
 	}
 }
 
@@ -67,11 +59,7 @@ func (m *Monstre) gobelin_parterne(nb_tour int) {
 }
 
 func Menu_Choix_Monstre() string {
-<<<<<<< HEAD
 	var choix string
-=======
-	var choix int
->>>>>>> main
 	fmt.Println("______________________________________")
 	fmt.Println("|                                    |")
 	fmt.Println("|               Menu                 |")
@@ -86,24 +74,13 @@ func Menu_Choix_Monstre() string {
 	fmt.Println("|                                    |")
 	fmt.Println("|____________________________________|")
 	fmt.Scan(&choix)
-<<<<<<< HEAD
 	switch choix {
 	case "1":
 		return "Gobelin"
 	case "2":
 		return "Kobolt"
 	case "3":
-		return "Orc"	
-=======
-
-	switch choix {
-	case 1:
-		return "Gobelin"
-	case 2:
-		return "Kobolt"
-	case 3:
 		return "Orc"
->>>>>>> main
 	}
 	return "aucun monstre choisi"
 }

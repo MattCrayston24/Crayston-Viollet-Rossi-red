@@ -55,6 +55,7 @@ func (p *Personnage) Marchand() {
 			p.taille_inventaire += 3
 			p.retrait_monnaie(500)
 			fmt.Println("Les places supplémentaires ont été ajoutées")
+
 		}
 		p.Marchand()
 	case "4":

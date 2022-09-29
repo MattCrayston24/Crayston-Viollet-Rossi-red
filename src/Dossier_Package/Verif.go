@@ -68,7 +68,6 @@ func (p *Personnage) verif_skill(str string) bool {
 		}
 	}
 	return false
-
 }
 
 //fonction qui enleve les espace d'une chaine de caractere

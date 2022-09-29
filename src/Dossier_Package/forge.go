@@ -4,7 +4,6 @@ import "fmt"
 
 func (p Personnage) Menu_Fogeron() {
 	var objet_choisi string
-
 	fmt.Println("______________________________________")
 	fmt.Println("|                                    |")
 	fmt.Println("|                Menu                |")

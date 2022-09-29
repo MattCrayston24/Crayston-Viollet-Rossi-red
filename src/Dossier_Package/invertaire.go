@@ -23,7 +23,7 @@ func (p *Personnage) addInventory(s string) {
 	}
 }
 func (p *Personnage) removeInventory(s string) {
-	for i :=0;i<len(p.inventaire);i++{
+	for i := 0; i < len(p.inventaire); i++ {
 		if p.inventaire[i] == s {
 			p.inventaire = append(p.inventaire[:i], p.inventaire[i+1:]...)
 		}
@@ -31,6 +31,7 @@ func (p *Personnage) removeInventory(s string) {
 }
 
 func (p Personnage) AccèsInventaire() {
+
 	p.Menu_Inventaire()
 	fmt.Println(p.inventaire)
 }

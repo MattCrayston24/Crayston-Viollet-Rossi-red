@@ -214,7 +214,6 @@ func (p *Personnage) Ajout_Stat_armes_épéiste(e Equipement) {
 
 func (p *Personnage) Ajout_Stat_armes_mage(e Equipement) {
 	armes := p.mon_equipement.armes
-
 	switch armes {
 	case e.liste_armes_mage[0]:
 		p.attaque_base += 4

@@ -403,7 +403,6 @@ func (p Personnage) Menu_skill_Terre() {
 		if p.verif_classe() == "épéiste" && p.point_skill > 0 && !p.verif_skill("Epée en pierre") {
 			p.addSkill("Terre", "Epée en pierre", 8, 9)
 			p.point_skill--
-
 			fmt.Println("Vous avec acquis le skill Epée en pierre")
 		} else {
 			fmt.Print("Vous n'avez pas accés à ce skill ou vous n'avez pas assez de point de skill")

@@ -92,9 +92,7 @@ func (p *Personnage) trainingFight() {
 }
 
 func (p *Personnage) Menu_attaque(m *Monstre) {
-
 	var choix string
-
 	fmt.Println("______________________________________")
 	fmt.Println("|                                    |")
 	fmt.Println("|               Menu                 |")
@@ -113,7 +111,7 @@ func (p *Personnage) Menu_attaque(m *Monstre) {
 		p.points_attaque = p.attaque_base
 		fmt.Println("Vous utilisez attaque basique et infligé ", p.points_attaque, "points de dégats")
 	case "2":
-
+		p.Menu_skill(m)
 	default:
 		fmt.Println("Vous avez entré une valeur éroné")
 	}

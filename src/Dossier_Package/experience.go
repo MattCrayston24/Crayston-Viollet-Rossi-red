@@ -17,4 +17,5 @@ func (p *Personnage) addLevev() {
 	p.point_de_vie_maximum += 25
 	p.attaque_base += 2
 	p.point_skill += 1
+
 }
