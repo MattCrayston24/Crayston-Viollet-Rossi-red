@@ -28,47 +28,91 @@ type Personnage struct {
 
 // Fonction init pour créer un personnage :
 func (p *Personnage) Init() {
-	var classe_choisi int
-	var nom_choisi string
+	var choix string
 	for {
 		fmt.Println("_____________________________________________________________________________")
 		fmt.Println("| Choisissez votre nom comprenant au moins 3 caractères et que des lettres :|")
 		fmt.Println("|___________________________________________________________________________|")
-		fmt.Scan(&nom_choisi)
-		if p.verif_nom(nom_choisi) {
-			p.nom = p.majuscule(nom_choisi)
+		fmt.Scan(&choix)
+		if p.verif_nom(choix) {
+			p.nom = p.majuscule(choix)
 			fmt.Println("Votre nom est ", p.nom)
 			break
 		}
 		fmt.Println("Votre nom est invalide")
 	}
+
+	p.choix_classe()
+}
+
+func (p Personnage) Afficher_info() {
+	fmt.Println("______________________________________")
+	fmt.Println("|                                     ")
+	fmt.Println("|              Statistique            ")
+	fmt.Println("|_____________________________________")
+	fmt.Println("|                                     ")
+	fmt.Println("|     pseudo : ", p.nom, "              ")
+	fmt.Println("|                                     ")
+	fmt.Println("|     vie : ", p.point_de_vie_actuel, "/", p.point_de_vie_maximum, "                         ")
+	fmt.Println("|                                     ")
+	fmt.Println("|     mana : ", p.mana_actuel, "/", p.mana_maximum, "                         ")
+	fmt.Println("|                                     ")
+	fmt.Println("|     skill : ", p.skill.nom, "                         ")
+	fmt.Println("|                                     ")
+	fmt.Println("|       Monnaie :", p.monnaie, "                   ")
+	fmt.Println("|                                     ")
+	fmt.Println("|       Classe :", p.classe, "                   ")
+	fmt.Println("|                                     ")
+	fmt.Println("|        Attaque :", p.attaque_base, "                             ")
+	fmt.Println("|                                     ")
+	fmt.Println("|        Experience :", p.experience_actuel, "/", p.experience_max, "                             ")
+	fmt.Println("|_____________________________________")
+	p.Menu()
+}
+
+func (p *Personnage) retrait_monnaie(nb int) {
+	p.monnaie -= nb
+
+}
+
+func (p *Personnage) ajout_monnaie(nb int) {
+	p.monnaie += nb
+}
+
+func (p *Personnage) wasted() bool {
+	return p.point_de_vie_actuel <= 0
+}
+
+func (p *Personnage) choix_classe() {
+	var classe_choisi string
+	fmt.Println("______________________________________")
+	fmt.Println("|                                    |")
+	fmt.Println("|                Choix               |")
+	fmt.Println("|                Classe              |")
+	fmt.Println("|____________________________________|")
+	fmt.Println("|                                    |")
+	fmt.Println("|             1.Archer               |")
+	fmt.Println("|                                    |")
+	fmt.Println("|             2.Epéiste              |")
+	fmt.Println("|                                    |")
+	fmt.Println("|             3.Mage                 |")
+	fmt.Println("|____________________________________|")
+	fmt.Scan(&classe_choisi)
 	for i := 0; i < 1; i++ {
-		fmt.Println("______________________________________")
-		fmt.Println("|                                    |")
-		fmt.Println("|                Choix               |")
-		fmt.Println("|                Classe              |")
-		fmt.Println("|____________________________________|")
-		fmt.Println("|                                    |")
-		fmt.Println("|             1.Archer               |")
-		fmt.Println("|                                    |")
-		fmt.Println("|             2.Epéiste              |")
-		fmt.Println("|                                    |")
-		fmt.Println("|             3.Mage                 |")
-		fmt.Println("|____________________________________|")
-		fmt.Scan(&classe_choisi)
 		switch classe_choisi {
-		case 1:
+		case "1":
 			p.Archer()
 			fmt.Println("Votre classe est : ", p.classe)
-		case 2:
+		case "2":
 			p.Epéiste()
 			fmt.Println("Votre classe est : ", p.classe)
-		case 3:
+		case "3":
 			p.Mage()
 			fmt.Println("Votre classe est : ", p.classe)
 		default:
 			fmt.Println("Erreur le caractère entré n'est pas valide")
 			i--
+			p.Init()
 		}
 	}
 	fmt.Println("______________________________________")
@@ -83,31 +127,17 @@ func (p *Personnage) Init() {
 	fmt.Println("|     mana : ", p.mana_actuel, "/", p.mana_maximum, "                         ")
 	fmt.Println("|                                     ")
 	fmt.Println("|     skill : ", p.skill.nom, "                         ")
+	fmt.Println("|                                     ")
+	fmt.Println("|       Monnaie :", p.monnaie, "                   ")
+	fmt.Println("|                                     ")
+	fmt.Println("|       Classe :", p.classe, "                   ")
+	fmt.Println("|                                     ")
+	fmt.Println("|        Attaque :", p.attaque_base, "                             ")
+	fmt.Println("|                                     ")
+	fmt.Println("|        Experience :", p.experience_actuel, "/", p.experience_max, "                             ")
 	fmt.Println("|_____________________________________")
-}
-
-func (p Personnage) Afficher_info() {
-	fmt.Println("______________________________________")
-	fmt.Println("|                                     ")
-	fmt.Println("|              Statistique            ")
+	fmt.Println("|        Niveau :", p.niveau, "                             ")
 	fmt.Println("|_____________________________________")
-	fmt.Println("|                                     ")
-	fmt.Println("|     pseudo : ", p.nom, "              ")
-	fmt.Println("|                                     ")
-	fmt.Println("|     vie : ", p.point_de_vie_actuel, "/", p.point_de_vie_maximum, "")
-	fmt.Println("|                                     ")
-	fmt.Println("|     mana : ", p.mana_actuel, "/", p.mana_maximum, "")
-	fmt.Println("|                                     ")
-	fmt.Println("|     skill : ", p.skill.nom, "             ")
+	fmt.Println("|        Point de skill :", p.point_skill, "                             ")
 	fmt.Println("|_____________________________________")
-	p.Menu()
-}
-
-func (p *Personnage) retrait_monnaie(nb int) {
-	p.monnaie -= nb
-
-}
-
-func (p *Personnage) ajout_monnaie(nb int) {
-	p.monnaie += nb
 }

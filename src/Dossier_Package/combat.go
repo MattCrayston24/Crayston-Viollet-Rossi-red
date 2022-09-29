@@ -2,7 +2,7 @@ package Dossier_Package
 
 import "fmt"
 
-func (p *Personnage) ChatTurn(m Monstre) {
+func (p *Personnage) ChatTurn(m *Monstre) {
 	var choix_inventaire int
 	var choix_menu int
 	fmt.Print("Si vous voulez attaquer taper 1 \n Si vous voulez accéder à l'inventaire taper 2 : \n")
@@ -10,7 +10,8 @@ func (p *Personnage) ChatTurn(m Monstre) {
 	switch choix_menu {
 	case 1:
 		p.Menu_attaque(m)
-		fmt.Println("Gobelin d'entrainement PV :", m.point_de_vie_actuel, "/", m.point_de_vie_max)
+		m.point_de_vie_actuel -= p.points_attaque
+		fmt.Println(m.nom, "PV :", m.point_de_vie_actuel, "/", m.point_de_vie_max)
 	case 2:
 		fmt.Print(p.inventaire, "Si vous taper un chiffre superieur a 2 vous quitterez l'inventaire \n Si vous taper 1 vous pourrez utiliser une potion de vie si vous en avez une \n si vous taper 2 vous pourrez alors utiliser une potion de poison si vous en avez une")
 		fmt.Scan(&choix_inventaire)
@@ -30,15 +31,16 @@ func (p *Personnage) ChatTurn(m Monstre) {
 }
 
 func (p *Personnage) trainingFight() {
-	var m1 Monstre
-	m1.InitMonstre()
+	var m1 *Monstre = new(Monstre)
+	m1.InitMonstre(Menu_Choix_Monstre())
+	fmt.Println("le monstre a été initialiser en tant que :", m1.nom)
 	var nbtours int
-	i := 0
+	var compt_mort int 
 	if p.initiative < m1.initiative {
-		i = 1
+		nbtours = 1
 	}
-	for ; p.point_de_vie_actuel >= 0 || m1.point_de_vie_actuel >= 0; i++ {
-		if i%2 == 0 {
+	for ;p.point_de_vie_actuel >= 0 || m1.point_de_vie_actuel > 0;{
+		if nbtours%2 == 0 {
 			p.ChatTurn(m1)
 			nbtours++
 		} else {
@@ -48,13 +50,34 @@ func (p *Personnage) trainingFight() {
 			nbtours++
 		}
 		fmt.Println("nombre de tour :", nbtours)
+		if p.point_de_vie_actuel <= 0 && compt_mort >= 1 {
+			fmt.Println("t'es mort cheh")
+			break
+		}else if m1.point_de_vie_actuel <= 0{
+			fmt.Println("t'es mort ")
+			break
+		}
+		if p.wasted() && compt_mort!=1 {
+			p.point_de_vie_actuel = p.point_de_vie_maximum /2
+			fmt.Println("votre personnage est mort mais vous revenez a la vie avec :",p.point_de_vie_actuel,"de PV ")
+			compt_mort = 1 
+		}
+	
 	}
-	if p.point_de_vie_actuel < 0 {
+	if p.point_de_vie_actuel > 0 {
 		p.addExp(m1.Experience)
+		fmt.Println("l'experience a été ajouté")
+		for j := 0; j < len(m1.drop); j++ {
+			p.addInventory(m1.drop[j])
+			fmt.Println(m1.drop[j], " a été ajouter a votre inventaire")
+		}
+		p.ajout_monnaie(m1.monnaie)
+		fmt.Println(m1.monnaie, "a été ajoutée a votre monnaie")
 	}
+	p.Menu()
 }
 
-func (p *Personnage) Menu_attaque(m Monstre) {
+func (p *Personnage) Menu_attaque(m *Monstre) {
 	var choix int
 
 	fmt.Println("______________________________________")
@@ -71,7 +94,6 @@ func (p *Personnage) Menu_attaque(m Monstre) {
 	switch choix {
 	case 1:
 		p.points_attaque = p.attaque_base
-		m.point_de_vie_actuel -= p.points_attaque
 		fmt.Println("Vous utilisez attaque basique et infligé ", p.points_attaque, "points de dégats")
 	case 2:
 		p.Menu_skill(m)

@@ -21,7 +21,13 @@ func (p Personnage) Menu_Fogeron() {
 	case 1:
 		p.Menu_Equipement_Creation()
 	case 2:
-
+		if p.verif_classe() == "mage" {
+			p.Menu_arme_mage_Creation()
+		} else if p.verif_classe() == "archer" {
+			p.Menu_arme_archer_Creation()
+		} else if p.verif_classe() == "épéiste" {
+			p.Menu_arme_épéiste_Creation()
+		}
 	case 3:
 		p.Menu()
 	default:
@@ -29,13 +35,14 @@ func (p Personnage) Menu_Fogeron() {
 	}
 }
 
-func (p Personnage) Creation_Objet(nb, nbr int, str1, str2 string) {
+func (p *Personnage) Creation_Objet(nb, nbr int, str1, str2 string) {
 
 	if p.verif_materiaux(nb, str1) && p.monnaie > nbr && p.CheckInventory() {
 		for i := 1; i < nb; i++ {
 			p.removeInventory(str1)
 		}
 		p.addInventory(str2)
+		fmt.Println("vous avez frabriqué", str2)
 		p.retrait_monnaie(nbr)
 
 	} else if !p.verif_materiaux(nb, str1) {
@@ -48,7 +55,7 @@ func (p Personnage) Creation_Objet(nb, nbr int, str1, str2 string) {
 
 }
 
-func (p Personnage) Menu_Equipement_Creation() {
+func (p *Personnage) Menu_Equipement_Creation() {
 	for {
 		var choix int
 		fmt.Println("______________________________________")
@@ -80,11 +87,13 @@ func (p Personnage) Menu_Equipement_Creation() {
 			p.Menu_bottes_Creation()
 		case 4:
 			p.Menu_Fogeron()
+		default:
+			fmt.Println("")
 		}
 	}
 }
 
-func (p Personnage) Menu_casque_Creation() {
+func (p *Personnage) Menu_casque_Creation() {
 	var e1 Equipement
 	e1.Init_List()
 	i := 0
@@ -115,12 +124,12 @@ func (p Personnage) Menu_casque_Creation() {
 	case 4:
 		p.Menu_Equipement_Creation()
 	default:
-
+		fmt.Println("Vous n'avez pas ecrit un reponse valide ")
+		p.Menu_casque_Creation()
 	}
-
 }
 
-func (p Personnage) Menu_plastron_Creation() {
+func (p *Personnage) Menu_plastron_Creation() {
 	var e1 Equipement
 	e1.Init_List()
 	i := 0
@@ -130,7 +139,7 @@ func (p Personnage) Menu_plastron_Creation() {
 	fmt.Println("|                Menu                |")
 	fmt.Println("|                plastron            |")
 	fmt.Println("|                Création            |")
-
+	fmt.Println("|                8 Materiaux          ")
 	fmt.Println("|                                    |")
 	for ; i < len(e1.liste_plastron); i++ {
 		fmt.Println("|             ", i+1, ".", e1.liste_plastron[i], "   |")
@@ -152,12 +161,14 @@ func (p Personnage) Menu_plastron_Creation() {
 	case 4:
 		p.Menu_Equipement_Creation()
 	default:
+		fmt.Println("Vous n'avez pas ecrit un reponse valide ")
+		p.Menu_plastron_Creation()
 
 	}
 
 }
 
-func (p Personnage) Menu_bottes_Creation() {
+func (p *Personnage) Menu_bottes_Creation() {
 	var e1 Equipement
 	e1.Init_List()
 	i := 0
@@ -188,12 +199,14 @@ func (p Personnage) Menu_bottes_Creation() {
 	case 4:
 		p.Menu_Equipement_Creation()
 	default:
+		fmt.Println("Vous n'avez pas ecrit un reponse valide ")
+		p.Menu_bottes_Creation()
 
 	}
 
 }
 
-func (p Personnage) Menu_arme_mage_Creation() {
+func (p *Personnage) Menu_arme_mage_Creation() {
 	var e1 Equipement
 	e1.Init_List()
 	i := 0
@@ -227,11 +240,13 @@ func (p Personnage) Menu_arme_mage_Creation() {
 	case 5:
 		p.Menu_Equipement_Creation()
 	default:
+		fmt.Println("Vous n'avez pas ecrit un reponse valide ")
+		p.Menu_arme_mage_Creation()
 
 	}
 }
 
-func (p Personnage) Menu_arme_archer_Creation() {
+func (p *Personnage) Menu_arme_archer_Creation() {
 	var e1 Equipement
 	i := 0
 	e1.Init_List()
@@ -265,11 +280,12 @@ func (p Personnage) Menu_arme_archer_Creation() {
 	case 5:
 		p.Menu_arme_archer_Creation()
 	default:
-
+		fmt.Println("Vous n'avez pas ecrit un reponse valide ")
+		p.Menu_arme_archer_Creation()
 	}
 }
 
-func (p Personnage) Menu_arme_épéiste_Creation() {
+func (p *Personnage) Menu_arme_épéiste_Creation() {
 	var e1 Equipement
 	e1.Init_List()
 	i := 0
@@ -297,12 +313,14 @@ func (p Personnage) Menu_arme_épéiste_Creation() {
 		p.Menu_arme_épéiste_Creation()
 	case 3:
 		p.Creation_Objet(4, 40, "Acier", e1.liste_armes_épéiste[2])
+		p.Menu_arme_épéiste_Creation()
 	case 4:
 		p.Creation_Objet(4, 50, "Mitrhil", e1.liste_armes_épéiste[3])
 		p.Menu_arme_épéiste_Creation()
 	case 5:
 		p.Menu_Equipement_Creation()
 	default:
-
+		fmt.Println("Vous n'avez pas ecrit un reponse valide ")
+		p.Menu_arme_épéiste_Creation()
 	}
 }

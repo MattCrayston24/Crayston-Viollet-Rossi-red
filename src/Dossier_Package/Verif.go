@@ -9,7 +9,7 @@ func (p *Personnage) verif_nom(nom string) bool {
 			nb_lettre += 1
 		}
 	}
-	return nb_lettre >= 3
+	return nb_lettre == len(nom)
 }
 
 func (p *Personnage) majuscule(nom string) string {
@@ -55,4 +55,18 @@ func (p Personnage) verif_classe() string {
 		return "mage"
 	}
 	return "aucune classe"
+}
+
+
+func (p Personnage)verif_monnaie (nb int) bool{
+	return p.monnaie >= nb 
+}
+
+func (p *Personnage)verif_skill(str string) bool{
+	for i:=0 ;i<len(p.skill.nom); i ++ {
+		if p.skill.nom[i] == str {
+			return true
+		}
+	}
+	return false 
 }
