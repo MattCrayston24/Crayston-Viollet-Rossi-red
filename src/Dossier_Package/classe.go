@@ -12,8 +12,11 @@ func (p *Personnage) Archer() {
 	p.mana_actuel = 20
 	p.mana_maximum = 20
 	p.attaque_base = 5
-	p.point_skill = 1
+	p.point_skill = 2
 	p.points_attaque = p.attaque_base
+	p.experience_actuel = 0
+	p.experience_max = 100
+
 }
 
 func (p *Personnage) Epéiste() {
@@ -28,8 +31,10 @@ func (p *Personnage) Epéiste() {
 	p.mana_actuel = 15
 	p.mana_maximum = 15
 	p.attaque_base = 5
-	p.point_skill = 1
-	p.points_attaque = p.attaque_base
+
+	p.point_skill = 2
+	p.experience_actuel = 0
+	p.experience_max = 100
 }
 
 func (p *Personnage) Mage() {
@@ -46,4 +51,6 @@ func (p *Personnage) Mage() {
 	p.attaque_base = 5
 	p.point_skill = 1
 	p.points_attaque = p.attaque_base
+	p.experience_actuel = 0
+	p.experience_max = 100
 }

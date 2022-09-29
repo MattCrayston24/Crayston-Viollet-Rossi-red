@@ -1,10 +1,13 @@
 package Dossier_Package
 
+import "fmt"
+
 func (p *Personnage) addExp(nb int) {
 	p.experience_actuel += nb
 	if p.experience_actuel > p.experience_max {
 		p.experience_actuel = p.experience_actuel - p.experience_max
 		p.addLevev()
+		fmt.Println("vous avez montez de  niveaux vous êtes maintenant niveau", p.niveau)
 	}
 }
 

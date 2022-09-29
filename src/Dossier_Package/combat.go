@@ -2,7 +2,7 @@ package Dossier_Package
 
 import (
 	"fmt"
-)	
+)
 
 func (p *Personnage) ChatTurn(m *Monstre) {
 	var choix_inventaire string
@@ -40,14 +40,7 @@ func (p *Personnage) ChatTurn(m *Monstre) {
 			p.TakePot()
 			p.removeInventory("Potion de Vie")
 		} else if choix_inventaire == "2" {
-			p.PoisonPot(m)
-			p.removeInventory("Potion de poison")
-		} else {
-			fmt.Print("Vous quittez l'inventaire !")
 		}
-	default:
-		fmt.Print("Vous avez entré une valeur éroné")
-		p.ChatTurn(m)
 	}
 }
 
@@ -56,11 +49,11 @@ func (p *Personnage) trainingFight() {
 	m1.InitMonstre(Menu_Choix_Monstre())
 	fmt.Println("le monstre a été initialiser en tant que :", m1.nom)
 	var nbtours int
-	var compt_mort int 
+	var compt_mort int
 	if p.initiative < m1.initiative {
 		nbtours = 1
 	}
-	for ;p.point_de_vie_actuel >= 0 || m1.point_de_vie_actuel > 0;{
+	for p.point_de_vie_actuel >= 0 || m1.point_de_vie_actuel > 0 {
 		if nbtours%2 == 0 {
 			p.ChatTurn(m1)
 			nbtours++
@@ -74,16 +67,16 @@ func (p *Personnage) trainingFight() {
 		if p.point_de_vie_actuel <= 0 && compt_mort >= 1 {
 			fmt.Println("t'es mort cheh")
 			break
-		}else if m1.point_de_vie_actuel <= 0{
+		} else if m1.point_de_vie_actuel <= 0 {
 			fmt.Println("t'es mort ")
 			break
 		}
-		if p.wasted() && compt_mort!=1 {
-			p.point_de_vie_actuel = p.point_de_vie_maximum /2
-			fmt.Println("votre personnage est mort mais vous revenez a la vie avec :",p.point_de_vie_actuel,"de PV ")
-			compt_mort = 1 
+		if p.wasted() && compt_mort != 1 {
+			p.point_de_vie_actuel = p.point_de_vie_maximum / 2
+			fmt.Println("votre personnage est mort mais vous revenez a la vie avec :", p.point_de_vie_actuel, "de PV ")
+			compt_mort = 1
 		}
-	
+
 	}
 	if p.point_de_vie_actuel > 0 {
 		p.addExp(m1.Experience)
@@ -99,6 +92,7 @@ func (p *Personnage) trainingFight() {
 }
 
 func (p *Personnage) Menu_attaque(m *Monstre) {
+
 	var choix string
 
 	fmt.Println("______________________________________")
@@ -111,6 +105,7 @@ func (p *Personnage) Menu_attaque(m *Monstre) {
 	fmt.Println("|             2.Skill                |")
 	fmt.Println("|____________________________________|")
 	fmt.Scan(&choix)
+
 	p.verif_espace(choix)
 
 	switch choix {
@@ -118,9 +113,8 @@ func (p *Personnage) Menu_attaque(m *Monstre) {
 		p.points_attaque = p.attaque_base
 		fmt.Println("Vous utilisez attaque basique et infligé ", p.points_attaque, "points de dégats")
 	case "2":
-		p.Menu_skill(m)
+
 	default:
 		fmt.Println("Vous avez entré une valeur éroné")
 	}
-
 }

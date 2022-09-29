@@ -28,6 +28,7 @@ func (p *Personnage) PoisonPot(m *Monstre) {
 	for i := range p.inventaire {
 		if p.inventaire[i] == "Potion de poison" {
 			m.point_de_vie_actuel -= 10
+
 			time.Sleep(1 * time.Second)
 			m.point_de_vie_actuel -= 10
 			time.Sleep(1 * time.Second)

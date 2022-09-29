@@ -4,6 +4,7 @@ import "fmt"
 
 func (p Personnage) Menu_Fogeron() {
 	var objet_choisi string
+
 	fmt.Println("______________________________________")
 	fmt.Println("|                                    |")
 	fmt.Println("|                Menu                |")
@@ -17,6 +18,7 @@ func (p Personnage) Menu_Fogeron() {
 	fmt.Println("|             3.Quitter              |")
 	fmt.Println("|____________________________________|")
 	fmt.Scan(&objet_choisi)
+
 	p.verif_espace(objet_choisi)
 	switch objet_choisi {
 	case "1":
@@ -129,7 +131,6 @@ func (p *Personnage) Menu_casque_Creation() {
 		fmt.Println("Vous avez rentré une valeur éroné")
 		p.Menu_casque_Creation()
 	}
-
 }
 
 func (p *Personnage) Menu_plastron_Creation() {
@@ -151,6 +152,7 @@ func (p *Personnage) Menu_plastron_Creation() {
 	fmt.Println("|        ", i+1, "Revenir au ménu précédent            |")
 	fmt.Println("|____________________________________|")
 	fmt.Scan(&choix)
+
 	p.verif_espace(choix)
 	switch choix {
 	case "1":
@@ -168,9 +170,7 @@ func (p *Personnage) Menu_plastron_Creation() {
 		fmt.Println("Vous avez rentré une valeur éroné")
 		p.Menu_plastron_Creation()
 	}
-
 }
-
 func (p *Personnage) Menu_bottes_Creation() {
 	var e1 Equipement
 	e1.Init_List()
@@ -205,6 +205,7 @@ func (p *Personnage) Menu_bottes_Creation() {
 	default:
 		fmt.Println("Vous avez rentré une valeur éroné")
 		p.Menu_bottes_Creation()
+
 	}
 
 }
@@ -254,6 +255,7 @@ func (p *Personnage) Menu_arme_archer_Creation() {
 	i := 0
 	e1.Init_List()
 	var choix string
+
 	fmt.Println("______________________________________")
 	fmt.Println("|                                    |")
 	fmt.Println("|                Menu                |")
@@ -294,6 +296,7 @@ func (p *Personnage) Menu_arme_épéiste_Creation() {
 	e1.Init_List()
 	i := 0
 	var choix string
+
 	fmt.Println("______________________________________")
 	fmt.Println("|                                    |")
 	fmt.Println("|                Menu                |")

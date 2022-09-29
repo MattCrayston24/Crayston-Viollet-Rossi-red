@@ -57,18 +57,18 @@ func (p Personnage) verif_classe() string {
 	return "aucune classe"
 }
 
-
-func (p Personnage)verif_monnaie (nb int) bool{
-	return p.monnaie >= nb 
+func (p Personnage) verif_monnaie(nb int) bool {
+	return p.monnaie >= nb
 }
 
-func (p *Personnage)verif_skill(str string) bool{
-	for i:=0 ;i<len(p.skill.nom); i ++ {
+func (p *Personnage) verif_skill(str string) bool {
+	for i := 0; i < len(p.skill.nom); i++ {
 		if p.skill.nom[i] == str {
 			return true
 		}
 	}
-	return false 
+	return false
+
 }
 
 //fonction qui enleve les espace d'une chaine de caractere
