@@ -43,6 +43,7 @@ func (p Personnage) Menu() {
 		os.Exit(3)
 	default:
 		fmt.Println("Vous n'avez pas selectionner un reponse valide")
+		p.Menu()
 	}
 }
 
