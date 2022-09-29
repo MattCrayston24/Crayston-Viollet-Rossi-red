@@ -13,7 +13,7 @@ func (p *Personnage) ChatTurn(m *Monstre) {
 	fmt.Println("|                                    |")
 	fmt.Println("|             1.Attaquer             |")
 	fmt.Println("|                                    |")
-	"&	<x<fmt.Println("|             2.Inventaire           |")
+	fmt.Println("|             2.Inventaire           |")
 	fmt.Println("|____________________________________|")
 	switch p.Scan() {
 	case "1":
